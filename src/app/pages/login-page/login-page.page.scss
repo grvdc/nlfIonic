@@ -1,0 +1,64 @@
+
+
+.mylogin-page{
+    background-image: url('../../../assets/login_screen.png'); 
+    width:100%;
+    height:100%;
+    background-size:100% 100%;
+    .login-color{
+        height:100%;
+        background:linear-gradient(to bottom, rgba(165,84,216,0.2) 0%, rgba(90,57,183,0.4) 100%, rgba(46,65,173,0.4) 100%);
+        .login-header{
+            width:100%;
+            text-align: center;
+            font-size:18pt;
+            color:#fff;
+            padding-top:5%;
+         }
+         .content{
+            height:100%;
+            display: flex;
+            align-items: center;
+            justify-content:center;
+            .center{
+                justify-content:center;
+                text-align: center;
+                .butn{
+                    background-color:#5b39b7;border-radius: 25px;
+                }
+            }
+            .login{
+                border:solid 1px grey;
+                border-radius:25px;
+                margin-bottom: 10px;
+                --highlight-color-focused: none;
+                .icon-color{
+                    color: #785dc8 !important;
+                }
+            }
+            .forgot-password{
+                color:#fff;
+                font-size: 12pt;
+            }
+         }
+         .sign-up{
+             margin-top: -35%;
+             width:100%;
+             text-align: center;
+             font-size:12pt;
+             color:#fff !important;
+             .sign-up-a{
+                font-size:14pt !important;
+                color:#fff !important;
+             }
+         }
+         
+    }
+}
+
+.red{
+    header{
+        background: yellow;
+    }
+    background-color: red;
+}

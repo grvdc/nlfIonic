@@ -1,0 +1,41 @@
+<div class="mylogin-page">
+  <div class="login-color">
+
+    <!-- <div class="login-header">Login</div> -->
+    <div class="content">
+      <ion-row class="center" >
+        <ion-col size="10">
+          <ion-item class="login">
+            <ion-label class="icon-color">
+              <ion-icon name="person"></ion-icon>
+            </ion-label>
+            <ion-input clearInput type="text" placeholder="Email" name="email" [(ngModel)]="email"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="10">
+          <ion-item class="login">
+            <ion-label class="icon-color">
+              <ion-icon name="lock"></ion-icon>
+            </ion-label>
+            <ion-input clearInput type="password" placeholder="Password" name="email" [(ngModel)]="password"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="10">
+          <ion-button expand="full" type="submit" color="#fff !important" class="butn" (click)="checkData()">LOGIN</ion-button>
+        </ion-col>
+        <ion-col size="10">
+          <p class="forgot-password">Forgot password?</p>
+        </ion-col>
+       
+        
+      </ion-row>
+    </div>
+    <div class="sign-up">
+      <p>Don't have an account? <a class="sign-up-a">Sign Up</a><br><br>
+        WWW.NOLEADFINES.COM
+      </p>
+      
+    </div>
+
+  </div>
+</div>
