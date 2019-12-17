@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MenuController,Platform } from '@ionic/angular';
+import { MenuController, Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,7 +8,34 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
+  skeletonText: boolean = true;
+  segmentWidth= 'segmentWidth';
+  searchInput:boolean = false;
+  search:boolean = false;
+  cartBadge = 0;
+  slideOpts = {
+    initialSlide: 1,
+    speed: 400,
+    autoplay: true,
+    loop: true,
+  };
+  slide = [
+    { id: 1, image: 'https://freedesignfile.com/upload/2016/12/Shopping-woman-with-bank-card-OK-HD-picture.jpg' },
+    { id: 2, image: 'https://freedesignfile.com/upload/2017/06/Expression-cheerful-shopping-woman-Stock-Photo.jpg' },
+    { id: 3, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_vC8fUj8ZWXkPvzLdsJlyKauSauCoiKxa0RBgTmQNxDAgqu7O&s' },
+  ];
+  products = [
+    {
+      id: 1,
+      img: 'https://rukminim1.flixcart.com/image/332/398/jpcxrww0/jacket/k/g/7/m-39238-fkpeach-breil-by-fort-collins-original-imafbmhctz6mag3k.jpeg?q=50',
+      price: 25
+    },
+    {
+      id: 1,
+      img: 'https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1010442/2015/10/5/11444041872433-Belle-Fille-Red-Jacket-7721444041872016-1.jpg',
+      price: 25
+    }
+  ]
   constructor(
     private menu: MenuController,
     private router: Router,
@@ -18,17 +45,61 @@ export class HomePage {
     this.platform.backButton.subscribe(() => {
       console.log("testbk");
     });
-
+    let data = [];
+    data = JSON.parse(localStorage.getItem('products'));
+    if(!data){
+      this.cartBadge = 0;
+    } else{
+      this.cartBadge = data.length;
+    }
   }
   ngOnInit() {
+    this.skeletonText = true;
     this.menu.enable(true, 'custom');
+    setTimeout(() => {
+      this.onetwo();
+    }, 3000)
   }
-  openmenu(){
-   this.menu.open();
-    
+  openmenu() {
+    this.menu.open();
+
   }
   logout() {
     localStorage.removeItem("login");
     this.router.navigateByUrl('/login-page');
   }
+
+  onetwo() {
+    this.skeletonText = !this.skeletonText;
+  }
+
+  addToCart(data) {
+    let a = [];
+
+    if (!JSON.parse(localStorage.getItem('products'))) {
+      a.push(data);
+
+    } else {
+      a = JSON.parse(localStorage.getItem('products'));
+      console.log('adata', a);
+      a.push(data);
+    }
+    console.log('a', a.length);
+    localStorage.setItem('products', JSON.stringify(a));
+    this.cartBadge = a.length;
+  }
+
+  showSearch(){
+    this.search = !this.search;
+    console.log("search",this.search);
+    if(this.search){
+      this.searchInput = !this.searchInput;
+    }else{
+      setTimeout(() => {
+        this.searchInput = !this.searchInput;
+      }, 1900)
+    }
+   
+  }
+
 }

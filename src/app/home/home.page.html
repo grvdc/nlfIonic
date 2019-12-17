@@ -1,38 +1,73 @@
-<ion-header>
-    <ion-toolbar>
+<ion-header >
+    <ion-toolbar class="bg-color">
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title>Home</ion-title>
-      <ion-buttons slot="end" style="font-size:20px"  (click)="logout()">
-          Logout <ion-icon name="log-out"></ion-icon>
-      </ion-buttons>
+      <ion-title >Home  </ion-title>
+     
+    <ion-segment slot="end" style="width: 23%;align-items: center;justify-content: flex-end;transition: width 2s;" [ngClass]="{segmentWidth: search}">
+        <ion-icon name="search" style="font-size:22px" (click)="showSearch()"></ion-icon> 
+      <ion-input style="border-bottom: solid 1px #FFF !important;text-align: left;" *ngIf="searchInput"></ion-input>
+           
+        <ion-button   class="white ion-activatable" fill="clear">
+            <ion-icon name="cart" style="font-size:22px !important"></ion-icon>
+            <ion-badge color="success">{{cartBadge}}</ion-badge>
+            <ion-ripple-effect></ion-ripple-effect>
+        </ion-button>
+    </ion-segment>
+      
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.one
-  </div>
-  <ion-item>
-    <ion-label position="floating">Floating Label</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-  <ion-item>
-      <ion-thumbnail slot="start">
-        <ion-skeleton-text animated></ion-skeleton-text>
-      </ion-thumbnail>
-      <ion-label>
-        <h3>
-          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-        </h3>
-        <p>
-          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-        </p>
-        <p>
-          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-        </p>
-      </ion-label>
-    </ion-item>
 
+
+<ion-content>
+    <ion-skeleton-text animated style="width: 100%; height:230px" *ngIf="skeletonText"></ion-skeleton-text>
+    <ion-slides pager="false" [options]="slideOpts" *ngIf="!skeletonText">
+        <ion-slide *ngFor="let item of slide">
+             <img [src]="item.image" style="width:100%;">
+             <div class="myOverlay">
+              <h3>Sale Sale !</h3>
+              <h4>50% OFF</h4>
+            </div>
+        </ion-slide>
+    </ion-slides>
+  <!-- <ion-list>   
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="https://www.w3schools.com/howto/img_avatar.png">
+      </ion-avatar>
+      <ion-label>
+        <h3>Lorem ipsum</h3>
+        <p>dolor sit amet</p>
+      </ion-label>
+      <ion-chip class="ion-margin-end">
+        <ion-label>Kit Bishop</ion-label>
+      </ion-chip>      
+    </ion-item>
+  </ion-list> -->
+  <!-- <ion-card>
+    <ion-item class="activated">      
+      <img src="https://www.3ders.org/images2015/footwear-giant-nike-patents-3d-printed-shoe-technology-1.png" style="width:250px">
+      <h2>Shop by Brand</h2>
+    </ion-item>
+  </ion-card> -->
+
+ <ion-row>
+      <ion-col size="6" *ngFor="let product of products;">
+          <ion-card>
+              <img [src]="product.img" style="height: 185px !important"/>
+              <ion-card-header>
+                <ion-card-title>Full Sleeve Solid Women Jacket</ion-card-title>
+                <ion-card-subtitle> $ {{product.price}} </ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                  A jacket is a mid-stomach–length garment for the upper body.
+              </ion-card-content>
+              <ion-button expand="full" color="dark" (click)="addToCart(product)">Add to Cart
+              </ion-button>
+          </ion-card>
+        </ion-col>
+       
+  </ion-row>
 </ion-content>
