@@ -32,13 +32,13 @@
     <div style="background:#5b39b7; width:100%;height:50px;display: flex;
     align-items: center;justify-content:center">
       <h5 style="color:white">Login Fail</h5>
-    </div>
+    </div> 
     <div>
       <ul  *ngFor="let item of errorList" style="padding-left:20px">
         <!-- <li>{{item}}</li> -->
         <h6>{{item}}</h6>
       </ul>
-
+      
     </div>
     <div style="bottom: 0; position: absolute;width: 100%">
       <ion-button expand="full" type="submit" color="#fff !important" style="background: #5b39b7;" (click)="closeModal()">Close</ion-button>

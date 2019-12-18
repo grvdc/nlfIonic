@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { MenuController, Platform } from '@ionic/angular';
-import { Router } from '@angular/router';
+
+import { AlertController } from '@ionic/angular';
+import { Router, ActivatedRoute } from '@angular/router';
+import * as firebase from '../../../node_modules/firebase';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +11,9 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  infos = [];
+// ref = firebase.database().ref('infos/');
+  searchtext='';
   skeletonText: boolean = true;
   segmentWidth= 'segmentWidth';
   searchInput:boolean = false;
@@ -31,7 +37,17 @@ export class HomePage {
       price: 25
     },
     {
-      id: 1,
+      id: 2,
+      img: 'https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1010442/2015/10/5/11444041872433-Belle-Fille-Red-Jacket-7721444041872016-1.jpg',
+      price: 25
+    },
+    {
+      id: 3,
+      img: 'https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1010442/2015/10/5/11444041872433-Belle-Fille-Red-Jacket-7721444041872016-1.jpg',
+      price: 25
+    },
+    {
+      id: 4,
       img: 'https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1010442/2015/10/5/11444041872433-Belle-Fille-Red-Jacket-7721444041872016-1.jpg',
       price: 25
     }
@@ -75,21 +91,19 @@ export class HomePage {
 
   addToCart(data) {
     let a = [];
-
     if (!JSON.parse(localStorage.getItem('products'))) {
       a.push(data);
-
     } else {
       a = JSON.parse(localStorage.getItem('products'));
-      console.log('adata', a);
-      a.push(data);
+      a.push(data)
     }
-    console.log('a', a.length);
+    console.log('a', a);
     localStorage.setItem('products', JSON.stringify(a));
     this.cartBadge = a.length;
   }
 
   showSearch(){
+    this.searchtext='';
     this.search = !this.search;
     console.log("search",this.search);
     if(this.search){
@@ -100,6 +114,10 @@ export class HomePage {
       }, 1900)
     }
    
+  }
+
+  test(){
+    console.log("working focus searchbar")
   }
 
 }
