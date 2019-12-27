@@ -401,6 +401,71 @@ var findCheckedOption = function (el, tagName) {
 
 
 
+/***/ }),
+
+/***/ "./src/app/tsFiles/products.ts":
+/*!*************************************!*\
+  !*** ./src/app/tsFiles/products.ts ***!
+  \*************************************/
+/*! exports provided: products */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "products", function() { return products; });
+var products = {
+    jackets: [{
+            id: 1,
+            img: 'https://rukminim1.flixcart.com/image/332/398/jpcxrww0/jacket/k/g/7/m-39238-fkpeach-breil-by-fort-collins-original-imafbmhctz6mag3k.jpeg?q=50',
+            price: 25,
+            womenJackets: 'womenJackets',
+        },
+        {
+            id: 2,
+            img: 'https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1010442/2015/10/5/11444041872433-Belle-Fille-Red-Jacket-7721444041872016-1.jpg',
+            price: 25,
+            womenJackets: 'womenJackets',
+        },
+        {
+            id: 3,
+            img: 'https://www.mauvetree.com/wp-content/uploads/2019/07/1-83.jpg',
+            price: 25,
+            womenJackets: 'womenJackets',
+        },
+        {
+            id: 4,
+            img: 'https://www.bootbarn.com/on/demandware.static/-/Sites-master-product-catalog-shp/default/dwc6dd5539/images/P31/356P31_N9_P1.JPG',
+            price: 25,
+            womenJackets: 'womenJackets',
+        },
+        {
+            id: 5,
+            img: 'https://shoptommy.scene7.com/is/image/ShopTommy/WW25155_403_FNT?wid=222&hei=332&fmt=jpeg&qlt=90%2C0&resMode=trilin&op_usm=0.8%2C1.0%2C6%2C0&iccEmbed=0&cropN=0.165%2C0%2C0.67%2C1&op_sharpen=1',
+            price: 25,
+            womenJackets: 'womenJackets',
+        },
+        {
+            id: 6,
+            img: 'https://cdn.shopify.com/s/files/1/0014/6217/3742/products/optimize_only_a41db957-aef2-46c1-8926-3193bb9f1dc8_1600x.jpg?v=1571723956',
+            price: 25,
+            womenJackets: 'womenJackets',
+        },
+        {
+            id: 7,
+            img: 'https://ae01.alicdn.com/kf/HTB1fHKyeYsTMeJjSszgq6ycpFXak/Military-Jacket-Men-Men-s-Style-Army-Tactical-Jacket-Bomber-Jackets-And-Coats-For-Men-Male.jpg',
+            price: 25,
+            womenJackets: 'menJackets',
+        },
+        {
+            id: 8,
+            img: 'https://www.dhresource.com/0x0/f2/albu/g6/M01/A0/FD/rBVaSFs43QyAKsPqAAMNvLoJafM645.jpg',
+            price: 25,
+            womenJackets: 'menJackets',
+        }
+    ]
+};
+
+
 /***/ })
 
 }]);

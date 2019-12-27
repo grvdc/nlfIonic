@@ -7,9 +7,11 @@ import { IonicModule } from '@ionic/angular';
 import { CartPagePageRoutingModule } from './cart-page-routing.module';
 
 import { CartPagePage } from './cart-page.page';
+import { IonicRatingModule } from 'ionic4-rating';
 
 @NgModule({
   imports: [
+    IonicRatingModule,
     CommonModule,
     FormsModule,
     IonicModule,

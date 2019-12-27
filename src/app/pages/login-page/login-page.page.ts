@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ErrorPopupComponent } from 'src/app/components/error-popup/error-popup.component';
 import { ModalController } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core';
+import { dummyUser } from '../../tsFiles/dummyUser';
 
 @Component({
   selector: 'app-login-page',
@@ -15,6 +16,7 @@ export class LoginPagePage implements OnInit {
   password = '';
   toast: any;
   error: Array<any> = [];
+  dummyUser = dummyUser.user;
   constructor(
     public toastController: ToastController,
     private router: Router,
@@ -50,6 +52,7 @@ export class LoginPagePage implements OnInit {
    });
     return await modal.present();
   }
+
   checkData(){
     this.error = [];
     if(!this.email && !this.password){
@@ -72,53 +75,33 @@ export class LoginPagePage implements OnInit {
   //  this.checkData();
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
       console.log('checked');
-      localStorage.setItem("login", 'true');
+      this.dummyUser.map((item)=>{
+        if(this.email === item.email){
+          if(this.password === item.password){
+            localStorage.setItem("login", item.email );
+          }
+        }
+      })
+      
       let data = localStorage.getItem("login")
-      if(data){
+      if(!data){
+        this.error[0] = "User not Exist Please SignUp!";
+        this.presentModal(this.error);
+      }  else{
         this.email = '';
         this.password = '';
        this.router.navigateByUrl('/home');
-
       }
     }
     else{
       this.error[0] = "Please enter valid email!";
       this.presentModal(this.error);
-      // this.presentToast();
-      // this.presentAlertConfirm();
+     
     }
     
   }
-  async presentToast() {
-    const toast = await this.toastController.create({
-      message: this.email?'Please enter valid email!':'Please enter email id!',
-      duration: 2000,
-      position:'top'
-    });
-    toast.present();
-  }
+  
 
-  async presentAlertConfirm() {
-    const alert = await this.alertController.create({
-      header: 'Confirm!',
-      message: 'Message <strong>text</strong>!!!',
-      cssClass: 'red',
-      mode: "ios",
-      backdropDismiss:false,
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          cssClass: 'red',
-          handler: (blah) => {
-            console.log('Confirm Cancel: blah');
-          }
-        }
-      ]
-    });
-
-
-    await alert.present();
-  }
+  
 
 }

@@ -122,6 +122,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var src_app_components_error_popup_error_popup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/components/error-popup/error-popup.component */ "./src/app/components/error-popup/error-popup.component.ts");
+/* harmony import */ var _tsFiles_dummyUser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../tsFiles/dummyUser */ "./src/app/tsFiles/dummyUser.ts");
+
 
 
 
@@ -137,6 +139,7 @@ var LoginPagePage = /** @class */ (function () {
         this.email = '';
         this.password = '';
         this.error = [];
+        this.dummyUser = _tsFiles_dummyUser__WEBPACK_IMPORTED_MODULE_5__["dummyUser"].user;
         var data = localStorage.getItem("login");
         if (data) {
             this.router.navigateByUrl('/home');
@@ -194,12 +197,23 @@ var LoginPagePage = /** @class */ (function () {
         }
     };
     LoginPagePage.prototype.login = function () {
+        var _this = this;
         //  this.checkData();
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
             console.log('checked');
-            localStorage.setItem("login", 'true');
+            this.dummyUser.map(function (item) {
+                if (_this.email === item.email) {
+                    if (_this.password === item.password) {
+                        localStorage.setItem("login", item.email);
+                    }
+                }
+            });
             var data = localStorage.getItem("login");
-            if (data) {
+            if (!data) {
+                this.error[0] = "User not Exist Please SignUp!";
+                this.presentModal(this.error);
+            }
+            else {
                 this.email = '';
                 this.password = '';
                 this.router.navigateByUrl('/home');
@@ -208,59 +222,7 @@ var LoginPagePage = /** @class */ (function () {
         else {
             this.error[0] = "Please enter valid email!";
             this.presentModal(this.error);
-            // this.presentToast();
-            // this.presentAlertConfirm();
         }
-    };
-    LoginPagePage.prototype.presentToast = function () {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var toast;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.toastController.create({
-                            message: this.email ? 'Please enter valid email!' : 'Please enter email id!',
-                            duration: 2000,
-                            position: 'top'
-                        })];
-                    case 1:
-                        toast = _a.sent();
-                        toast.present();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    LoginPagePage.prototype.presentAlertConfirm = function () {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var alert;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.alertController.create({
-                            header: 'Confirm!',
-                            message: 'Message <strong>text</strong>!!!',
-                            cssClass: 'red',
-                            mode: "ios",
-                            backdropDismiss: false,
-                            buttons: [
-                                {
-                                    text: 'Cancel',
-                                    role: 'cancel',
-                                    cssClass: 'red',
-                                    handler: function (blah) {
-                                        console.log('Confirm Cancel: blah');
-                                    }
-                                }
-                            ]
-                        })];
-                    case 1:
-                        alert = _a.sent();
-                        return [4 /*yield*/, alert.present()];
-                    case 2:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
     };
     LoginPagePage.ctorParameters = function () { return [
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"] },

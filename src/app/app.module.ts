@@ -14,7 +14,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-
+import { IonicRatingModule } from 'ionic4-rating';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // environment
 import { environment } from '../environments/environment';
 
@@ -26,7 +27,9 @@ import { environment } from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    IonicRatingModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     StatusBar,

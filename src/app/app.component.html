@@ -1,18 +1,16 @@
 <ion-app>
   <ion-menu side="start" menuId="custom" class="my-menu"  swipe-gesture="false">
     <div class="my-custom-menu">
+      <div class="profile">
+        <img class="profile-picture" [src]="profilepic" />
+        <h5 class="white" style="margin-top:6px">Thronester</h5>
+    </div>
 
-      <ion-item color="red"  lines="full" no-padding style="padding-left: 17px; padding-right: 25px;">
-        <ion-header class="white" lines="inset">
-          <h2>Gaurav</h2>
-          <div style="margin-bottom:10px">admin</div>
-        </ion-header>
-      </ion-item>
       <ion-list color="red" >
     
         <ion-item color="red"  lines="none" no-padding *ngFor="let item of menuItem;index as i" class="ion-activatable" [ngClass]="{active: item.highlighted}" (click)="print(item)">
           <ion-icon [name]="item.logo"></ion-icon>
-          <ion-label >{{item.item}}</ion-label>
+          <ion-label style="padding-left:10px">{{item.item}}</ion-label>
           <ion-ripple-effect></ion-ripple-effect>
         </ion-item>
 

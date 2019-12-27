@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { MenuController, Platform } from '@ionic/angular';
 
 import { AlertController } from '@ionic/angular';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import * as firebase from '../../../node_modules/firebase';
+import {products } from '../tsFiles/products';
 
 @Component({
   selector: 'app-home',
@@ -30,28 +31,8 @@ export class HomePage {
     { id: 2, image: 'https://freedesignfile.com/upload/2017/06/Expression-cheerful-shopping-woman-Stock-Photo.jpg' },
     { id: 3, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_vC8fUj8ZWXkPvzLdsJlyKauSauCoiKxa0RBgTmQNxDAgqu7O&s' },
   ];
-  products = [
-    {
-      id: 1,
-      img: 'https://rukminim1.flixcart.com/image/332/398/jpcxrww0/jacket/k/g/7/m-39238-fkpeach-breil-by-fort-collins-original-imafbmhctz6mag3k.jpeg?q=50',
-      price: 25
-    },
-    {
-      id: 2,
-      img: 'https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1010442/2015/10/5/11444041872433-Belle-Fille-Red-Jacket-7721444041872016-1.jpg',
-      price: 25
-    },
-    {
-      id: 3,
-      img: 'https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1010442/2015/10/5/11444041872433-Belle-Fille-Red-Jacket-7721444041872016-1.jpg',
-      price: 25
-    },
-    {
-      id: 4,
-      img: 'https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1010442/2015/10/5/11444041872433-Belle-Fille-Red-Jacket-7721444041872016-1.jpg',
-      price: 25
-    }
-  ]
+  products= products.jackets;
+  
   constructor(
     private menu: MenuController,
     private router: Router,
@@ -90,6 +71,8 @@ export class HomePage {
   }
 
   addToCart(data) {
+    this.menu.enable(true, 'first');
+    this.menu.open('first');
     let a = [];
     if (!JSON.parse(localStorage.getItem('products'))) {
       a.push(data);
@@ -115,9 +98,23 @@ export class HomePage {
     }
    
   }
+  wishlist(id){
+    products.jackets.map((item)=>{
+      if(item.id == id){
+        item['wish'] ? item['wish']=!item['wish'] : item['wish']=true;
+      }
+    })
 
-  test(){
-    console.log("working focus searchbar")
+  }
+  
+  goToProductDetailPage(id) {
+    console.log('datatttt',id);
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        special: JSON.stringify(id)
+      }
+    };
+    this.router.navigate(['product-detail-page'], navigationExtras);
   }
 
 }

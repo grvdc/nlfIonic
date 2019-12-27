@@ -12,6 +12,18 @@ const routes: Routes = [
     path: 'cart-page',
     loadChildren: () => import('./pages/cart-page/cart-page.module').then( m => m.CartPagePageModule)
   },
+  {
+    path: 'shop-bycaegorie',
+    loadChildren: () => import('./pages/shop-bycaegorie/shop-bycaegorie.module').then( m => m.ShopBycaegoriePageModule)
+  },
+  {
+    path: 'product-detail-page',
+    loadChildren: () => import('./pages/product-detail-page/product-detail-page.module').then( m => m.ProductDetailPagePageModule)
+  },
+  {
+    path: 'wishlist',
+    loadChildren: () => import('./pages/wishlist/wishlist.module').then( m => m.WishlistPageModule)
+  },
 ];
 
 @NgModule({

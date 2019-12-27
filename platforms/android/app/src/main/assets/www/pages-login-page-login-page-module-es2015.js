@@ -116,6 +116,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var src_app_components_error_popup_error_popup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/components/error-popup/error-popup.component */ "./src/app/components/error-popup/error-popup.component.ts");
+/* harmony import */ var _tsFiles_dummyUser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../tsFiles/dummyUser */ "./src/app/tsFiles/dummyUser.ts");
+
 
 
 
@@ -131,6 +133,7 @@ let LoginPagePage = class LoginPagePage {
         this.email = '';
         this.password = '';
         this.error = [];
+        this.dummyUser = _tsFiles_dummyUser__WEBPACK_IMPORTED_MODULE_5__["dummyUser"].user;
         let data = localStorage.getItem("login");
         if (data) {
             this.router.navigateByUrl('/home');
@@ -183,9 +186,19 @@ let LoginPagePage = class LoginPagePage {
         //  this.checkData();
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
             console.log('checked');
-            localStorage.setItem("login", 'true');
+            this.dummyUser.map((item) => {
+                if (this.email === item.email) {
+                    if (this.password === item.password) {
+                        localStorage.setItem("login", item.email);
+                    }
+                }
+            });
             let data = localStorage.getItem("login");
-            if (data) {
+            if (!data) {
+                this.error[0] = "User not Exist Please SignUp!";
+                this.presentModal(this.error);
+            }
+            else {
                 this.email = '';
                 this.password = '';
                 this.router.navigateByUrl('/home');
@@ -194,41 +207,7 @@ let LoginPagePage = class LoginPagePage {
         else {
             this.error[0] = "Please enter valid email!";
             this.presentModal(this.error);
-            // this.presentToast();
-            // this.presentAlertConfirm();
         }
-    }
-    presentToast() {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            const toast = yield this.toastController.create({
-                message: this.email ? 'Please enter valid email!' : 'Please enter email id!',
-                duration: 2000,
-                position: 'top'
-            });
-            toast.present();
-        });
-    }
-    presentAlertConfirm() {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            const alert = yield this.alertController.create({
-                header: 'Confirm!',
-                message: 'Message <strong>text</strong>!!!',
-                cssClass: 'red',
-                mode: "ios",
-                backdropDismiss: false,
-                buttons: [
-                    {
-                        text: 'Cancel',
-                        role: 'cancel',
-                        cssClass: 'red',
-                        handler: (blah) => {
-                            console.log('Confirm Cancel: blah');
-                        }
-                    }
-                ]
-            });
-            yield alert.present();
-        });
     }
 };
 LoginPagePage.ctorParameters = () => [

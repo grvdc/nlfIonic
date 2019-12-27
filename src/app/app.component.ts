@@ -4,8 +4,9 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { MenuController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import * as firebase from 'firebase';
+import { dummyUser } from './tsFiles/dummyUser';
 
 @Component({
   selector: 'app-root',
@@ -13,25 +14,18 @@ import * as firebase from 'firebase';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  firebase: {
-    apiKey: "AIzaSyB7NxldF6h-O1CvHDFCBo5rsha7CSvolTQ",
-    authDomain: "newecom-56ba6.firebaseapp.com",
-    databaseURL: "https://newecom-56ba6.firebaseio.com",
-    projectId: "newecom-56ba6",
-    storageBucket: "newecom-56ba6.appspot.com",
-    messagingSenderId: "1076462211389",
-    appId: "1:1076462211389:web:5e826357648f6fc90b3554",
-    measurementId: "G-6N87B8XPX6"
-  }
-  login = '';
+  dummyUser = dummyUser.user;
+
+  login: any;
+  profilepic = '';
   menuItem = [
     { logo: 'list', item: 'Project List', highlighted: false },
-    { logo: 'person', item: 'Company Member', highlighted: false },
-    { logo: 'briefcase', item: 'Course Work', highlighted: false },
+    { logo: 'person', item: 'Ladies jacket', highlighted: false },
+    { logo: 'alert', item: 'Men\'s Jacket', highlighted: false },
+    { logo: 'heart', item: 'Wishlist', highlighted: false },
     { logo: 'laptop', item: 'Training Videos', highlighted: false },
     { logo: 'logo-game-controller-a', item: 'Captive Games', highlighted: false },
     { logo: 'lock', item: 'Change Password', highlighted: false },
-    { logo: 'alert', item: 'Help', highlighted: false },
     { logo: 'log-out', item: 'Logout', highlighted: false },
   ]
   active = '';
@@ -47,6 +41,12 @@ export class AppComponent {
     this.login = localStorage.getItem("login");
     if (!this.login) {
       this.router.navigateByUrl('/login-page');
+    } else {
+      this.dummyUser.map((item) => {
+        if (this.login === item.email) {
+          this.profilepic = item.img;
+        }
+      })
     }
 
   }
@@ -65,14 +65,34 @@ export class AppComponent {
     this.highlightedOff();
     this.menu.toggle();
     value.highlighted = true;
-    switch(value.item){
+    let categoy = '';
+    switch (value.item) {
       case 'Logout':
         this.logout();
         this.highlightedOff();
-      case 'Help':
+        break;
+      case 'Men\'s Jacket':
+        categoy = 'menJackets';
         console.log("value", value);
-    }
+        this.openDetailsWithQueryParams(categoy);
+        break;
+      case 'Ladies jacket':
+        categoy = 'womenJackets'
+        console.log("value", value);
+        this.openDetailsWithQueryParams(categoy);
+        break;
+      case 'Wishlist':
+        categoy = 'wishlist'
+        console.log("value", value);
+        this.router.navigate(['wishlist']);
+        break;
+      default:
+          this.openDetailsWithQueryParams(categoy);
+          break;
 
+    }
+    console.log("categoy", categoy);
+    // this.openDetailsWithQueryParams(categoy);
   }
 
   highlightedOff() {
@@ -91,4 +111,14 @@ export class AppComponent {
     this.router.navigateByUrl('/login-page');
   }
 
+
+  openDetailsWithQueryParams(data) {
+    console.log('datatttt', data);
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        special: JSON.stringify(data)
+      }
+    };
+    this.router.navigate(['shop-bycaegorie'], navigationExtras);
+  }
 }

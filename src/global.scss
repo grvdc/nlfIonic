@@ -24,6 +24,7 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
 .white{
     color:#ffff !important;
 }
@@ -39,3 +40,16 @@
     --background:#de6161;
     --color:#fff;
 }
+.wish{
+    color:orange !important;
+}
+.p0{
+    padding:0 !important;
+}
+.m0{
+    margin:0 !important;
+}
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+//@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+//@import "~@angular/material/prebuilt-themes/purple-green.css";

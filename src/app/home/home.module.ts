@@ -6,9 +6,12 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 import { CartAtHeaderComponent } from '../components/cart-at-header/cart-at-header.component';
+import { SideNavComponent } from '../components/side-nav/side-nav.component';
+import { IonicRatingModule } from 'ionic4-rating';
 
 @NgModule({
   imports: [
+    IonicRatingModule,
     CommonModule,
     FormsModule,
     IonicModule,
@@ -19,7 +22,7 @@ import { CartAtHeaderComponent } from '../components/cart-at-header/cart-at-head
       }
     ])
   ],
-  declarations: [HomePage,CartAtHeaderComponent],
-  entryComponents:[CartAtHeaderComponent],
+  declarations: [HomePage,CartAtHeaderComponent,SideNavComponent],
+  entryComponents:[CartAtHeaderComponent,SideNavComponent],
 })
 export class HomePageModule {}

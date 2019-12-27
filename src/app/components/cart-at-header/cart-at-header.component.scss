@@ -1,0 +1,23 @@
+.myOverlay{
+    width: 100%;
+    // height: 40%;
+    padding-top:5%;
+    text-align: center;
+    position: absolute;
+    z-index: 99;
+    bottom: 0%;
+    opacity: 0.5;
+    color: white;
+    font-weight: bold;
+   
+  }
+
+  #cart-btn {
+    position: relative;
+ }
+ 
+ #cart-badge {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+ }

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-title>wishlist</ion-title> -->
+    <ion-searchbar  [(ngModel)]="searchTerm"
+    (ionChange)="setFilteredItems()"></ion-searchbar>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container *ngFor="let item of testData; index as index">
+      <ion-item>
+          <label>{{item.category}}</label>
+       </ion-item>
+       <ion-card *ngFor="let newitem of item.categoryList;">
+          <ion-item  no-padding >
+              <ion-thumbnail slot="start" style="width:35%;height: 0%;margin:0">
+                  <img [src]="newitem.image">
+                </ion-thumbnail>
+              <label>{{newitem.name}}</label>
+          </ion-item>
+        </ion-card>
+  </ng-container>
+   
+  <ion-card *ngFor="let item of products; index as index">
+    <ion-item slot="start" class="tt" no-padding *ngIf="item.wish">
+      <ion-thumbnail slot="start" style="width:35%;height: 0%;margin:0">
+        <img [src]="item.img">
+      </ion-thumbnail>
+     
+    </ion-item>
+  </ion-card>
+</ion-content>

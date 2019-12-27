@@ -1,0 +1,36 @@
+<ion-header *ngIf="!showError">
+  <ion-toolbar class="bg-color">
+    <ion-title>shopBycaegorie</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button class="white"></ion-back-button>
+      <!-- <ion-menu-button class="white"></ion-menu-button> -->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="!showError">
+    <ion-row>
+        <ion-col size="6" *ngFor="let product of productDisplay;" style="padding:10px">
+          <ion-card style="margin: 0px;">
+            <img [src]="product.img" style="height: 185px !important" (click)="goToProductDetailPage(product.id)"/>
+            <ion-card-header style="padding-top: 0px;">
+              <ion-card-title><h5>Full Sleeve Solid Women Jacket</h5></ion-card-title>
+              <ion-card-subtitle style="text-align: center;">
+                        $ {{product.price}} 
+                </ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content style="text-align: center;">
+                Some text about the jeans....
+            </ion-card-content>
+            <ion-button expand="full" color="dark" (click)="addToCart(product)">Add to Cart
+            </ion-button>
+          </ion-card>
+        </ion-col>
+    
+      </ion-row>
+</ion-content>
+<ion-content *ngIf="showError">
+  <div style="height: 100%;width:100%;border:solid 1px green;">
+    <h5>Not Found</h5>
+  </div>
+</ion-content>
