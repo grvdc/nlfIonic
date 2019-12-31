@@ -1,6 +1,6 @@
 <ion-header *ngIf="!showError">
   <ion-toolbar class="bg-color">
-    <ion-title>shopBycaegorie</ion-title>
+    <ion-title>{{data.header}}</ion-title>
     <ion-buttons slot="start">
       <ion-back-button class="white"></ion-back-button>
       <!-- <ion-menu-button class="white"></ion-menu-button> -->
@@ -9,8 +9,8 @@
 </ion-header>
 
 <ion-content *ngIf="!showError">
-    <ion-row>
-        <ion-col size="6" *ngFor="let product of productDisplay;" style="padding:10px">
+    <ion-row style="padding-top:10px; padding-right: 10px;">
+        <!-- <ion-col size="6" *ngFor="let product of productDisplay;" style="padding:10px">
           <ion-card style="margin: 0px;">
             <img [src]="product.img" style="height: 185px !important" (click)="goToProductDetailPage(product.id)"/>
             <ion-card-header style="padding-top: 0px;">
@@ -25,8 +25,44 @@
             <ion-button expand="full" color="dark" (click)="addToCart(product)">Add to Cart
             </ion-button>
           </ion-card>
-        </ion-col>
+        </ion-col> -->
+        <ion-col style="padding-left: 10px !important;padding-right: 0 !important;padding-top:0 !important" sizeLg="4" sizeMd="4" sizeXs="6"  *ngFor="let product of productDisplay;index as index" >
+          <ion-card >
+            <img [src]="product.img" style="height: 185px !important" (click)="goToProductDetailPage(product.id)" />
+            <div style=" width: 100%;
+            padding-top: 5%;
+            text-align: center;
+            position: absolute;
+            z-index: 99;
+            /* bottom: 31%; */
+            opacity: 0.5;
+            top: 0px;
+            color: white;
+            font-weight: bold;
+            /* background-color: #dc0000; */
+            left: 40%;
+            font-size:20px;
+            "><ion-icon name="heart" style="color:rgb(106, 112, 108)" (click)="wishlist(product.id)" [ngClass]="{wish: product.wish}"></ion-icon></div>
+            <ion-card-header style="padding-top: 0px;padding-bottom: 0;">
+              <ion-card-title><h6 (click)="goToProductDetailPage(product.id)" style="margin-bottom: -10px;">Full Sleeve Solid Women Jacket</h6></ion-card-title>
+              <ion-card-subtitle >
+                  <ion-row >
+                      <ion-col size="4" style="padding-left: 0 !important;"> 
+                       
+                          <ion-badge color="success">4 <ion-icon name="star"></ion-icon></ion-badge>
     
+                         
+                       </ion-col>
+                       <ion-col size="8" style="text-align:right">
+                        <label style="color:black"><s style="color:grey">$ 28</s> $ {{product.price}}</label>
+                        </ion-col>
+                  </ion-row>
+                </ion-card-subtitle>
+            </ion-card-header>
+            <ion-button expand="full" color="dark" style="margin:0" (click)="addToCart(product)">Add to Cart
+            </ion-button>
+          </ion-card>
+        </ion-col>
       </ion-row>
 </ion-content>
 <ion-content *ngIf="showError">

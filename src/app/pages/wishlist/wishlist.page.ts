@@ -7,7 +7,7 @@ import { products } from '../../tsFiles/products';
   styleUrls: ['./wishlist.page.scss'],
 })
 export class WishlistPage implements OnInit {
-  products = products.jackets;
+  products =[];
   testData = [
     {
       category: 'Event',
@@ -38,7 +38,12 @@ export class WishlistPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log("products", products.jackets);
+    products.jackets.map((item)=>{
+      if(item['wish']){
+        this.products.push(item);
+      }
+    });
+
   }
 
   setFilteredItems() {
@@ -51,4 +56,27 @@ export class WishlistPage implements OnInit {
   //   this.testData = data;
   //   console.log("search string", this.testData);
   }
+
+  addToCart(data) {
+   
+    let a = [];
+    if (!JSON.parse(localStorage.getItem('products'))) {
+      a.push(data);
+    } else {
+      a = JSON.parse(localStorage.getItem('products'));
+      a.push(data)
+    }
+    console.log('a', a);
+    localStorage.setItem('products', JSON.stringify(a));
+  }
+  
+  wishlist(id){
+    products.jackets.map((item)=>{
+      if(item.id == id){
+        item['wish'] ? item['wish']=!item['wish'] : item['wish']=true;
+      }
+    })
+    this.products = this.products.filter(item => item.id !== id);
+  }
+  
 }

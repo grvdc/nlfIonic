@@ -32,7 +32,7 @@ export class ShopBycaegoriePage implements OnInit {
 
   ngOnInit() {
     products.jackets.map((item)=>{
-      if(this.data === item.jacketType){
+      if(this.data.type === item.jacketType){
         this.productDisplay.push(item);
         console.log("this.productDisplay",item.jacketType);
 

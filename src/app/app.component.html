@@ -8,7 +8,9 @@
 
       <ion-list color="red" >
     
-        <ion-item color="red"  lines="none" no-padding *ngFor="let item of menuItem;index as i" class="ion-activatable" [ngClass]="{active: item.highlighted}" (click)="print(item)">
+        <!-- <ion-item color="red"  lines="none" no-padding *ngFor="let item of menuItem;index as i" class="ion-activatable" [ngClass]="{active: item.highlighted}" (click)="print(item)"> -->
+        <ion-item color="red"  lines="none" no-padding *ngFor="let item of menuItem;index as i" class="ion-activatable"  (click)="print(item)">
+
           <ion-icon [name]="item.logo"></ion-icon>
           <ion-label style="padding-left:10px">{{item.item}}</ion-label>
           <ion-ripple-effect></ion-ripple-effect>

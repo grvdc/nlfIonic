@@ -24,7 +24,7 @@ export class AppComponent {
     { logo: 'alert', item: 'Men\'s Jacket', highlighted: false },
     { logo: 'heart', item: 'Wishlist', highlighted: false },
     { logo: 'laptop', item: 'Training Videos', highlighted: false },
-    { logo: 'logo-game-controller-a', item: 'Captive Games', highlighted: false },
+    { logo: 'cart', item: 'Cart', highlighted: false },
     { logo: 'lock', item: 'Change Password', highlighted: false },
     { logo: 'log-out', item: 'Logout', highlighted: false },
   ]
@@ -65,19 +65,25 @@ export class AppComponent {
     this.highlightedOff();
     this.menu.toggle();
     value.highlighted = true;
-    let categoy = '';
+    let categoy :any;
     switch (value.item) {
       case 'Logout':
         this.logout();
         this.highlightedOff();
         break;
       case 'Men\'s Jacket':
-        categoy = 'menJackets';
+          categoy ={
+            type: 'menJackets',
+            header: 'Men\'s Jacket',
+           } 
         console.log("value", value);
         this.openDetailsWithQueryParams(categoy);
         break;
       case 'Ladies jacket':
-        categoy = 'womenJackets'
+        categoy ={
+         type: 'womenJackets',
+         header: 'Ladies jacket',
+        } 
         console.log("value", value);
         this.openDetailsWithQueryParams(categoy);
         break;
@@ -86,6 +92,9 @@ export class AppComponent {
         console.log("value", value);
         this.router.navigate(['wishlist']);
         break;
+      case 'Cart':
+          this.router.navigate(['cart-page']);
+          break;
       default:
           this.openDetailsWithQueryParams(categoy);
           break;

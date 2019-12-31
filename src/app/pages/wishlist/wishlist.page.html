@@ -1,14 +1,17 @@
 <ion-header>
-  <ion-toolbar>
-    <!-- <ion-title>wishlist</ion-title> -->
-    <ion-searchbar  [(ngModel)]="searchTerm"
-    (ionChange)="setFilteredItems()"></ion-searchbar>
+  <ion-toolbar class="bg-color">
+      <ion-buttons slot="start">
+          <ion-back-button class="white"></ion-back-button>
+        </ion-buttons>
+    <ion-title>wishlist</ion-title>
+    <!-- <ion-searchbar  [(ngModel)]="searchTerm"
+    (ionChange)="setFilteredItems()"></ion-searchbar> -->
 
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ng-container *ngFor="let item of testData; index as index">
+  <!-- <ng-container *ngFor="let item of testData; index as index">
       <ion-item>
           <label>{{item.category}}</label>
        </ion-item>
@@ -20,14 +23,58 @@
               <label>{{newitem.name}}</label>
           </ion-item>
         </ion-card>
-  </ng-container>
-   
-  <ion-card *ngFor="let item of products; index as index">
-    <ion-item slot="start" class="tt" no-padding *ngIf="item.wish">
+  </ng-container> -->
+  <ng-container *ngFor="let item of products; index as index">
+  <ion-card  >
+    
+    <ion-item slot="start" class="tt" lines="none" no-padding >
       <ion-thumbnail slot="start" style="width:35%;height: 0%;margin:0">
         <img [src]="item.img">
       </ion-thumbnail>
-     
+      <div style="padding-left: 10px;height: 100%;display: grid;width:100%">
+
+        <ion-card-subtitle style="text-align: left;margin:0;display: flex; align-items: center">
+          <h5 style="text-align: left;margin:0">Avatar Start, Button Item</h5>
+        
+        </ion-card-subtitle>
+        <ion-row>
+          <ion-col style="margin-bottom: -20%;">
+            <p >
+              <label>$ {{item.price}}</label>
+            </p>
+
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="3"  style="display: flex;
+          align-self: flex-end; font-size: 15pt;justify-content: space-around;">
+            <!-- <ion-icon name="remove" (click)="removeQty(item,index)"></ion-icon>
+            <ion-label style="align-self: center">{{item.productQuantity>-1?item.productQuantity:1}}</ion-label> -->
+            <!-- <ion-icon name="add" (click)="addQty(item,index)"></ion-icon> -->
+            <!-- <label>$ {{item.price}}</label> -->
+              <!-- <ion-icon name="trash" (click)="indexFinding(index)" style="color:red"></ion-icon> -->
+
+            <ion-button color="primary" size="small" fill="clear" (click)="wishlist(item.id)">
+                <ion-icon name="trash"  style="color:red"></ion-icon>
+            </ion-button>
+
+          </ion-col>
+        
+          <ion-col size="9" style="align-self: flex-end;display :flex;font-size:18pt;justify-content: space-around;">
+              <!-- <ion-icon name="heart" style="color:rgb(106, 112, 108)" (click)="wishlist(item,index)" [ngClass]="{wish: item.wish}"></ion-icon> -->
+              <!-- <ion-icon name="trash" (click)="indexFinding(index)" style="color:red"></ion-icon> -->
+              <ion-button color="tertiary"  size="small" (click)="addToCart(item)">Add To cart</ion-button>
+<!-- <ion-button color="secondary">Secondary</ion-button> -->
+          </ion-col>
+        </ion-row>
+
+      </div>
     </ion-item>
+  
   </ion-card>
+</ng-container>
+
+<ng-container *ngIf="products.length == 0">
+  <h5>Nothing in Wishlist</h5>
+</ng-container>
 </ion-content>

@@ -18,10 +18,12 @@ import { IonicRatingModule } from 'ionic4-rating';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // environment
 import { environment } from '../environments/environment';
+import { CheckoutFormStepperComponent } from './components/checkout-form-stepper/checkout-form-stepper.component';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
-  declarations: [AppComponent,ErrorPopupComponent ],
-  entryComponents: [ErrorPopupComponent,
+  declarations: [AppComponent,ErrorPopupComponent ,CheckoutFormStepperComponent],
+  entryComponents: [ErrorPopupComponent,CheckoutFormStepperComponent
   ],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -30,6 +32,8 @@ import { environment } from '../environments/environment';
     AngularFireStorageModule,
     IonicRatingModule,
     BrowserAnimationsModule,
+    MatStepperModule
+    // CheckoutFormStepperComponent,
   ],
   providers: [
     StatusBar,

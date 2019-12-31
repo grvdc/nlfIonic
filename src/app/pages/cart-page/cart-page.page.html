@@ -63,14 +63,14 @@
   <div style="height:80%;overflow: scroll;" *ngIf="!skeleton">
     <ion-list>
       <ion-card *ngFor="let item of cartItems; index as index">
-        <ion-item slot="start" class="tt" no-padding>
-          <ion-thumbnail slot="start" style="width:35%;height: 0%;margin:0">
+        <ion-item lines="none"  slot="start" class="tt" no-padding>
+          <ion-thumbnail slot="start" style="width:30%;height: 0%;margin:0">
             <img [src]="item.img">
           </ion-thumbnail>
           <div style="padding-left: 10px;height: 100%;display: grid;width:100%">
 
-            <ion-card-subtitle style="text-align: left;margin:0">
-              <h5 style="text-align: left;margin:0">Avatar Start, Button Item</h5>
+            <ion-card-subtitle style="text-align: left;margin:0;display: flex; align-items: center">
+              <h5 style="text-align: left;margin:0;margin-bottom: -28%;">Avatar Start, Button Item</h5>
             
             </ion-card-subtitle>
             <ion-row>
@@ -91,14 +91,46 @@
 
               </ion-col>
             
-              <ion-col size="5" style="align-self: flex-end;display :flex;font-size:18pt;justify-content: space-around;">
-                  <ion-icon name="heart" style="color:rgb(106, 112, 108)" (click)="wishlist(item,index)" [ngClass]="{wish: item.wish}"></ion-icon>
-                  <ion-icon name="trash" (click)="indexFinding(index)" style="color:red"></ion-icon>
+              <ion-col size="5" style="align-self: flex-end;display :flex;font-size:18pt;justify-content: flex-end;padding-right: 0;">
+                  <!-- <ion-icon name="heart" style="color:rgb(106, 112, 108)" (click)="wishlist(item,index)" [ngClass]="{wish: item.wish}"></ion-icon> -->
+                  <!-- <ion-icon name="trash" (click)="indexFinding(index)" style="color:red"></ion-icon> -->
               </ion-col>
             </ion-row>
 
           </div>
         </ion-item>
+        <div style="     width: 100%;
+        padding-top: 10px;
+        text-align: center;
+        position: absolute;
+        z-index: 99;
+        /* bottom: 31%; */
+        opacity: 0.5;
+        top: 0;
+        color: white;
+        font-weight: bold;
+        /* background-color: #dc0000; */
+        font-size: 23px;
+        /* left: 39%; */
+        text-align: right;
+        padding-right: 10px;
+        "><ion-icon name="heart" style="color:rgb(106, 112, 108)" (click)="wishlist(item,index)" [ngClass]="{wish: item.wish}"></ion-icon></div>
+
+<div style="     width: 100%;
+padding-top: 10px;
+text-align: center;
+position: absolute;
+z-index: 99;
+
+color: white;
+font-weight: bold;
+
+font-size: 18pt;
+
+text-align: right;
+padding-right: 10px;
+bottom: 0;
+    padding-bottom: 10px"><ion-icon name="trash" style="color:red" (click)="indexFinding(index)"  ></ion-icon></div>
       </ion-card>
     </ion-list>
   </div>
@@ -110,7 +142,7 @@
      
      " *ngIf="!skeleton">
     
-    <ion-item slot="start">
+    <ion-item lines="none"  slot="start">
       <ion-icon name="cash" slot="start"></ion-icon>
       <ion-label>
         <h3>Total Amount</h3>
@@ -123,7 +155,7 @@
 
 
     <ion-card-content>
-      <ion-button expand="full" type="submit" class="bg-color">Proceed To checkout
+      <ion-button expand="full" type="submit" class="bg-color" (click)="checkOutPage()">Proceed To checkout
       </ion-button>
     </ion-card-content>
   </ion-card>

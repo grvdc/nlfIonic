@@ -84,4 +84,8 @@ export class CartPagePage implements OnInit {
     this.cartItems[index]['wish'] = item.wish;
     localStorage.setItem('products', JSON.stringify(this.cartItems));
   }
+
+  checkOutPage(){
+    this.router.navigateByUrl('/stepper');
+  }
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { CheckoutFormStepperComponent } from './components/checkout-form-stepper/checkout-form-stepper.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -24,6 +25,10 @@ const routes: Routes = [
     path: 'wishlist',
     loadChildren: () => import('./pages/wishlist/wishlist.module').then( m => m.WishlistPageModule)
   },
+  {
+    path:'stepper',
+    component:CheckoutFormStepperComponent,
+  }
 ];
 
 @NgModule({

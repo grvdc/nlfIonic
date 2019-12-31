@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar class="bg-color">
+    <ion-buttons slot="start">
+      <ion-back-button class="white"></ion-back-button>
+      <!-- <ion-menu-button class="white"></ion-menu-button> -->
+    </ion-buttons>
+    <ion-title>Chekout Page</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step>
+      <ion-item>
+        <ion-label position="floating">First Name</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">First Last</ion-label>
+        <ion-input></ion-input>
+      </ion-item> 
+      <div>
+        <ion-button matStepperNext (click)="stepper.next()">Next</ion-button>
+      </div>
+
+    </mat-step>
+    <mat-step>
+      <p>2</p>
+      <ion-input type="text" placeholder="Address" name="secondCtrl" required></ion-input>
+
+
+      <div>
+        <ion-button matStepperPrevious (click)="stepper.previous()">Back</ion-button>
+        <ion-button matStepperNext (click)="stepper.next()">Next</ion-button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      You are now done.
+      <div>
+        <ion-button matStepperPrevious>Back</ion-button>
+        <ion-button (click)="stepper.reset()">Reset</ion-button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+</ion-content>
