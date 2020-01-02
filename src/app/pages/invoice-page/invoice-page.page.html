@@ -1,0 +1,147 @@
+<ion-header>
+  <ion-toolbar class="bg-color">
+      <ion-buttons slot="start">
+          <ion-back-button class="white"></ion-back-button>
+        </ion-buttons>
+    <ion-title>Invoice</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item >
+      <ion-row style="width:100%">
+        <ion-col size="6">
+          Product
+        </ion-col>
+        <ion-col size="3" style="text-align: center;">
+          Qty.
+        </ion-col>
+        <ion-col size="3" style="text-align: right;">
+          Price
+        </ion-col>
+      </ion-row>
+
+    </ion-item>
+    <ion-item *ngFor="let item of cartItems">
+        <ion-avatar slot="start">
+            <img [src]="item.img">
+          </ion-avatar>
+      <ion-row style="width:100%">
+        <ion-col size="6" >
+          {{item.title}}
+        </ion-col>
+        <ion-col size="3" >
+          1
+        </ion-col>
+        <ion-col size="3" style="text-align: right;">
+          {{item.price}}
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+        <ion-row style="width:100%">
+            <ion-col size="6" >
+              Total
+            </ion-col>
+            <ion-col size="3" style="text-align: center;">
+              3
+            </ion-col>
+            <ion-col size="3" style="text-align: right;">
+              75
+            </ion-col>
+          </ion-row>
+    </ion-item>
+  </ion-card>
+  <ion-card >
+      <ion-item>
+  
+        <ion-label class="ion-text-wrap">
+            <ion-text>
+              <h2><b>{{data.name}}</b></h2>
+            </ion-text>
+            <ion-text>
+              <h3>{{data.address}}, {{data.landmark}} , {{data.city}}, {{data.state}} <b>- {{data.zip}}</b></h3>
+            </ion-text>
+            <ion-text>
+              <h3>{{data.mobile}}</h3>
+            </ion-text>
+            <ion-button (click)="chengeAddress()">Select</ion-button>
+          </ion-label>
+      </ion-item>
+    </ion-card>
+  <ion-card>
+      <ion-item>
+          <ion-text>
+            <h6>Payment Via</h6>
+          </ion-text>
+          
+      </ion-item>
+      <ion-item>
+          <ion-button expand="block" [fill]="card ? 'solid' : 'outline'" (click)="viaCard()">Card</ion-button>
+          <ion-button expand="block" [fill]="cod ? 'solid' : 'outline'" (click)="cashOnDelivery()" >C.O.D</ion-button>
+      </ion-item>
+    </ion-card>
+
+    <ion-card *ngIf="card">
+        <ion-item>
+            <ion-text>
+              <h6>Credit/Debit/ATM card</h6>
+            </ion-text>
+        </ion-item>
+            <ion-item>
+                <ion-label position="stacked">Enter card No.</ion-label>
+                <ion-input name="card" ></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="stacked">Valid thru</ion-label>
+                <ion-row style="width:100%">
+                    <ion-col size="6" >
+                        <ion-select style="padding:0">
+                            <ion-select-option value="01">January</ion-select-option>
+                            <ion-select-option value="02">February</ion-select-option>
+                            <ion-select-option value="03">March</ion-select-option>
+                            <ion-select-option value="04">April</ion-select-option>
+                            <ion-select-option value="05">May</ion-select-option>
+                            <ion-select-option value="06">June</ion-select-option>
+                            <ion-select-option value="07">July</ion-select-option>
+                            <ion-select-option value="08">August</ion-select-option>
+                            <ion-select-option value="09">September</ion-select-option>
+                            <ion-select-option value="10">October</ion-select-option>
+                            <ion-select-option value="11">November</ion-select-option>
+                            <ion-select-option value="12" >December</ion-select-option>
+                          </ion-select>
+                    </ion-col>
+                    <ion-col size="6" style="text-align: center;">
+                        <ion-select style="padding:0">
+                            <ion-select-option value="01">2020</ion-select-option>
+                            <ion-select-option value="02">2021</ion-select-option>
+                            <ion-select-option value="03">2023</ion-select-option>
+                            <ion-select-option value="04">2024</ion-select-option>
+                            <ion-select-option value="05">2025</ion-select-option>
+                            <ion-select-option value="06">2026</ion-select-option>
+                            <ion-select-option value="07">2027</ion-select-option>
+                            <ion-select-option value="08">2028</ion-select-option>
+                            <ion-select-option value="09">2029</ion-select-option>
+                            <ion-select-option value="10">2030</ion-select-option>
+                            <ion-select-option value="11">2031</ion-select-option>
+                            <ion-select-option value="12" >2032</ion-select-option>
+                          </ion-select>
+                    </ion-col>
+                  
+                  </ion-row>
+               
+                 
+            </ion-item>
+          
+            <ion-item>
+                <ion-label position="stacked">Cvv</ion-label>
+                <ion-input name="cvv" ></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-button expand="block" fill="outline" style="width:100%">Payment $75</ion-button>
+            </ion-item>
+      </ion-card>
+</ion-content>

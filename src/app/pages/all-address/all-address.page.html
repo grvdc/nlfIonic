@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>all-address</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of clientAddress">
+    <ion-item>
+
+      <ion-label class="ion-text-wrap">
+        <ion-text>
+          <h2><b>{{item.name}}</b></h2>
+        </ion-text>
+        <ion-text>
+          <h3>{{item.address}}, {{item.landmark}} , {{item.city}}, {{item.state}} <b>- {{item.zip}}</b></h3>
+        </ion-text>
+        <ion-text>
+          <h3>{{item.mobile}}</h3>
+        </ion-text>
+        <ion-button (click)="sendBacktoInvoice(item)">Select</ion-button>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+</ion-content>

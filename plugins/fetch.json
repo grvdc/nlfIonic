@@ -52,7 +52,7 @@
   "com.razorpay.cordova": {
     "source": {
       "type": "registry",
-      "id": "com.razorpay.cordova"
+      "id": "com.razorpay.cordova@1.4.8"
     },
     "is_top_level": true,
     "variables": {}

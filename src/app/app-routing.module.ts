@@ -28,6 +28,18 @@ const routes: Routes = [
   {
     path:'stepper',
     component:CheckoutFormStepperComponent,
+  },
+  {
+    path: 'address-screen',
+    loadChildren: () => import('./pages/address-screen/address-screen.module').then( m => m.AddressScreenPageModule)
+  },
+  {
+    path: 'all-address',
+    loadChildren: () => import('./pages/all-address/all-address.module').then( m => m.AllAddressPageModule)
+  },
+  {
+    path: 'invoice-page',
+    loadChildren: () => import('./pages/invoice-page/invoice-page.module').then( m => m.InvoicePagePageModule)
   }
 ];
 
