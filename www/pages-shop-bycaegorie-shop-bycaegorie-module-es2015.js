@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>shopBycaegorie</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n    <ion-row>\n        <ion-col size=\"6\" *ngFor=\"let product of productDisplay;\" style=\"padding:10px\">\n          <ion-card style=\"margin: 0px;\">\n            <img [src]=\"product.img\" style=\"height: 185px !important\" />\n            <ion-card-header style=\"padding-top: 0px;\">\n              <ion-card-title><h5>Full Sleeve Solid Women Jacket</h5></ion-card-title>\n              <ion-card-subtitle style=\"text-align: center;\">\n                        $ {{product.price}} \n                </ion-card-subtitle>\n            </ion-card-header>\n            <ion-card-content style=\"text-align: center;\">\n                Some text about the jeans....\n            </ion-card-content>\n            <ion-button expand=\"full\" color=\"dark\" (click)=\"addToCart(product)\">Add to Cart\n            </ion-button>\n          </ion-card>\n        </ion-col>\n    \n      </ion-row>\n</ion-content>\n"
+module.exports = "<ion-header *ngIf=\"!showError\">\n  <ion-toolbar class=\"bg-color\">\n    <ion-title>{{data.header}}</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-back-button class=\"white\"></ion-back-button>\n      <!-- <ion-menu-button class=\"white\"></ion-menu-button> -->\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content *ngIf=\"!showError\">\n    <ion-row style=\"padding-top:10px; padding-right: 10px;\">\n        <!-- <ion-col size=\"6\" *ngFor=\"let product of productDisplay;\" style=\"padding:10px\">\n          <ion-card style=\"margin: 0px;\">\n            <img [src]=\"product.img\" style=\"height: 185px !important\" (click)=\"goToProductDetailPage(product.id)\"/>\n            <ion-card-header style=\"padding-top: 0px;\">\n              <ion-card-title><h5>Full Sleeve Solid Women Jacket</h5></ion-card-title>\n              <ion-card-subtitle style=\"text-align: center;\">\n                        $ {{product.price}} \n                </ion-card-subtitle>\n            </ion-card-header>\n            <ion-card-content style=\"text-align: center;\">\n                Some text about the jeans....\n            </ion-card-content>\n            <ion-button expand=\"full\" color=\"dark\" (click)=\"addToCart(product)\">Add to Cart\n            </ion-button>\n          </ion-card>\n        </ion-col> -->\n        <ion-col style=\"padding-left: 10px !important;padding-right: 0 !important;padding-top:0 !important\" sizeLg=\"4\" sizeMd=\"4\" sizeXs=\"6\"  *ngFor=\"let product of productDisplay;index as index\" >\n          <ion-card >\n            <img [src]=\"product.img\" style=\"height: 185px !important\" (click)=\"goToProductDetailPage(product.id)\" />\n            <div style=\" width: 100%;\n            padding-top: 5%;\n            text-align: center;\n            position: absolute;\n            z-index: 99;\n            /* bottom: 31%; */\n            opacity: 0.5;\n            top: 0px;\n            color: white;\n            font-weight: bold;\n            /* background-color: #dc0000; */\n            left: 40%;\n            font-size:20px;\n            \"><ion-icon name=\"heart\" style=\"color:rgb(106, 112, 108)\" (click)=\"wishlist(product.id)\" [ngClass]=\"{wish: product.wish}\"></ion-icon></div>\n            <ion-card-header style=\"padding-top: 0px;padding-bottom: 0;\">\n              <ion-card-title><h6 (click)=\"goToProductDetailPage(product.id)\" style=\"margin-bottom: -10px;\">Full Sleeve Solid Women Jacket</h6></ion-card-title>\n              <ion-card-subtitle >\n                  <ion-row >\n                      <ion-col size=\"4\" style=\"padding-left: 0 !important;\"> \n                       \n                          <ion-badge color=\"success\">4 <ion-icon name=\"star\"></ion-icon></ion-badge>\n    \n                         \n                       </ion-col>\n                       <ion-col size=\"8\" style=\"text-align:right\">\n                        <label style=\"color:black\"><s style=\"color:grey\">$ 28</s> $ {{product.price}}</label>\n                        </ion-col>\n                  </ion-row>\n                </ion-card-subtitle>\n            </ion-card-header>\n            <ion-button expand=\"full\" color=\"dark\" style=\"margin:0\" (click)=\"addToCart(product)\">Add to Cart\n            </ion-button>\n          </ion-card>\n        </ion-col>\n      </ion-row>\n</ion-content>\n<ion-content *ngIf=\"showError\">\n  <div style=\"height: 100%;width:100%;border:solid 1px green;\">\n    <h5>Not Found</h5>\n  </div>\n</ion-content>"
 
 /***/ }),
 
@@ -97,7 +97,7 @@ ShopBycaegoriePageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3Nob3AtYnljYWVnb3JpZS9zaG9wLWJ5Y2FlZ29yaWUucGFnZS5zY3NzIn0= */"
+module.exports = "ion-row ion-col {\n  padding: 10px !important;\n}\nion-row ion-col ion-card {\n  margin: 0px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3ViYy0yMS9Eb2N1bWVudHMvaW9uYXBwL2dpdC9uZXdHaXQvbmxmSW9uaWMvc3JjL2FwcC9wYWdlcy9zaG9wLWJ5Y2FlZ29yaWUvc2hvcC1ieWNhZWdvcmllLnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvc2hvcC1ieWNhZWdvcmllL3Nob3AtYnljYWVnb3JpZS5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0k7RUFDRSx3QkFBQTtBQ0FOO0FEQ007RUFDRSxzQkFBQTtBQ0NSIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvc2hvcC1ieWNhZWdvcmllL3Nob3AtYnljYWVnb3JpZS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tcm93e1xuICAgIGlvbi1jb2x7XG4gICAgICBwYWRkaW5nOjEwcHggIWltcG9ydGFudDtcbiAgICAgIGlvbi1jYXJke1xuICAgICAgICBtYXJnaW46IDBweCAhaW1wb3J0YW50O1xuICAgICAgfVxuICAgIH1cbiAgfSIsImlvbi1yb3cgaW9uLWNvbCB7XG4gIHBhZGRpbmc6IDEwcHggIWltcG9ydGFudDtcbn1cbmlvbi1yb3cgaW9uLWNvbCBpb24tY2FyZCB7XG4gIG1hcmdpbjogMHB4ICFpbXBvcnRhbnQ7XG59Il19 */"
 
 /***/ }),
 
@@ -125,6 +125,7 @@ let ShopBycaegoriePage = class ShopBycaegoriePage {
         this.router = router;
         this.products = _tsFiles_products__WEBPACK_IMPORTED_MODULE_3__["products"].jackets;
         this.productDisplay = [];
+        this.showError = false;
         this.route.queryParams.subscribe(params => {
             if (params && params.special) {
                 this.data = JSON.parse(params.special);
@@ -134,18 +135,45 @@ let ShopBycaegoriePage = class ShopBycaegoriePage {
         _tsFiles_products__WEBPACK_IMPORTED_MODULE_3__["products"].jackets.map((item) => {
             // if(this.data === item.womenJackets){
             // this.productDisplay.push(item);
-            console.log("this.productDisplay", item.womenJackets);
+            console.log("this.productDisplay", item.jacketType);
             // }
         });
     }
     ngOnInit() {
         _tsFiles_products__WEBPACK_IMPORTED_MODULE_3__["products"].jackets.map((item) => {
-            if (this.data === item.womenJackets) {
+            if (this.data.type === item.jacketType) {
                 this.productDisplay.push(item);
-                console.log("this.productDisplay", item.womenJackets);
+                console.log("this.productDisplay", item.jacketType);
             }
         });
         console.log("this.data", this.data);
+        if (this.productDisplay.length === 0) {
+            this.showError = true;
+        }
+        else {
+            this.showError = false;
+        }
+    }
+    goToProductDetailPage(id) {
+        console.log('datatttt', id);
+        let navigationExtras = {
+            queryParams: {
+                special: JSON.stringify(id)
+            }
+        };
+        this.router.navigate(['product-detail-page'], navigationExtras);
+    }
+    addToCart(data) {
+        let a = [];
+        if (!JSON.parse(localStorage.getItem('products'))) {
+            a.push(data);
+        }
+        else {
+            a = JSON.parse(localStorage.getItem('products'));
+            a.push(data);
+        }
+        console.log('a', a);
+        localStorage.setItem('products', JSON.stringify(a));
     }
 };
 ShopBycaegoriePage.ctorParameters = () => [

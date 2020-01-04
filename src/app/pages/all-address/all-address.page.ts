@@ -14,7 +14,20 @@ export class AllAddressPage implements OnInit {
   constructor(
     private router: Router
   ) {
-    this.login = localStorage.getItem("login");
+    
+   }
+
+  ngOnInit() {
+    
+   
+  }
+
+  ionViewWillEnter() {
+    this.reload();
+}
+
+reload(){
+  this.login = localStorage.getItem("login");
     this.address = JSON.parse(localStorage.getItem('address'));
     this.address.filter((item)=>{
       if(item.email == this.login){
@@ -24,12 +37,7 @@ export class AllAddressPage implements OnInit {
     })
     console.log('cleintaddress',this.clientAddress);
 
-   }
-
-  ngOnInit() {
-   
-  }
-
+}
   sendBacktoInvoice(data) {
     console.log('selected Address', data);
     let navigationExtras: NavigationExtras = {

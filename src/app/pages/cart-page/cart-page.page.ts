@@ -66,6 +66,7 @@ export class CartPagePage implements OnInit {
       this.totalAmount = this.totalAmount + newamt;
     })
   }
+  
   removeQty(item,index){
     console.log(" this.cartItems[index]", this.cartItems[index]);
     item.productQuantity?item.productQuantity=  item.productQuantity - 1 : item.productQuantity=0;
@@ -87,5 +88,9 @@ export class CartPagePage implements OnInit {
 
   checkOutPage(){
     this.router.navigateByUrl('/invoice-page');
+  }
+
+  test(){
+    console.log("tetsingClick");
   }
 }

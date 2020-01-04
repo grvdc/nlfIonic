@@ -1,5 +1,5 @@
 import { Component, OnInit , ViewEncapsulation, ViewChild} from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import {products } from '../../tsFiles/products';
 import { IonContent } from '@ionic/angular';
 
@@ -76,6 +76,15 @@ export class ProductDetailPagePage implements OnInit {
     this.cartBadge = a.length;
   }
 
+  sendToInvoicePage(){
+    console.log("daatatat",this.product);
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        single: JSON.stringify(this.product)
+      }
+    };
+    this.router.navigate(['invoice-page'], navigationExtras);
+  }
   // ScrollToTop(){
   //   this.content.scrollToTop(1500);
   // }

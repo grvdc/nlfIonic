@@ -70,6 +70,11 @@ export class HomePage {
     this.skeletonText = !this.skeletonText;
   }
 
+  ionViewWillEnter() {
+    let a = [];
+      a = JSON.parse(localStorage.getItem('products'));
+      this.cartBadge = a.length;
+}
   addToCart(data) {
     this.menu.enable(true, 'first');
     this.menu.open('first');

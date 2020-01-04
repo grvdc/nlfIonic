@@ -3,7 +3,6 @@
     <ion-title>{{product.headerType}}</ion-title>
     <ion-buttons slot="start">
       <ion-back-button class="white"></ion-back-button>
-      <!-- <ion-menu-button class="white"></ion-menu-button> -->
     </ion-buttons>
     <ion-buttons slot="end">
     </ion-buttons>
@@ -11,14 +10,8 @@
 </ion-header>
 
 <ion-content >
-  <!-- <ion-slides pager="true" >
-        <ion-slide *ngFor="let product of productImages;">
-            <img [src]="product" />
-        </ion-slide>
-    </ion-slides> -->
-
+  <div style="height: 90%;overflow: scroll;">
   <ion-card>
-
     <ion-row style="height: 250px;">
       <ion-col>
         <ion-slides pager="true">
@@ -26,73 +19,57 @@
             <img [src]="product" style="height: 250px;" />
           </ion-slide>
         </ion-slides>
-       
-        <div style=" width: 100%;
-       font-size: 30px;
-        padding-top: 5%;
-        text-align: center;
+        <div style=" 
+        width: 100%;
+        font-size: 30px;
+        /* padding-top: 5%; */
+        text-align: right;
         position: absolute;
         z-index: 99;
         opacity: 0.5;
-        top: 0px;
+        /* top: 0px; */
         color: white;
         font-weight: bold;
-        left: 40%;">
-          <ion-icon name="heart" style="color:rgb(106, 112, 108)" (click)="wishlist(product.id)"
+        /* left: 40%; */
+        bottom: -15%;
+        padding-right: 24px;
+        ">
+          <ion-icon name="heart" style="color:rgb(106, 112, 108);font-size:22px" (click)="wishlist(product.id)"
             [ngClass]="{wish: product.wish}"></ion-icon>
         </div>
       </ion-col>
     </ion-row>
     <ion-card-header>
-      <ion-card-title>
-        <h5>{{product.title}}</h5>
+      <ion-card-title style="width: 90%;">
+        <h5 style="margin: 0;">{{product.title}}</h5>
       </ion-card-title>
       <ion-card-subtitle>
         <label>{{product.headerType}}</label>
-        <!-- <div> -->
-          <!-- <rating [(ngModel)]="product.rate" readonly="false" size="default" (ngModelChange)="onModelChange($event)">
-          </rating> -->
-          <!-- <ion-badge color="success">4 <ion-icon name="star"></ion-icon></ion-badge>
-
-        </div> -->
       </ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
       <ion-row>
           <ion-col size="4" style="padding-left: 0 !important;"> 
-                   
               <ion-badge color="success">4 <ion-icon name="star"></ion-icon></ion-badge>
-
-             
            </ion-col>
            <ion-col size="8" style="text-align:right">
             <label style="color:black;font-size: 25px"><s style="color:grey;font-size: 22px">$ 28</s> $ {{product.price}}</label>
             </ion-col>
-        <!-- <ion-col size="6">
-            <label style="color:black;font-size: 25px"> $ {{product.price}} <s style="color:grey;font-size: 20px">$ 28</s></label> -->
-          <!-- <label style="font-size: 25px"> $ {{product.price}} </label> -->
-        <!-- </ion-col> -->
       </ion-row>
-      <ion-row>
+      <!-- <ion-row>
         <ion-col size="6" class="p0">
           <ion-button expand="block" fill="outline">Buy Now</ion-button>
         </ion-col>
         <ion-col size="6" class="p0">
           <ion-button expand="block" (click)="addToCart(product)">Add To Cart</ion-button>
         </ion-col>
-
-      </ion-row>
+      </ion-row> -->
     </ion-card-content>
-
   </ion-card>
   <ion-card *ngIf="!skeleton">
-
-    <!-- <ion-card-header> -->
-      <!-- <ion-card-title>
-        <h6>Product Detail</h6>
-      </ion-card-title> -->
       <ion-card-subtitle>
-        <mat-accordion>
+       
+        <!-- <mat-accordion>
           <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
             <mat-expansion-panel-header>
               <mat-panel-title>
@@ -101,14 +78,40 @@
             </mat-expansion-panel-header>
             <p>{{product.discription}}</p>
           </mat-expansion-panel>
-        </mat-accordion>
+        </mat-accordion> -->
       </ion-card-subtitle>
-    <!-- </ion-card-header> -->
-
-
+    <ion-card-content>
+      <h6 style="margin-bottom: 10px; color:#333333;">  Description</h6>
+        <p>{{product.discription}}</p>
+       
+    </ion-card-content>
 
   </ion-card>
-  <!-- <ion-button (click)="ScrollToTop()">
-    Scroll To Top
-  </ion-button> -->
+</div>
+<!-- <div 
+style=" padding: 0px;
+  margin:0;
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+  " > -->
+  <ion-card style=" padding: 0px;
+  margin:0;
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+  ">
+  
+  <ion-card-content style="padding-top: 0;padding-bottom: 0;">
+      <ion-row>
+          <ion-col size="6" class="p0">
+            <ion-button expand="block" fill="outline" style="width: 95%;" class="checkout-btn" (click)="sendToInvoicePage()">Buy Now</ion-button>
+          </ion-col>
+          <ion-col size="6" class="p0">
+            <ion-button expand="block" (click)="addToCart(product)" style="width: 95%;" class="butn bg-color">Add To Cart</ion-button>
+          </ion-col>
+        </ion-row>
+  </ion-card-content>
+</ion-card>
+  <!-- </div> -->
 </ion-content>

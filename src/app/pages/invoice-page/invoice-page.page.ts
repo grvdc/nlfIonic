@@ -13,6 +13,8 @@ export class InvoicePagePage implements OnInit {
   card :boolean = false;
   cod:boolean = false;
   data : any ;
+  oneItem :any ; 
+  qty = 0;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -22,10 +24,39 @@ export class InvoicePagePage implements OnInit {
       if (params && params.special) {
         this.data = JSON.parse(params.special);
       }
+      if(params && params.single){
+        this.oneItem = JSON.parse(params.single);
+      }
     });
+    
   }
 
   ngOnInit() {
+    console.log('this.one', this.oneItem);
+    
+   
+  }
+  ionViewWillEnter() {
+    if(this.oneItem){
+      this.singleItem();
+    } else{
+      this.cartitem();
+    }
+    this.qty = this.cartItems.length;
+
+}
+
+  singleItem(){
+    this.cartItems = [];
+    console.log('this.one', this.oneItem);
+    this.cartItems.push(this.oneItem);
+    this.totalAmount = 0 ;
+    this.cartItems.map((item)=>{
+      item.productQuantity = 1;
+      this.totalAmount = this.totalAmount + item.price;
+    })
+  }
+  cartitem(){
     console.log("back from all address", this.data);
     let a = [];
 
@@ -80,3 +111,4 @@ export class InvoicePagePage implements OnInit {
     await alert.present();
   }
 }
+// /usr/lib/jvm/java-1.8.0-openjdk-amd64
