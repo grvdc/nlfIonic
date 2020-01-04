@@ -49,18 +49,29 @@
       </ion-card-title>
       <ion-card-subtitle>
         <label>{{product.headerType}}</label>
-        <div>
-          <rating [(ngModel)]="product.rate" readonly="false" size="default" (ngModelChange)="onModelChange($event)">
-          </rating>
-        </div>
+        <!-- <div> -->
+          <!-- <rating [(ngModel)]="product.rate" readonly="false" size="default" (ngModelChange)="onModelChange($event)">
+          </rating> -->
+          <!-- <ion-badge color="success">4 <ion-icon name="star"></ion-icon></ion-badge>
+
+        </div> -->
       </ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
       <ion-row>
-        <ion-col size="6">
-            <label style="color:black;font-size: 25px"> $ {{product.price}} <s style="color:grey;font-size: 20px">$ 28</s></label>
+          <ion-col size="4" style="padding-left: 0 !important;"> 
+                   
+              <ion-badge color="success">4 <ion-icon name="star"></ion-icon></ion-badge>
+
+             
+           </ion-col>
+           <ion-col size="8" style="text-align:right">
+            <label style="color:black;font-size: 25px"><s style="color:grey;font-size: 22px">$ 28</s> $ {{product.price}}</label>
+            </ion-col>
+        <!-- <ion-col size="6">
+            <label style="color:black;font-size: 25px"> $ {{product.price}} <s style="color:grey;font-size: 20px">$ 28</s></label> -->
           <!-- <label style="font-size: 25px"> $ {{product.price}} </label> -->
-        </ion-col>
+        <!-- </ion-col> -->
       </ion-row>
       <ion-row>
         <ion-col size="6" class="p0">

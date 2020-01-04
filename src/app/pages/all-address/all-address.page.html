@@ -1,25 +1,53 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="bg-color">
     <ion-title>all-address</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let item of clientAddress">
-    <ion-item>
-
-      <ion-label class="ion-text-wrap">
-        <ion-text>
-          <h2><b>{{item.name}}</b></h2>
-        </ion-text>
-        <ion-text>
-          <h3>{{item.address}}, {{item.landmark}} , {{item.city}}, {{item.state}} <b>- {{item.zip}}</b></h3>
-        </ion-text>
-        <ion-text>
-          <h3>{{item.mobile}}</h3>
-        </ion-text>
-        <ion-button (click)="sendBacktoInvoice(item)">Select</ion-button>
-      </ion-label>
-    </ion-item>
-  </ion-card>
+  <ng-container *ngIf="clientAddress.length > 0">
+      <ion-card *ngFor="let item of clientAddress;index as index">
+          <ion-item>
+      
+            <ion-label class="ion-text-wrap">
+              <ion-text>
+                <h2><b>{{item.name}}</b></h2>
+              </ion-text>
+              <ion-text>
+                <h3>{{item.address}}, {{item.landmark}} , {{item.city}}, {{item.state}} <b>- {{item.zip}}</b></h3>
+              </ion-text>
+              <ion-text>
+                <h3>{{item.mobile}}</h3>
+              </ion-text>
+              <ion-button (click)="sendBacktoInvoice(item)">Select</ion-button>
+              <ion-button (click)="remove(index)">Remove</ion-button>
+            </ion-label>
+          </ion-item>
+        </ion-card>
+        <ion-card >
+          <ion-item>
+            <ion-text>
+              <h5>Add New Address</h5>
+            </ion-text>
+          </ion-item>
+          <ion-item>
+              
+              <ion-button (click)="addAddress()">Add New Address</ion-button>
+            </ion-item>
+        </ion-card>
+  </ng-container>
+  <ng-container  *ngIf="clientAddress.length == 0">
+      <ion-card >
+          <ion-item>
+            <ion-text>
+              <h5>No Address found</h5>
+            </ion-text>
+          </ion-item>
+          <ion-item>
+              
+              <ion-button (click)="addAddress()">Add Address</ion-button>
+            </ion-item>
+        </ion-card>
+  </ng-container>
+ 
 </ion-content>

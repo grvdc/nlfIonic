@@ -71,7 +71,7 @@ export class AddressScreenPage implements OnInit {
       localStorage.setItem("address",JSON.stringify(localAddress));
      this.reset();
       
-    
+     this.router.navigate(['all-address']);
   }
 
   reset(){
