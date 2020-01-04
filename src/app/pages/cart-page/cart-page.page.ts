@@ -86,6 +86,6 @@ export class CartPagePage implements OnInit {
   }
 
   checkOutPage(){
-    this.router.navigateByUrl('/address-screen');
+    this.router.navigateByUrl('/invoice-page');
   }
 }

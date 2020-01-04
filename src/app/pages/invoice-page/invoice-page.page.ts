@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-invoice-page',
@@ -15,6 +16,7 @@ export class InvoicePagePage implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    public alertController: AlertController,
   ) { 
     this.route.queryParams.subscribe(params => {
       if (params && params.special) {
@@ -57,5 +59,24 @@ export class InvoicePagePage implements OnInit {
 
   chengeAddress(){
     this.router.navigate(['all-address']);
+  }
+
+  goToHome(){
+    if(this.data){
+      this.router.navigate(['home']);
+    } else{
+      this.presentAlert();
+    }
+    
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Please add Address',
+     
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 }
