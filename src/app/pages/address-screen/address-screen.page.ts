@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-address-screen',
@@ -21,7 +22,8 @@ export class AddressScreenPage implements OnInit {
     alternate : '',
   }
     constructor(   
-    private router: Router
+    private router: Router,
+    public alertController: AlertController,
     ) { 
   }
 
@@ -34,7 +36,9 @@ export class AddressScreenPage implements OnInit {
     this.login = localStorage.getItem("login");
   }
 
-  addAddress(){
+ async addAddress(){
+    let data = await this.validate();
+    if(data){
     let address = [];
     let localAddress =[];
     if (!JSON.parse(localStorage.getItem('address'))) {
@@ -42,7 +46,6 @@ export class AddressScreenPage implements OnInit {
         email: this.login,
         address:[this.address],
       })
-      // localAddress.push(this.address);
     } else {
       localAddress = JSON.parse(localStorage.getItem('address'));
       let test = localAddress.filter((item)=>{
@@ -72,6 +75,7 @@ export class AddressScreenPage implements OnInit {
      this.reset();
       
      this.router.navigate(['all-address']);
+    }
   }
 
   reset(){
@@ -91,5 +95,51 @@ export class AddressScreenPage implements OnInit {
 
   continue(){
     this.router.navigate(['invoice-page']);
+  }
+
+  async validate(){
+    this.address.name = this.address.name.trim()
+    if(this.address.name == ''){
+      this.address['nameRed'] = 'red';
+      this.scrolltoDiv('name');
+      this.presentAlert()
+      return false;
+    } else{
+      return true;
+    }
+    
+  }
+
+  ttt(){
+    if(this.address.name !== ''){
+      this.address['nameRed'] = '';
+    } 
+  }
+
+  scrolltoDiv(id){
+    let todayItem = document.getElementById(id);
+    todayItem.scrollIntoView(true);
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      // subHeader: 'Subtitle',
+      message: 'Please add mandatory fields.',
+      buttons: [{
+          text: 'Ok',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            this.closetest();
+          }
+        }
+        ]
+    });
+    await alert.present();
+  }
+
+  closetest(){
+    console.log("clocsetest");
   }
 }

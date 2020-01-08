@@ -10,9 +10,9 @@
 <ion-content>
   <ng-container>
     <ion-card>
-      <ion-item>
-        <ion-label position="stacked">Name</ion-label>
-        <ion-input name="name" [(ngModel)]="address.name"></ion-input>
+      <ion-item id="name">
+        <ion-label position="stacked" [ngClass]="address.nameRed">Name *</ion-label>
+        <ion-input name="name" [(ngModel)]="address.name" (input)="ttt()"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Mobile Number</ion-label>
