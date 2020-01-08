@@ -22,12 +22,14 @@ export class ProductDetailPagePage implements OnInit {
   cartBadge=0;
   qty = "1" ;
   size = ['S','M', 'L', 'XL'];
+  fromCart:boolean = false;
   constructor(private route: ActivatedRoute, private router: Router,
     public toastController: ToastController
     ) { 
     this.route.queryParams.subscribe(params => {
       if (params && params.special) {
         this.data = JSON.parse(params.special);
+        this.fromCart = params.fromCart
       }
     });
     let data = [];
@@ -40,7 +42,10 @@ export class ProductDetailPagePage implements OnInit {
    
   }
     
-
+  ionViewWillEnter() {
+   
+   console.log("fro cart",this.fromCart)
+}
   ngOnInit() {
     products.jackets.map((item)=>{
       if(this.data === item.id){

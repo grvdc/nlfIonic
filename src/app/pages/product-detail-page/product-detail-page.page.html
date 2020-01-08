@@ -157,8 +157,8 @@ style=" padding: 0px;
    width: 100%;
   ">
 
-    <ion-card-content style="padding-top: 0;padding-bottom: 0;">
-      <ion-row>
+    <ion-card-content style="padding-top: 0;padding-bottom: 0;" >
+      <ion-row *ngIf="!fromCart">
         <ion-col size="6" class="p0">
           <ion-button expand="block" fill="outline" style="width: 95%;" class="checkout-btn"
             (click)="sendToInvoicePage()">Buy Now</ion-button>

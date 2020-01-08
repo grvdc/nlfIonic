@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild,EventEmitter, Output  } from '@angular/core';
 import { IonInfiniteScroll, IonVirtualScroll } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-cart-page',
@@ -94,5 +94,16 @@ export class CartPagePage implements OnInit {
 
   test(){
     console.log("tetsingClick");
+  }
+
+  goToProductDetailPage(id) {
+    console.log('datatttt',id);
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        special: JSON.stringify(id),
+        fromCart: true,
+      }
+    };
+    this.router.navigate(['product-detail-page'], navigationExtras);
   }
 }
