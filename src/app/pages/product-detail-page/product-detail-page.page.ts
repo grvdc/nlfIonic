@@ -2,6 +2,7 @@ import { Component, OnInit , ViewEncapsulation, ViewChild} from '@angular/core';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import {products } from '../../tsFiles/products';
 import { IonContent } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -19,7 +20,11 @@ export class ProductDetailPagePage implements OnInit {
   product :any;
   rate = 4;
   cartBadge=0;
-  constructor(private route: ActivatedRoute, private router: Router) { 
+  qty = "1" ;
+  size = ['S','M', 'L', 'XL'];
+  constructor(private route: ActivatedRoute, private router: Router,
+    public toastController: ToastController
+    ) { 
     this.route.queryParams.subscribe(params => {
       if (params && params.special) {
         this.data = JSON.parse(params.special);
@@ -57,6 +62,9 @@ export class ProductDetailPagePage implements OnInit {
       if(item.id == id){
         item['wish'] ? item['wish']=!item['wish'] : item['wish']=true;
       }
+      if(item['wish']){
+        this.presentToast();
+      }
     })
 
   }
@@ -83,7 +91,20 @@ export class ProductDetailPagePage implements OnInit {
         single: JSON.stringify(this.product)
       }
     };
-    this.router.navigate(['invoice-page'], navigationExtras);
+    this.product['qty'] = parseInt(this.qty);
+    
+    localStorage.setItem('singleItem', JSON.stringify(this.product));
+    this.router.navigate(['address-screen']);
+  }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Item saved to wishlist.',
+      duration: 2000,
+      // color: 'light',
+      animated :true,
+    });
+    toast.present();
   }
   // ScrollToTop(){
   //   this.content.scrollToTop(1500);

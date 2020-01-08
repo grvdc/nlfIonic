@@ -96,7 +96,7 @@ export class AppComponent {
           this.router.navigate(['cart-page']);
           break;
       default:
-          this.openDetailsWithQueryParams(categoy);
+          // this.openDetailsWithQueryParams(categoy);
           break;
 
     }

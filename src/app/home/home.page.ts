@@ -5,6 +5,8 @@ import { AlertController } from '@ionic/angular';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import * as firebase from '../../../node_modules/firebase';
 import {products } from '../tsFiles/products';
+import { AuthService } from '../services/auth.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -36,7 +38,9 @@ export class HomePage {
   constructor(
     private menu: MenuController,
     private router: Router,
-    public platform: Platform
+    public platform: Platform,
+    private auth : AuthService,
+    public toastController: ToastController,
   ) {
     this.menu.enable(true);
     this.platform.backButton.subscribe(() => {
@@ -51,6 +55,8 @@ export class HomePage {
     }
   }
   ngOnInit() {
+    
+   
     this.skeletonText = true;
     this.menu.enable(true, 'custom');
     setTimeout(() => {
@@ -71,9 +77,18 @@ export class HomePage {
   }
 
   ionViewWillEnter() {
-    let a = [];
+    this.auth.tesApi().subscribe(data=>{
+      console.log("data.result",data);
+      })
+    let login = localStorage.getItem("login");
+    if (!login) {
+      this.router.navigateByUrl('/login-page');
+    } else{
+      let a = [];
       a = JSON.parse(localStorage.getItem('products'));
-      this.cartBadge = a.length;
+      this.cartBadge = a?a.length:0;
+    }
+   
 }
   addToCart(data) {
     this.menu.enable(true, 'first');
@@ -108,6 +123,9 @@ export class HomePage {
       if(item.id == id){
         item['wish'] ? item['wish']=!item['wish'] : item['wish']=true;
       }
+      if(item['wish']){
+        this.presentToast();
+      }
     })
 
   }
@@ -120,6 +138,16 @@ export class HomePage {
       }
     };
     this.router.navigate(['product-detail-page'], navigationExtras);
+  }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Item saved to wishlist.',
+      duration: 2000,
+      // color: 'light',
+      animated :true,
+    });
+    toast.present();
   }
 
 }

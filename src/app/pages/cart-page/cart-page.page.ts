@@ -87,7 +87,9 @@ export class CartPagePage implements OnInit {
   }
 
   checkOutPage(){
-    this.router.navigateByUrl('/invoice-page');
+    localStorage.removeItem("singleItem");
+
+    this.router.navigateByUrl('/address-screen');
   }
 
   test(){

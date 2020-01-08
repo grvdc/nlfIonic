@@ -58,7 +58,7 @@ export class WishlistPage implements OnInit {
   }
 
   addToCart(data) {
-   
+   console.log("datattpaddcart",data)
     let a = [];
     if (!JSON.parse(localStorage.getItem('products'))) {
       a.push(data);
@@ -71,6 +71,7 @@ export class WishlistPage implements OnInit {
   }
   
   wishlist(id){
+    console.log("datattpaddcart id",id)
     products.jackets.map((item)=>{
       if(item.id == id){
         item['wish'] ? item['wish']=!item['wish'] : item['wish']=true;

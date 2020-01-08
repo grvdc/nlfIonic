@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import {products } from '../../tsFiles/products';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-shop-bycaegorie',
@@ -12,7 +13,9 @@ export class ShopBycaegoriePage implements OnInit {
   data: any;
   productDisplay =[];
   showError = false;
-  constructor(private route: ActivatedRoute, private router: Router) { 
+  constructor(private route: ActivatedRoute, private router: Router,
+    public toastController: ToastController,
+    ) { 
     this.route.queryParams.subscribe(params => {
       if (params && params.special) {
         this.data = JSON.parse(params.special);
@@ -68,5 +71,26 @@ export class ShopBycaegoriePage implements OnInit {
     }
     console.log('a', a);
     localStorage.setItem('products', JSON.stringify(a));
+  }
+
+  wishlist(id){
+    products.jackets.map((item)=>{
+      if(item.id == id){
+        item['wish'] ? item['wish']=!item['wish'] : item['wish']=true;
+      }
+      if(item['wish']){
+        this.presentToast();
+      }
+    })
+  }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Item saved to wishlist.',
+      duration: 2000,
+      // color: 'light',
+      animated :true,
+    });
+    toast.present();
   }
 }

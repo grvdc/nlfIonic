@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-all-address',
@@ -11,22 +12,29 @@ export class AllAddressPage implements OnInit {
   address = [];
   clientAddress = [];
   aa = [];
+  loaderToShow: any;
+
   constructor(
-    private router: Router
+    private router: Router,
+    public loadingController: LoadingController
   ) {
     
    }
 
   ngOnInit() {
-    
    
   }
 
   ionViewWillEnter() {
+    
     this.reload();
+    if(this.clientAddress.length ==0){
+      this.router.navigate(['address-screen']);
+    }
 }
 
 reload(){
+  
   this.login = localStorage.getItem("login");
     this.address = JSON.parse(localStorage.getItem('address'));
     this.address.filter((item)=>{
@@ -61,5 +69,24 @@ reload(){
       }
     })
     localStorage.setItem('address', JSON.stringify(this.address));
+  }
+
+  showLoader() {
+    this.loaderToShow = this.loadingController.create({
+      message: 'This Loader will Not AutoHide'
+    }).then((res) => {
+      res.present();
+
+      res.onDidDismiss().then((dis) => {
+        console.log('Loading dismissed!');
+      });
+    });
+    // this.hideLoader();
+  }
+
+  hideLoader() {
+    setTimeout(() => {
+      this.loadingController.dismiss();
+    }, 4000);
   }
 }

@@ -37,7 +37,7 @@ export class InvoicePagePage implements OnInit {
    
   }
   ionViewWillEnter() {
-    if(this.oneItem){
+    if(JSON.parse(localStorage.getItem('singleItem'))){
       this.singleItem();
     } else{
       this.cartitem();
@@ -48,13 +48,15 @@ export class InvoicePagePage implements OnInit {
 
   singleItem(){
     this.cartItems = [];
-    console.log('this.one', this.oneItem);
-    this.cartItems.push(this.oneItem);
+    // console.log('this.one', this.oneItem);
+    this.cartItems.push(JSON.parse(localStorage.getItem('singleItem')));
     this.totalAmount = 0 ;
     this.cartItems.map((item)=>{
       item.productQuantity = 1;
       this.totalAmount = this.totalAmount + item.price;
     })
+    console.log("back from all cartItems", this.cartItems);
+
   }
   cartitem(){
     console.log("back from all address", this.data);
@@ -94,7 +96,7 @@ export class InvoicePagePage implements OnInit {
 
   goToHome(){
     if(this.data){
-      this.router.navigate(['home']);
+      this.router.navigate(['order-success']);
     } else{
       this.presentAlert();
     }

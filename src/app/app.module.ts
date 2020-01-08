@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 import { CheckoutFormStepperComponent } from './components/checkout-form-stepper/checkout-form-stepper.component';
 import {MatStepperModule} from '@angular/material/stepper';
+import { HttpClientModule ,} from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent,ErrorPopupComponent ,CheckoutFormStepperComponent],
@@ -32,7 +33,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     AngularFireStorageModule,
     IonicRatingModule,
     BrowserAnimationsModule,
-    MatStepperModule
+    MatStepperModule,
+    HttpClientModule
     // CheckoutFormStepperComponent,
   ],
   providers: [

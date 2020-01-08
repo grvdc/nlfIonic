@@ -9,17 +9,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
+<ion-content>
   <div style="height: 90%;overflow: scroll;">
-  <ion-card>
-    <ion-row style="height: 250px;">
-      <ion-col>
-        <ion-slides pager="true">
-          <ion-slide *ngFor="let product of productImages;">
-            <img [src]="product" style="height: 250px;" />
-          </ion-slide>
-        </ion-slides>
-        <div style=" 
+    <ion-card>
+      <ion-row style="height: 250px;">
+        <ion-col>
+          <ion-slides pager="false">
+            <ion-slide *ngFor="let product of productImages;">
+              <img [src]="product" style="height: 250px;" />
+            </ion-slide>
+          </ion-slides>
+          <div style=" 
         width: 100%;
         font-size: 30px;
         /* padding-top: 5%; */
@@ -34,41 +34,35 @@
         bottom: -15%;
         padding-right: 24px;
         ">
-          <ion-icon name="heart" style="color:rgb(106, 112, 108);font-size:22px" (click)="wishlist(product.id)"
-            [ngClass]="{wish: product.wish}"></ion-icon>
-        </div>
-      </ion-col>
-    </ion-row>
-    <ion-card-header>
-      <ion-card-title style="width: 90%;">
-        <h5 style="margin: 0;">{{product.title}}</h5>
-      </ion-card-title>
-      <ion-card-subtitle>
-        <label>{{product.headerType}}</label>
-      </ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-row>
-          <ion-col size="4" style="padding-left: 0 !important;"> 
-              <ion-badge color="success">4 <ion-icon name="star"></ion-icon></ion-badge>
-           </ion-col>
-           <ion-col size="8" style="text-align:right">
-            <label style="color:black;font-size: 25px"><s style="color:grey;font-size: 22px">$ 28</s> $ {{product.price}}</label>
-            </ion-col>
+            <ion-icon name="heart" style="color:rgb(106, 112, 108);font-size:22px" (click)="wishlist(product.id)"
+              [ngClass]="{wish: product.wish}"></ion-icon>
+          </div>
+        </ion-col>
       </ion-row>
-      <!-- <ion-row>
-        <ion-col size="6" class="p0">
-          <ion-button expand="block" fill="outline">Buy Now</ion-button>
-        </ion-col>
-        <ion-col size="6" class="p0">
-          <ion-button expand="block" (click)="addToCart(product)">Add To Cart</ion-button>
-        </ion-col>
-      </ion-row> -->
-    </ion-card-content>
-  </ion-card>
-  <ion-card *ngIf="!skeleton">
+      <ion-card-header>
+        <ion-card-title style="width: 90%;">
+          <h5 style="margin: 0;">{{product.title}}</h5>
+        </ion-card-title>
+        <ion-card-subtitle>
+          <label>{{product.headerType}}</label>
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row>
+          <ion-col size="4" style="padding-left: 0 !important;">
+            <ion-badge color="success">4 <ion-icon name="star"></ion-icon>
+            </ion-badge>
+          </ion-col>
+          <ion-col size="8" style="text-align:right">
+            <label style="color:black;font-size: 25px"><s style="color:grey;font-size: 22px">$ 28</s> $
+              {{product.price}}</label>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="!skeleton">
       <ion-card-subtitle>
-       
+
         <!-- <mat-accordion>
           <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
             <mat-expansion-panel-header>
@@ -80,15 +74,76 @@
           </mat-expansion-panel>
         </mat-accordion> -->
       </ion-card-subtitle>
-    <ion-card-content>
-      <h6 style="margin-bottom: 10px; color:#333333;">  Description</h6>
-        <p>{{product.discription}}</p>
+      <ion-card-content>
+        
+        <ng-container>
+          <h5 style="margin-bottom: 10px; color:#333333;">Color options</h5>
+          <div style="background: red;width:20px; height:20px;border-radius:50%;float: left;margin-right:10px"></div>
+          <div style="background: green;width:20px; height:20px;border-radius:50%;float: left;margin-right:10px"></div>
+          <div style="background: grey;width:20px; height:20px;border-radius:50%;float: left;margin-right:10px"></div>
+          <div style="background: blue;width:20px; height:20px;border-radius:50%;float: left;margin-right:10px"></div>
+        </ng-container>
+        <br>
+        <ng-container>
+          <h5 style="margin-bottom: 10px; color:#333333;">Size options</h5>
+          <div style="border:solid 1px grey;width:20px; height:20px;float: left;margin-right:10px;text-align:center;"
+            class="flex-center" *ngFor="let size of size;">{{size}}</div>
+          <!-- <div style="border:solid 1px grey; width:20px; height:20px;float: left;margin-right:10px;text-align:center;"
+            class="flex-center">M</div>
+          <div style="border:solid 1px grey;width:20px; height:20px;float: left;margin-right:10px;text-align:center;"
+            class="flex-center">L</div>
+          <div style="border:solid 1px grey;width:20px; height:20px;float: left;margin-right:10px;text-align:center;"
+            class="flex-center">XL</div> -->
+        </ng-container>
+        <br>
+        <ion-item style="width:45%">
+            <ion-label>Qty</ion-label>
+            <ion-select [(ngModel)]="qty" value="1">
+              <ion-select-option value="1" selected>1</ion-select-option>
+              <ion-select-option value="2">2</ion-select-option>
+              <ion-select-option value="3" >3</ion-select-option>
+              <ion-select-option value="4">4</ion-select-option>
+            </ion-select>
+          </ion-item>
+        <ng-container>
+         <ion-row style="margin-top:10px;justify-content: space-between;
+         display: flex">
+           <ion-col size="4" style="text-align: center;
+           border: solid 1px grey;align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;">
+              <ion-icon name="cash" style="font-size: 20px;"></ion-icon>
+              <p>Pay cash</p>
+           </ion-col>
+           <ion-col size="4"  style="text-align: center;
+           border: solid 1px grey;align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;">
+              <ion-icon name="undo" style="font-size: 20px;"></ion-icon>
+              <p>10 Day return</p>
+           </ion-col>
+           <ion-col size="4"  style="text-align: center;
+           border: solid 1px grey;align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;">
+              <ion-icon name="flash" style="font-size: 20px;"></ion-icon>
+              <p>lightning delivery</p>
+           </ion-col>
+         </ion-row>
+        </ng-container>
+        <br>
        
-    </ion-card-content>
+        <h6 style="margin-bottom: 10px;margin-top:10px; color:#333333;"> Description</h6>
+        <p>{{product.discription}}</p>
 
-  </ion-card>
-</div>
-<!-- <div 
+      </ion-card-content>
+
+    </ion-card>
+  </div>
+  <!-- <div 
 style=" padding: 0px;
   margin:0;
    position: absolute;
@@ -101,17 +156,19 @@ style=" padding: 0px;
    bottom: 0;
    width: 100%;
   ">
-  
-  <ion-card-content style="padding-top: 0;padding-bottom: 0;">
+
+    <ion-card-content style="padding-top: 0;padding-bottom: 0;">
       <ion-row>
-          <ion-col size="6" class="p0">
-            <ion-button expand="block" fill="outline" style="width: 95%;" class="checkout-btn" (click)="sendToInvoicePage()">Buy Now</ion-button>
-          </ion-col>
-          <ion-col size="6" class="p0">
-            <ion-button expand="block" (click)="addToCart(product)" style="width: 95%;" class="butn bg-color">Add To Cart</ion-button>
-          </ion-col>
-        </ion-row>
-  </ion-card-content>
-</ion-card>
+        <ion-col size="6" class="p0">
+          <ion-button expand="block" fill="outline" style="width: 95%;" class="checkout-btn"
+            (click)="sendToInvoicePage()">Buy Now</ion-button>
+        </ion-col>
+        <ion-col size="6" class="p0">
+          <ion-button expand="block" (click)="addToCart(product)" style="width: 95%;" class="butn bg-color">Add To Cart
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
   <!-- </div> -->
 </ion-content>
