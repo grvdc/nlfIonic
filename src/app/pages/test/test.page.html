@@ -1,0 +1,150 @@
+<ion-header>
+  <ion-toolbar class="bg-color">
+    <ion-title>test</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--<div style="height:50%;width:100%;background: rgb(151, 94, 77);">
+
+  </div>
+
+
+  <ion-slides [options]="slideOpts" style="width: 100%; 
+  /* padding-top: 5%; */
+  /* text-align: center; */
+  position: absolute;
+  z-index: 99;
+  /* bottom: 31%; */
+  /* opacity: 0.5; */
+  /* top: 0px; */
+  top: 44%;
+  color: white;
+  font-weight: bold;
+  /* background-color: #dc0000; */
+  /* left: 40%; */
+  font-size: 20px;">
+    <ion-slide>
+      <ion-card style="width:80%;background: white;">
+        <ion-card-content>
+          <h1>Slide 1</h1>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+        <ion-card style="width:80%;background: white;">
+          <ion-card-content>
+            <h1>Slide 2</h1>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+          <ion-card style="width:80%;background: white;">
+            <ion-card-content>
+              <h1>Slide 3</h1>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+  </ion-slides> -->
+
+  <!-- <h3>Fashion</h3> -->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="1">
+        <span class="slider-nav arrow-prev"
+          (click)="slidePrev(sliderThree,slideWithNav3)">
+          <div class="prev-icon-custom custon-nav"
+            [class.disabled]="sliderThree.isBeginningSlide">
+            <ion-icon name="arrow-round-back"></ion-icon>
+          </div>
+        </span>
+      </ion-col>
+      <ion-col size="10">
+ 
+        <ion-slides pager="false" [options]="slideOptsThree" #slideWithNav3
+          (ionSlideDidChange)="SlideDidChange(sliderThree,slideWithNav3)">
+          <ion-slide *ngFor="let s of sliderThree.slidesItems">
+              <ion-card style="width:80%;background: white;">
+                  <ion-card-content style="padding: 0;">
+                      <img [src]="s.image">
+                  </ion-card-content>
+                </ion-card>
+           
+          </ion-slide>
+        </ion-slides>
+ 
+      </ion-col>
+      <ion-col size="1">
+        <span class="slider-nav arrow-next"
+          (click)="slideNext(sliderThree,slideWithNav3)">
+          <div class="next-icon-custom custon-nav"
+            [class.disabled]="sliderThree.isEndSlide">
+            <ion-icon name="arrow-forward"></ion-icon>
+            </div>
+        </span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+ 
+
+
+
+  <div class="row">
+    <div class="column">
+      <img
+        src="https://rukminim1.flixcart.com/image/714/857/k1s6ljk0/jacket/e/r/r/s-metro-j025-grey-metronaut-original-imafhaynz2qyxzhz.jpeg?q=50"
+        style="width:100%;height: 200px;">
+      <img
+        src="https://rukminim1.flixcart.com/image/714/857/k1s6ljk0/jacket/e/r/r/s-metro-j025-grey-metronaut-original-imafhaynz2qyxzhz.jpeg?q=50"
+        style="width:100%;height: 100px;">
+
+    </div>
+    <div class="column">
+      <img
+        src="https://rukminim1.flixcart.com/image/714/857/k47cgi80/jacket/e/z/k/s-58452101-puma-original-imafn2dvzw8nfhnw.jpeg?q=50"
+        style="width:100%;height: 100px;">
+      <img
+        src="https://rukminim1.flixcart.com/image/714/857/k47cgi80/jacket/e/z/k/s-58452101-puma-original-imafn2dvzw8nfhnw.jpeg?q=50"
+        style="width:100%">
+
+    </div>
+    <div style="flex: 100%;
+        max-width: 100%;padding: 0 4px">
+      <img
+        src="https://rukminim1.flixcart.com/image/714/857/k1s6ljk0/jacket/e/r/r/s-metro-j025-grey-metronaut-original-imafhaynz2qyxzhz.jpeg?q=50"
+        style="width:100%;margin-top: 8px;height: 100px;">
+
+    </div>
+    <div class="column">
+      <img
+        src="https://rukminim1.flixcart.com/image/714/857/k1s6ljk0/jacket/e/r/r/s-metro-j025-grey-metronaut-original-imafhaynz2qyxzhz.jpeg?q=50"
+        style="width:100%;height: 100px;">
+      <img
+        src="https://rukminim1.flixcart.com/image/714/857/k1s6ljk0/jacket/e/r/r/s-metro-j025-grey-metronaut-original-imafhaynz2qyxzhz.jpeg?q=50"
+        style="width:100%;height: 200px;">
+
+    </div>
+    <div class="column">
+      <img
+        src="https://rukminim1.flixcart.com/image/714/857/k47cgi80/jacket/e/z/k/s-58452101-puma-original-imafn2dvzw8nfhnw.jpeg?q=50"
+        style="width:100%;height: 200px;">
+      <img
+        src="https://rukminim1.flixcart.com/image/714/857/k47cgi80/jacket/e/z/k/s-58452101-puma-original-imafn2dvzw8nfhnw.jpeg?q=50"
+        style="width:100%;height: 100px;">
+
+    </div>
+
+    <div style="flex: 100%;
+            max-width: 100%;padding: 0 4px">
+      <img
+        src="https://rukminim1.flixcart.com/image/714/857/k1s6ljk0/jacket/e/r/r/s-metro-j025-grey-metronaut-original-imafhaynz2qyxzhz.jpeg?q=50"
+        style="width:100%;margin-top: 8px;height: 100px;">
+
+    </div>
+
+  </div>
+
+
+</ion-content>

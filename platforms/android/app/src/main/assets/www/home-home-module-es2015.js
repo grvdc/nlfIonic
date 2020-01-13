@@ -29,7 +29,7 @@ module.exports = "<ion-menu side=\"start\" menuId=\"first\">\n  <ion-header>\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar class=\"bg-color\" >\n    <ion-buttons slot=\"start\">\n      <ion-menu-button class=\"white\"></ion-menu-button>\n    </ion-buttons>\n    <ion-title *ngIf=\"!searchInput\" >Home </ion-title>\n    <ion-buttons slot=\"end\">\n      <app-cart-at-header [cartCount]=\"cartBadge\"></app-cart-at-header>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-skeleton-text animated *ngIf=\"skeletonText\"></ion-skeleton-text>\n  <ion-slides pager=\"false\" [options]=\"slideOpts\" *ngIf=\"!skeletonText\">\n    <ion-slide *ngFor=\"let item of slide\">\n      <img [src]=\"item.image\" >\n      <div class=\"myOverlay\">\n        <h3>Sale Sale !</h3>\n        <h4>50% OFF</h4>\n      </div>\n    </ion-slide>\n  </ion-slides>\n  \n  <ion-row style=\"padding-top:10px; padding-right: 10px;\">\n    <ion-col style=\"padding-left: 10px !important;padding-right: 0 !important;padding-top:0 !important\" sizeLg=\"4\" sizeMd=\"4\" sizeXs=\"6\"  *ngFor=\"let product of products;index as index\" >\n      <ion-card >\n        <img [src]=\"product.img\" style=\"height: 185px !important\" (click)=\"goToProductDetailPage(product.id)\" />\n        <div style=\" width: 100%;\n        padding-top: 5%;\n        text-align: center;\n        position: absolute;\n        z-index: 99;\n        /* bottom: 31%; */\n        opacity: 0.5;\n        top: 0px;\n        color: white;\n        font-weight: bold;\n        /* background-color: #dc0000; */\n        left: 40%;\n        font-size:20px;\n        \"><ion-icon name=\"heart\" style=\"color:rgb(106, 112, 108)\" (click)=\"wishlist(product.id)\" [ngClass]=\"{wish: product.wish}\"></ion-icon></div>\n        <ion-card-header style=\"padding-top: 0px;padding-bottom: 0;\">\n          <ion-card-title><h6 (click)=\"goToProductDetailPage(product.id)\" style=\"margin-bottom: -10px;\">Full Sleeve Solid Women Jacket</h6></ion-card-title>\n          <ion-card-subtitle >\n              <ion-row >\n                  <ion-col size=\"4\" style=\"padding-left: 0 !important;\"> \n                   \n                      <ion-badge color=\"success\">4 <ion-icon name=\"star\"></ion-icon></ion-badge>\n\n                     \n                   </ion-col>\n                   <ion-col size=\"8\" style=\"text-align:right\">\n                    <label style=\"color:black\"><s style=\"color:grey\">$ 28</s> $ {{product.price}}</label>\n                    </ion-col>\n              </ion-row>\n            </ion-card-subtitle>\n        </ion-card-header>\n        <ion-button expand=\"full\" color=\"dark\" style=\"margin:0\" (click)=\"addToCart(product)\">Add to Cart\n        </ion-button>\n      </ion-card>\n    </ion-col>\n  </ion-row>\n</ion-content>\n<!-- <app-side-nav></app-side-nav> -->\n\n"
+module.exports = "<ion-header>\n  <ion-toolbar class=\"bg-color\" >\n    <ion-buttons slot=\"start\">\n      <ion-menu-button class=\"white\"></ion-menu-button>\n    </ion-buttons>\n    <ion-title *ngIf=\"!searchInput\" >Home </ion-title>\n    <ion-buttons slot=\"end\">\n      <app-cart-at-header [cartCount]=\"cartBadge\"></app-cart-at-header>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-skeleton-text animated *ngIf=\"skeletonText\"></ion-skeleton-text>\n  <ion-slides pager=\"false\" [options]=\"slideOpts\" *ngIf=\"!skeletonText\">\n    <ion-slide *ngFor=\"let item of slide\">\n      <img [src]=\"item.image\" >\n      <div class=\"myOverlay\">\n        <h3>Sale Sale !</h3>\n        <h4>50% OFF </h4>\n      </div>\n    </ion-slide>\n  </ion-slides>\n  \n  <ion-row style=\"padding-top:10px; padding-right: 10px;\">\n    <ion-col style=\"padding-left: 10px !important;padding-right: 0 !important;padding-top:0 !important\" sizeLg=\"4\" sizeMd=\"4\" sizeXs=\"6\"  *ngFor=\"let product of products;index as index\" >\n      <ion-card >\n        <img [src]=\"product.img\" style=\"height: 185px !important\" (click)=\"goToProductDetailPage(product.id)\" />\n        <div style=\" width: 100%;\n        padding-top: 5%;\n        text-align: center;\n        position: absolute;\n        z-index: 99;\n        /* bottom: 31%; */\n        opacity: 0.5;\n        top: 0px;\n        color: white;\n        font-weight: bold;\n        /* background-color: #dc0000; */\n        left: 40%;\n        font-size:20px;\n        \"><ion-icon name=\"heart\" style=\"color:rgb(106, 112, 108)\" (click)=\"wishlist(product.id)\" [ngClass]=\"{wish: product.wish}\"></ion-icon></div>\n        <ion-card-header style=\"padding-top: 0px;padding-bottom: 0;\">\n          <ion-card-title><h6 (click)=\"goToProductDetailPage(product.id)\" style=\"margin-bottom: -10px;\">Full Sleeve Solid Women Jacket</h6></ion-card-title>\n          <ion-card-subtitle >\n              <ion-row >\n                  <ion-col size=\"4\" style=\"padding-left: 0 !important;\"> \n                   \n                      <ion-badge color=\"success\">4 <ion-icon name=\"star\"></ion-icon></ion-badge>\n\n                     \n                   </ion-col>\n                   <ion-col size=\"8\" style=\"text-align:right\">\n                    <label style=\"color:black\"><s style=\"color:grey\">$ 28</s> $ {{product.price}}</label>\n                    </ion-col>\n              </ion-row>\n            </ion-card-subtitle>\n        </ion-card-header>\n        <ion-button expand=\"full\" color=\"dark\" style=\"margin:0\" (click)=\"addToCart(product)\">Add to Cart\n        </ion-button>\n      </ion-card>\n    </ion-col>\n  </ion-row>\n</ion-content>\n<!-- <app-side-nav></app-side-nav> -->\n\n"
 
 /***/ }),
 
@@ -212,16 +212,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _tsFiles_products__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../tsFiles/products */ "./src/app/tsFiles/products.ts");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/auth.service */ "./src/app/services/auth.service.ts");
+
+
 
 
 
 
 
 let HomePage = class HomePage {
-    constructor(menu, router, platform) {
+    constructor(menu, router, platform, auth, toastController) {
         this.menu = menu;
         this.router = router;
         this.platform = platform;
+        this.auth = auth;
+        this.toastController = toastController;
         this.infos = [];
         // ref = firebase.database().ref('infos/');
         this.searchtext = '';
@@ -272,6 +277,20 @@ let HomePage = class HomePage {
     onetwo() {
         this.skeletonText = !this.skeletonText;
     }
+    ionViewWillEnter() {
+        this.auth.tesApi().subscribe(data => {
+            console.log("data.result", data);
+        });
+        let login = localStorage.getItem("login");
+        if (!login) {
+            this.router.navigateByUrl('/login-page');
+        }
+        else {
+            let a = [];
+            a = JSON.parse(localStorage.getItem('products'));
+            this.cartBadge = a ? a.length : 0;
+        }
+    }
     addToCart(data) {
         this.menu.enable(true, 'first');
         this.menu.open('first');
@@ -305,6 +324,9 @@ let HomePage = class HomePage {
             if (item.id == id) {
                 item['wish'] ? item['wish'] = !item['wish'] : item['wish'] = true;
             }
+            if (item['wish']) {
+                this.presentToast();
+            }
         });
     }
     goToProductDetailPage(id) {
@@ -316,11 +338,24 @@ let HomePage = class HomePage {
         };
         this.router.navigate(['product-detail-page'], navigationExtras);
     }
+    presentToast() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const toast = yield this.toastController.create({
+                message: 'Item saved to wishlist.',
+                duration: 2000,
+                // color: 'light',
+                animated: true,
+            });
+            toast.present();
+        });
+    }
 };
 HomePage.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] },
+    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"] }
 ];
 HomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -330,8 +365,132 @@ HomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"],
         _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
-        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"]])
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"],
+        _services_auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"]])
 ], HomePage);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/auth.service.ts":
+/*!******************************************!*\
+  !*** ./src/app/services/auth.service.ts ***!
+  \******************************************/
+/*! exports provided: AuthService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+
+let AuthService = class AuthService {
+    constructor(HttpClient) {
+        // this.options =   {
+        this.HttpClient = HttpClient;
+        this.baseUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].BASE_URL;
+        this.tkn = "Bearer mlhqi7ltymvn76dtfo462052qhmp8gft";
+        //     'Content-Type': 'application/x-www-form-urlencoded',
+        //     'Accept':'application/json',
+        //     'Authorization':'Bearer '+ 'p3b6tfql6vci29b1851c5gw9r1n6ashx'
+        //   }
+    }
+    neww() {
+        // let header = new HttpHeaders();
+        // header.append('Content-Type', 'application/json');
+        // header.append('Accept', 'application/json');
+        // header.append('Authorization', 'Bearer ' + 'p3b6tfql6vci29b1851c5gw9r1n6ashx');
+        // this.options = header;
+        this.options = new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + 'p3b6tfql6vci29b1851c5gw9r1n6ashx'
+        });
+    }
+    // admin
+    // admin12345
+    getAuthToken() {
+        const formData = new FormData();
+        formData.append('username', 'admin');
+        formData.append('password', 'admin12345');
+        const adminTokenPoint = 'https://ocodecommerce.com/terraartesana/rest/V1/integration/admin/token';
+        // make http post request to magento2 api
+        this.HttpClient.post(adminTokenPoint, formData)
+            .subscribe(res => {
+            this.adminToken = res;
+            // this.getProducts(res);
+        }, err => {
+            console.log(err);
+        });
+    }
+    tesApi() {
+        // this.getAuthToken();
+        //     let dt:any;
+        //     let headers = new HttpHeaders();
+        // headers = headers.append('Authorization', 'Bearer 93vbhkxx31u0w2d9udbwzkwo6dv8u834');
+        // headers = headers.append('Accept', 'application/json');
+        // headers = headers.append('Content-Type', 'application/json');
+        //  dt = headers;
+        let formData;
+        formData = new FormData();
+        formData.append('Authorization', 'Bearer 93vbhkxx31u0w2d9udbwzkwo6dv8u834');
+        // formData.append('Accept', 'application/json');
+        // formData.append('Content-Type', 'application/json');
+        let dt;
+        dt = { 'Authorization': 'Bearer 93vbhkxx31u0w2d9udbwzkwo6dv8u834' };
+        this.options = {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + 'kfov2w90m8y3c65b9jqibdg0obqq39ix'
+        };
+        console.log('this.option', this.options);
+        // this.getAuthToken();
+        // $httpProvider.defaults.headers.common["Accept"] = "application/json";
+        // $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
+        // $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+        // const apiEndPoint = `https://ocodecommerce.com/terraartesana/rest/V1/products`;
+        return this.HttpClient.get('https://ocodecommerce.com/terraartesana/rest/V1/categories', this.options);
+        // return this.HttpClient.get('https://jsonplaceholder.typicode.com/todos/1' );
+        // return this.HttpClient.get('http://ang.rishteyindia.co.in/test.php' );
+        // return this.HttpClient.get<any>(apiEndPoint,formData)
+    }
+    getProducts(adminTokenStr) {
+        const adminToken = adminTokenStr;
+        const categoryId = 3; // get products from category id 3
+        const sortOderType = 'DESC'; // sort order type
+        const pageSize = 10; // number of products
+        const currentPage = 1; // get products for first page
+        const apiEndPoint = `https://ocodecommerce.com/terraartesana/rest/V1/products`;
+        // make http request to magento2's api
+        this.HttpClient.get(apiEndPoint, {
+            headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + adminToken }
+        }).subscribe(res => {
+            console.log('res');
+            console.log(res);
+            const prodsArr = res.items;
+            prodsArr.forEach((item) => {
+                const imagePath = `${this.baseUrl}pub/media/catalog/product${item.custom_attributes[0].value}`;
+            });
+        }, err => {
+            console.log(err);
+        });
+    }
+};
+AuthService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }
+];
+AuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
+], AuthService);
 
 
 

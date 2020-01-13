@@ -1,0 +1,54 @@
+.my-menu{
+    --width: 65%;
+    .my-custom-menu{
+        height: 100%;
+        //background: linear-gradient(to bottom, rgba(165,84,216,1) 0%, rgba(90,57,183,1) 60%, rgba(46,65,173,1) 100%)!important;
+        background: #de6161;
+        .profile {
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 0;
+            overflow: hidden;
+            text-align: center;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100%;
+            padding-top: 15px;
+            background: #401a1a;
+            .profile-picture {
+                border-radius: 50%;
+                width: 135px;
+                height: 135px;
+            }
+        }
+       
+       .r{
+        -webkit-tap-highlight-color: transparent;
+       }
+       ion-list{
+        -webkit-tap-highlight-color: transparent; background: transparent !important;
+        height: 100% !important;
+        overflow: scroll !important;
+        padding: 0px;
+        
+        ion-item{
+            padding-left: 5%;
+            ion-icon {
+                color:#fff;
+            }
+            ion-label{
+                color:#fff;
+            }
+        }
+       }
+    }
+}
+.active{
+    background: #e23f3f;
+}
+.ion-activatable {
+    position: relative;
+    overflow: hidden;
+  }
+  

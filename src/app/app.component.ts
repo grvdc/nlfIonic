@@ -39,15 +39,15 @@ export class AppComponent {
   ) {
     this.initializeApp();
     this.login = localStorage.getItem("login");
-    if (!this.login) {
-      this.router.navigateByUrl('/login-page');
-    } else {
-      this.dummyUser.map((item) => {
-        if (this.login === item.email) {
-          this.profilepic = item.img;
-        }
-      })
-    }
+    // if (!this.login) {
+    //   this.router.navigateByUrl('/login-page');
+    // } else {
+    //   this.dummyUser.map((item) => {
+    //     if (this.login === item.email) {
+    //       this.profilepic = item.img;
+    //     }
+    //   })
+    // }
 
   }
 

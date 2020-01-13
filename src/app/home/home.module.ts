@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 import { CartAtHeaderComponent } from '../components/cart-at-header/cart-at-header.component';
-import { SideNavComponent } from '../components/side-nav/side-nav.component';
+// import { SideNavComponent } from '../components/side-nav/side-nav.component';
 import { IonicRatingModule } from 'ionic4-rating';
 
 @NgModule({
@@ -22,7 +22,7 @@ import { IonicRatingModule } from 'ionic4-rating';
       }
     ])
   ],
-  declarations: [HomePage,CartAtHeaderComponent,SideNavComponent],
-  entryComponents:[CartAtHeaderComponent,SideNavComponent],
+  declarations: [HomePage,CartAtHeaderComponent,],
+  entryComponents:[CartAtHeaderComponent,],
 })
 export class HomePageModule {}

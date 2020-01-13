@@ -114,4 +114,8 @@ export class ProductDetailPagePage implements OnInit {
   // ScrollToTop(){
   //   this.content.scrollToTop(1500);
   // }
+
+  goTest(){
+    this.router.navigate(['test']);
+  }
 }

@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-toolbar class="bg-color" >
+  <ion-toolbar class="bg-color">
     <ion-buttons slot="start">
       <ion-menu-button class="white"></ion-menu-button>
     </ion-buttons>
-    <ion-title *ngIf="!searchInput" >Home </ion-title>
+    <ion-title *ngIf="!searchInput">Home </ion-title>
     <ion-buttons slot="end">
       <app-cart-at-header [cartCount]="cartBadge"></app-cart-at-header>
     </ion-buttons>
@@ -14,53 +14,271 @@
   <ion-skeleton-text animated *ngIf="skeletonText"></ion-skeleton-text>
   <ion-slides pager="false" [options]="slideOpts" *ngIf="!skeletonText">
     <ion-slide *ngFor="let item of slide">
-      <img [src]="item.image" >
+      <img [src]="item.image">
       <div class="myOverlay">
         <h3>Sale Sale !</h3>
         <h4>50% OFF </h4>
       </div>
     </ion-slide>
   </ion-slides>
-  
-  <ion-row style="padding-top:10px; padding-right: 10px;">
-    <ion-col style="padding-left: 10px !important;padding-right: 0 !important;padding-top:0 !important" sizeLg="4" sizeMd="4" sizeXs="6"  *ngFor="let product of products;index as index" >
-      <ion-card >
-        <img [src]="product.img" style="height: 185px !important" (click)="goToProductDetailPage(product.id)" />
-        <div style=" width: 100%;
-        padding-top: 5%;
-        text-align: center;
-        position: absolute;
-        z-index: 99;
-        /* bottom: 31%; */
-        opacity: 0.5;
-        top: 0px;
-        color: white;
-        font-weight: bold;
-        /* background-color: #dc0000; */
-        left: 40%;
-        font-size:20px;
-        "><ion-icon name="heart" style="color:rgb(106, 112, 108)" (click)="wishlist(product.id)" [ngClass]="{wish: product.wish}"></ion-icon></div>
-        <ion-card-header style="padding-top: 0px;padding-bottom: 0;">
-          <ion-card-title><h6 (click)="goToProductDetailPage(product.id)" style="margin-bottom: -10px;">Full Sleeve Solid Women Jacket</h6></ion-card-title>
-          <ion-card-subtitle >
-              <ion-row >
-                  <ion-col size="4" style="padding-left: 0 !important;"> 
-                   
-                      <ion-badge color="success">4 <ion-icon name="star"></ion-icon></ion-badge>
+<!-- Categories Start -->
+  <ion-card>
+    <ion-slides pager="false" [options]="categoryOptions" #slideWithNav3
+      (ionSlideDidChange)="SlideDidChange(sliderThree,slideWithNav3)">
+      <ion-slide *ngFor="let s of category.slidesItems">
+        <div style="width:80%;background: white;text-align: center;
+         ;align-items: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;margin-top:5px;margin-bottom: 5px;" (click)="test(s)">
+          <ion-thumbnail *ngIf="s.image">
+            <img [src]="s.image">
+          </ion-thumbnail>
 
-                     
-                   </ion-col>
-                   <ion-col size="8" style="text-align:right">
-                    <label style="color:black"><s style="color:grey">$ 28</s> $ {{product.price}}</label>
-                    </ion-col>
-              </ion-row>
-            </ion-card-subtitle>
-        </ion-card-header>
-        <ion-button expand="full" color="dark" style="margin:0" (click)="addToCart(product)">Add to Cart
-        </ion-button>
-      </ion-card>
-    </ion-col>
-  </ion-row>
+
+          <ion-card-content style="padding: 0;">
+            <h5>{{s.category}}</h5>
+          </ion-card-content>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
+  <!-- Categories End -->
+
+  <ion-card>
+    <img src="https://cdn.pixabay.com/photo/2018/12/09/11/24/sale-3864703__340.jpg"  style="height: 120px;"/>
+    </ion-card>
+
+  <div style="color: #de6161;
+  padding-left: 10px;
+  height: 50px;
+  padding-right: 10px;
+  background: #ffeeee;">
+    <p style="text-align: left;
+    width: 50%;
+    float: left">DEALS OF THE DAY</p>
+    <p style="text-align: right;
+    width: 50%;
+    float: left">View All</p>
+
+  </div>
+
+
+
+  <!-- start Deal for the day -->
+  <ion-grid style="padding: 0;">
+      <ion-row style="padding-top:10px; padding-right: 10px;">
+          <ion-col style="padding-left: 10px !important;padding-right: 0 !important;padding-top:0 !important;    padding-bottom: 0 !important" size="12"
+             >
+   
+          <ion-slides pager="false" [options]="dealsOptions" #slideWithNav3
+            >
+            <ion-slide *ngFor="let deal of dealOfthe.slidesItems" style="flex-direction: column;text-align: left;  margin-right: 10px !important;width: 50% !important;;" >
+            <ion-card style="    margin: 5px !important;width: 97% !important;
+            display: flex;
+            flex-direction:inherit;
+            justify-content: center;
+            ">
+              <img [src]="deal.image" style="height: 185px !important;">
+           
+              <ion-card-content style="  padding: 0; padding-left: 10px;">
+                <p>Minimum 50% Off</p>
+                <p>On this Top</p>
+              </ion-card-content>
+            </ion-card>
+            </ion-slide>
+
+          </ion-slides>
+   
+        </ion-col>
+       
+      </ion-row>
+    </ion-grid>
+  <!-- End deal for the day-->
+  <ion-card>
+      <img src="https://m.media-amazon.com/images/G/31/img19/Fashion/JANFLIP19/AF_PC1._SX3000_QL85_.jpg" style="height: 120px;"/>
+    </ion-card>
+
+    <div style="color: #de6161;
+  padding-left: 10px;
+  height: 50px;
+  padding-right: 10px;
+  background: #ffeeee;">
+    <p style="text-align: left;
+    width: 50%;
+    float: left">Footwear</p>
+    <p style="text-align: right;
+    width: 50%;
+    float: left">View All</p>
+
+  </div>
+   
+     <!-- start Footwear -->
+  <ion-grid style="padding: 0;">
+    <ion-row style="padding-top:10px; padding-right: 10px;">
+        <ion-col style="padding-left: 10px !important;padding-right: 0 !important;padding-top:0 !important; padding-bottom: 0 !important" size="12"
+           >
+ 
+        <ion-slides pager="false" [options]="footwearOptions"
+          >
+          <ion-slide *ngFor="let foot of footwear.slidesItems" style="flex-direction: column;text-align: left;  margin-right: 10px !important;" >
+          <ion-card style="    margin: 5px !important;width: 97% !important;
+          display: grid;
+         
+          justify-content: center;
+          ">
+            <img [src]="foot.image" style="height: 185px !important;    width: 145px !important">
+         
+            <ion-card-content>
+              <p>Footwear</p>
+            </ion-card-content>
+          </ion-card>
+          </ion-slide>
+
+        </ion-slides>
+ 
+      </ion-col>
+     
+    </ion-row>
+  </ion-grid>
+
+<!-- End Footwear-->
+
+<div style="color: #de6161;
+padding-left: 10px;
+height: 50px;
+padding-right: 10px;
+background: #ffeeee;
+margin-top: 10px;">
+  <p style="text-align: left;
+  width: 50%;
+  float: left">Just For you</p>
+  <p style="text-align: right;
+  width: 50%;
+  float: left">View All</p>
+
+</div>
+<!-- Just For you Start -->
+<ion-row style="padding-top:10px; padding-right: 10px;">
+  <ion-col style="padding-left: 10px !important;padding-right: 0 !important;padding-top:0 !important" sizeLg="4"
+    sizeMd="4" sizeXs="6" >
+    <ion-card>
+      <img src="https://rukminim1.flixcart.com/image/309/371/jsj90280/dress/y/a/g/m-sfdrss1483-sassafras-original-imafdzvhy5xghxt6.jpeg?q=50" style="height: 185px !important"  />
+      
+      <ion-card-header style="padding-top: 0px;padding-bottom: 0;">
+        <ion-card-title>
+          <h6 style="margin-bottom: -10px;">Full Sleeve Solid Women Jacket
+          </h6>
+        </ion-card-title>
+        <ion-card-subtitle>
+          <ion-row>
+            <ion-col size="4" style="padding-left: 0 !important;">
+
+              <ion-badge color="success">4 <ion-icon name="star"></ion-icon>
+              </ion-badge>
+
+
+            </ion-col>
+            <ion-col size="8" style="text-align:right">
+              <label style="color:black"><s style="color:grey">₹ 599</s> ₹380</label>
+            </ion-col>
+          </ion-row>
+        </ion-card-subtitle>
+      </ion-card-header>
+      <!-- <ion-button expand="full" color="dark" style="margin:0">Add to Cart
+      </ion-button> -->
+    </ion-card>
+  </ion-col>
+  <ion-col style="padding-left: 10px !important;padding-right: 0 !important;padding-top:0 !important" sizeLg="4"
+    sizeMd="4" sizeXs="6" >
+    <ion-card>
+      <img src="https://rukminim1.flixcart.com/image/309/371/jskofww0/dress/b/9/h/xs-sfdrss1477-sassafras-original-imafdzv7hfg9v9ty.jpeg?q=50" style="height: 185px !important"  />
+      
+      <ion-card-header style="padding-top: 0px;padding-bottom: 0;">
+        <ion-card-title>
+          <h6 style="margin-bottom: -10px;">Full Sleeve Solid Women Jacket
+          </h6>
+        </ion-card-title>
+        <ion-card-subtitle>
+          <ion-row>
+            <ion-col size="4" style="padding-left: 0 !important;">
+
+              <ion-badge color="success">4 <ion-icon name="star"></ion-icon>
+              </ion-badge>
+
+
+            </ion-col>
+            <ion-col size="8" style="text-align:right">
+              <label style="color:black"><s style="color:grey">₹ 899/-</s> ₹599</label>
+            </ion-col>
+          </ion-row>
+        </ion-card-subtitle>
+      </ion-card-header>
+      <!-- <ion-button expand="full" color="dark" style="margin:0">Add to Cart
+      </ion-button> -->
+    </ion-card>
+  </ion-col>
+</ion-row> 
+<!-- Just For yu end -->
+
+
+
+
+
+
+
+
+
+
+<!-- <ion-row style="padding-top:10px; padding-right: 10px;">
+  <ion-col style="padding-left: 10px !important;padding-right: 0 !important;padding-top:0 !important" sizeLg="4"
+    sizeMd="4" sizeXs="6" *ngFor="let product of products;index as index">
+    <ion-card>
+      <img [src]="product.img" style="height: 185px !important" (click)="goToProductDetailPage(product.id)" />
+      <div style=" width: 100%;
+      padding-top: 5%;
+      text-align: center;
+      position: absolute;
+      z-index: 99;
+      /* bottom: 31%; */
+      opacity: 0.5;
+      top: 0px;
+      color: white;
+      font-weight: bold;
+      /* background-color: #dc0000; */
+      left: 40%;
+      font-size:20px;
+      ">
+        <ion-icon name="heart" style="color:rgb(106, 112, 108)" (click)="wishlist(product.id)"
+          [ngClass]="{wish: product.wish}"></ion-icon>
+      </div>
+      <ion-card-header style="padding-top: 0px;padding-bottom: 0;">
+        <ion-card-title>
+          <h6 (click)="goToProductDetailPage(product.id)" style="margin-bottom: -10px;">Full Sleeve Solid Women Jacket
+          </h6>
+        </ion-card-title>
+        <ion-card-subtitle>
+          <ion-row>
+            <ion-col size="4" style="padding-left: 0 !important;">
+
+              <ion-badge color="success">4 <ion-icon name="star"></ion-icon>
+              </ion-badge>
+
+
+            </ion-col>
+            <ion-col size="8" style="text-align:right">
+              <label style="color:black"><s style="color:grey">$ 28</s> $ {{product.price}}</label>
+            </ion-col>
+          </ion-row>
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-button expand="full" color="dark" style="margin:0" (click)="addToCart(product)">Add to Cart
+      </ion-button>
+    </ion-card>
+  </ion-col>
+</ion-row>  -->
+ 
+
+
 </ion-content>
 <!-- <app-side-nav></app-side-nav> -->
-

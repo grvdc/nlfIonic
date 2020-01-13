@@ -40,6 +40,10 @@
     --background:#de6161;
     --color:#fff;
 }
+.light-bg{
+    --background: #ffeeee;
+    --color:#de6161;
+}
 .wish{
     color:orange !important;
 }
@@ -53,3 +57,4 @@
 //@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 //@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 //@import "~@angular/material/prebuilt-themes/purple-green.css";
+

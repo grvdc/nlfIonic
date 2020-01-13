@@ -1,17 +1,23 @@
-<ion-menu side="start" menuId="first">
-  <ion-header>
-    <ion-toolbar color="primary">
-      <ion-title>Start Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
+<ion-menu side="start" menuId="custom" class="my-menu"  swipe-gesture="false">
+  <div class="my-custom-menu">
+    <div class="profile">
+      <img class="profile-picture" src="../assets/profile.png" />
+      <h5 class="white" style="margin-top:6px">BWC Commerce</h5>
+  </div>
+
+    <ion-list color="red" >
+  
+      
+      <ion-item color="red"  lines="none" no-padding *ngFor="let item of menuItem;index as i" class="ion-activatable"  (click)="print(item)">
+
+        <ion-icon [name]="item.logo"></ion-icon>
+        <ion-label style="padding-left:10px">{{item.item}}</ion-label>
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-item>
+
+    
     </ion-list>
-  </ion-content>
+  </div>
+
 </ion-menu>
 <ion-router-outlet main></ion-router-outlet>

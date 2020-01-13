@@ -21,10 +21,11 @@ import { environment } from '../environments/environment';
 import { CheckoutFormStepperComponent } from './components/checkout-form-stepper/checkout-form-stepper.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import { HttpClientModule ,} from '@angular/common/http';
+import { SideNavComponent } from './components/side-nav/side-nav.component';
 
 @NgModule({
-  declarations: [AppComponent,ErrorPopupComponent ,CheckoutFormStepperComponent],
-  entryComponents: [ErrorPopupComponent,CheckoutFormStepperComponent
+  declarations: [AppComponent,ErrorPopupComponent ,CheckoutFormStepperComponent,SideNavComponent],
+  entryComponents: [ErrorPopupComponent,CheckoutFormStepperComponent,SideNavComponent
   ],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -34,7 +35,8 @@ import { HttpClientModule ,} from '@angular/common/http';
     IonicRatingModule,
     BrowserAnimationsModule,
     MatStepperModule,
-    HttpClientModule
+    HttpClientModule,
+    
     // CheckoutFormStepperComponent,
   ],
   providers: [

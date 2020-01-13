@@ -1,8 +1,8 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "MyApp",
-  "short_name": "MyApp",
+  "name": "Ecommerce Dymmy",
+  "short_name": "Ecommerce Dymmy",
   "version": "io.ionic.starter",
   "description": "An awesome Ionic/Cordova app.",
   "author": "Ionic Framework Team",

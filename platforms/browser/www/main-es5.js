@@ -447,7 +447,18 @@ module.exports = webpackAsyncContext;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\n  <ion-menu side=\"start\" menuId=\"custom\" class=\"my-menu\"  swipe-gesture=\"false\">\n    <div class=\"my-custom-menu\">\n      <div class=\"profile\">\n        <img class=\"profile-picture\" [src]=\"profilepic\" />\n        <h5 class=\"white\" style=\"margin-top:6px\">Thronester</h5>\n    </div>\n\n      <ion-list color=\"red\" >\n    \n        <ion-item color=\"red\"  lines=\"none\" no-padding *ngFor=\"let item of menuItem;index as i\" class=\"ion-activatable\" [ngClass]=\"{active: item.highlighted}\" (click)=\"print(item)\">\n          <ion-icon [name]=\"item.logo\"></ion-icon>\n          <ion-label style=\"padding-left:10px\">{{item.item}}</ion-label>\n          <ion-ripple-effect></ion-ripple-effect>\n        </ion-item>\n\n        <!-- <ion-item color=\"red\"  lines=\"none\" no-padding>\n          <ion-icon name=\"person\"></ion-icon>\n          <ion-label >Secondary</ion-label>\n        </ion-item>\n\n        <ion-item color=\"red\" lines=\"none\" no-padding>\n          <ion-icon name=\"briefcase\"></ion-icon>\n          <ion-label >Tertiary</ion-label>\n        </ion-item>\n\n        <ion-item color=\"red\"  no-padding lines=\"none\">\n          <ion-icon name=\"laptop\"></ion-icon>\n          <ion-label >Success</ion-label>\n        </ion-item>\n\n        <ion-item color=\"red\"  lines=\"none\" no-padding>\n          <ion-icon name=\"logo-game-controller-a\"></ion-icon>\n          <ion-label >Warning</ion-label>\n        </ion-item>\n        <ion-item color=\"red\" lines=\"none\" no-padding>\n          <ion-icon name=\"lock\"></ion-icon>\n          <ion-label>Warning</ion-label>\n        </ion-item>\n        <ion-item color=\"red\" lines=\"none\" no-padding>\n            <ion-icon name=\"alert\"></ion-icon>   \n            <ion-label>Warning</ion-label>\n        </ion-item>\n        <ion-item color=\"red\"  lines=\"none\" no-padding>\n            <ion-icon name=\"log-out\"></ion-icon>   \n            <ion-label >Warning</ion-label>\n        </ion-item> -->\n      </ion-list>\n    </div>\n\n  </ion-menu>\n  <ion-router-outlet main></ion-router-outlet>\n</ion-app>"
+module.exports = "<ion-app>\n  <ion-menu side=\"start\" menuId=\"custom\" class=\"my-menu\"  swipe-gesture=\"false\">\n    <div class=\"my-custom-menu\">\n      <div class=\"profile\">\n        <img class=\"profile-picture\" src=\"../assets/profile.png\" />\n        <h5 class=\"white\" style=\"margin-top:6px\">Thronester</h5>\n    </div>\n\n      <ion-list color=\"red\" >\n    \n        <!-- <ion-item color=\"red\"  lines=\"none\" no-padding *ngFor=\"let item of menuItem;index as i\" class=\"ion-activatable\" [ngClass]=\"{active: item.highlighted}\" (click)=\"print(item)\"> -->\n        <ion-item color=\"red\"  lines=\"none\" no-padding *ngFor=\"let item of menuItem;index as i\" class=\"ion-activatable\"  (click)=\"print(item)\">\n\n          <ion-icon [name]=\"item.logo\"></ion-icon>\n          <ion-label style=\"padding-left:10px\">{{item.item}}</ion-label>\n          <ion-ripple-effect></ion-ripple-effect>\n        </ion-item>\n\n        <!-- <ion-item color=\"red\"  lines=\"none\" no-padding>\n          <ion-icon name=\"person\"></ion-icon>\n          <ion-label >Secondary</ion-label>\n        </ion-item>\n\n        <ion-item color=\"red\" lines=\"none\" no-padding>\n          <ion-icon name=\"briefcase\"></ion-icon>\n          <ion-label >Tertiary</ion-label>\n        </ion-item>\n\n        <ion-item color=\"red\"  no-padding lines=\"none\">\n          <ion-icon name=\"laptop\"></ion-icon>\n          <ion-label >Success</ion-label>\n        </ion-item>\n\n        <ion-item color=\"red\"  lines=\"none\" no-padding>\n          <ion-icon name=\"logo-game-controller-a\"></ion-icon>\n          <ion-label >Warning</ion-label>\n        </ion-item>\n        <ion-item color=\"red\" lines=\"none\" no-padding>\n          <ion-icon name=\"lock\"></ion-icon>\n          <ion-label>Warning</ion-label>\n        </ion-item>\n        <ion-item color=\"red\" lines=\"none\" no-padding>\n            <ion-icon name=\"alert\"></ion-icon>   \n            <ion-label>Warning</ion-label>\n        </ion-item>\n        <ion-item color=\"red\"  lines=\"none\" no-padding>\n            <ion-icon name=\"log-out\"></ion-icon>   \n            <ion-label >Warning</ion-label>\n        </ion-item> -->\n      </ion-list>\n    </div>\n\n  </ion-menu>\n  <ion-router-outlet main></ion-router-outlet>\n</ion-app>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/components/checkout-form-stepper/checkout-form-stepper.component.html":
+/*!*****************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/components/checkout-form-stepper/checkout-form-stepper.component.html ***!
+  \*****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\n  <ion-toolbar class=\"bg-color\">\n    <ion-buttons slot=\"start\">\n      <ion-back-button class=\"white\"></ion-back-button>\n      <!-- <ion-menu-button class=\"white\"></ion-menu-button> -->\n    </ion-buttons>\n    <ion-title>Chekout Page</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content>\n\n  <mat-horizontal-stepper [linear]=\"isLinear\" #stepper>\n    <mat-step>\n      <ion-item>\n        <ion-label position=\"floating\">First Name</ion-label>\n        <ion-input></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label position=\"floating\">First Last</ion-label>\n        <ion-input></ion-input>\n      </ion-item> \n      <div>\n        <ion-button matStepperNext (click)=\"stepper.next()\">Next</ion-button>\n      </div>\n\n    </mat-step>\n    <mat-step>\n      <p>2</p>\n      <ion-input type=\"text\" placeholder=\"Address\" name=\"secondCtrl\" required></ion-input>\n\n\n      <div>\n        <ion-button matStepperPrevious (click)=\"stepper.previous()\">Back</ion-button>\n        <ion-button matStepperNext (click)=\"stepper.next()\">Next</ion-button>\n      </div>\n    </mat-step>\n    <mat-step>\n      <ng-template matStepLabel>Done</ng-template>\n      You are now done.\n      <div>\n        <ion-button matStepperPrevious>Back</ion-button>\n        <ion-button (click)=\"stepper.reset()\">Reset</ion-button>\n      </div>\n    </mat-step>\n  </mat-horizontal-stepper>\n\n</ion-content>"
 
 /***/ }),
 
@@ -458,7 +469,7 @@ module.exports = "<ion-app>\n  <ion-menu side=\"start\" menuId=\"custom\" class=
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <ion-header translucent>\n  <ion-toolbar>\n    <ion-title>Modal Content</ion-title>\n\n    <ion-buttons slot=\"end\">\n        <ion-button > \n          <ion-icon name=\"md-refresh\"></ion-icon>\n        </ion-button>\n      <ion-button >Close</ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content fullscreen>\n        <ion-refresher slot=\"fixed\" pullFactor=\"0.5\" pullMin=\"100\" pullMax=\"200\" >\n          <ion-refresher-content>\n              \n          </ion-refresher-content>\n        </ion-refresher>\n  <ion-list>\n      <ion-item>\n      <ion-avatar slot=\"start\">\n      </ion-avatar>\n      <ion-label>\n       \n        <p>Hello world</p>\n      </ion-label>\n    </ion-item>\n  </ion-list>\n  \n</ion-content> -->\n<div style=\"width:100%;height:100%\" > \n    <div style=\"background:#5b39b7; width:100%;height:50px;display: flex;\n    align-items: center;justify-content:center\">\n      <h5 style=\"color:white\">Login Fail</h5>\n    </div> \n    <div>\n      <ul  *ngFor=\"let item of errorList\" style=\"padding-left:20px\">\n        <!-- <li>{{item}}</li> -->\n        <h6>{{item}}</h6>\n      </ul>\n      \n    </div>\n    <div style=\"bottom: 0; position: absolute;width: 100%\">\n      <ion-button expand=\"full\" type=\"submit\" color=\"#fff !important\" style=\"background: #5b39b7;\" (click)=\"closeModal()\">Close</ion-button>\n\n    </div>\n</div>\n"
+module.exports = "<!-- <ion-header translucent>\n  <ion-toolbar>\n    <ion-title>Modal Content</ion-title>\n\n    <ion-buttons slot=\"end\">\n        <ion-button > \n          <ion-icon name=\"md-refresh\"></ion-icon>\n        </ion-button>\n      <ion-button >Close</ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content fullscreen>\n        <ion-refresher slot=\"fixed\" pullFactor=\"0.5\" pullMin=\"100\" pullMax=\"200\" >\n          <ion-refresher-content>\n              \n          </ion-refresher-content>\n        </ion-refresher>\n  <ion-list>\n      <ion-item>\n      <ion-avatar slot=\"start\">\n      </ion-avatar>\n      <ion-label>\n       \n        <p>Hello world</p>\n      </ion-label>\n    </ion-item>\n  </ion-list>\n  \n</ion-content> -->\n<div style=\"width:100%;height:100%\" > \n    <div style=\"background:#de6161; width:100%;height:50px;display: flex;\n    align-items: center;justify-content:center\">\n      <h5 style=\"color:white\">Login Fail</h5>\n    </div> \n    <div>\n      <ul  *ngFor=\"let item of errorList\" style=\"padding-left:20px\">\n        <!-- <li>{{item}}</li> -->\n        <h6>{{item}}</h6>\n      </ul>\n      \n    </div>\n    <div style=\"bottom: 0; position: absolute;width: 100%\">\n      <ion-button expand=\"full\" type=\"submit\" color=\"#fff !important\" style=\"background: #de6161;margin: 0;\" (click)=\"closeModal()\">Close</ion-button>\n\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -475,6 +486,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _components_checkout_form_stepper_checkout_form_stepper_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/checkout-form-stepper/checkout-form-stepper.component */ "./src/app/components/checkout-form-stepper/checkout-form-stepper.component.ts");
+
 
 
 
@@ -493,6 +506,38 @@ var routes = [
         path: 'shop-bycaegorie',
         loadChildren: function () { return Promise.all(/*! import() | pages-shop-bycaegorie-shop-bycaegorie-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-shop-bycaegorie-shop-bycaegorie-module")]).then(__webpack_require__.bind(null, /*! ./pages/shop-bycaegorie/shop-bycaegorie.module */ "./src/app/pages/shop-bycaegorie/shop-bycaegorie.module.ts")).then(function (m) { return m.ShopBycaegoriePageModule; }); }
     },
+    {
+        path: 'product-detail-page',
+        loadChildren: function () { return Promise.all(/*! import() | pages-product-detail-page-product-detail-page-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-product-detail-page-product-detail-page-module")]).then(__webpack_require__.bind(null, /*! ./pages/product-detail-page/product-detail-page.module */ "./src/app/pages/product-detail-page/product-detail-page.module.ts")).then(function (m) { return m.ProductDetailPagePageModule; }); }
+    },
+    {
+        path: 'wishlist',
+        loadChildren: function () { return Promise.all(/*! import() | pages-wishlist-wishlist-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-wishlist-wishlist-module")]).then(__webpack_require__.bind(null, /*! ./pages/wishlist/wishlist.module */ "./src/app/pages/wishlist/wishlist.module.ts")).then(function (m) { return m.WishlistPageModule; }); }
+    },
+    {
+        path: 'stepper',
+        component: _components_checkout_form_stepper_checkout_form_stepper_component__WEBPACK_IMPORTED_MODULE_3__["CheckoutFormStepperComponent"],
+    },
+    {
+        path: 'address-screen',
+        loadChildren: function () { return __webpack_require__.e(/*! import() | pages-address-screen-address-screen-module */ "pages-address-screen-address-screen-module").then(__webpack_require__.bind(null, /*! ./pages/address-screen/address-screen.module */ "./src/app/pages/address-screen/address-screen.module.ts")).then(function (m) { return m.AddressScreenPageModule; }); }
+    },
+    {
+        path: 'all-address',
+        loadChildren: function () { return __webpack_require__.e(/*! import() | pages-all-address-all-address-module */ "pages-all-address-all-address-module").then(__webpack_require__.bind(null, /*! ./pages/all-address/all-address.module */ "./src/app/pages/all-address/all-address.module.ts")).then(function (m) { return m.AllAddressPageModule; }); }
+    },
+    {
+        path: 'invoice-page',
+        loadChildren: function () { return __webpack_require__.e(/*! import() | pages-invoice-page-invoice-page-module */ "pages-invoice-page-invoice-page-module").then(__webpack_require__.bind(null, /*! ./pages/invoice-page/invoice-page.module */ "./src/app/pages/invoice-page/invoice-page.module.ts")).then(function (m) { return m.InvoicePagePageModule; }); }
+    },
+    {
+        path: 'order-success',
+        loadChildren: function () { return __webpack_require__.e(/*! import() | pages-order-success-order-success-module */ "pages-order-success-order-success-module").then(__webpack_require__.bind(null, /*! ./pages/order-success/order-success.module */ "./src/app/pages/order-success/order-success.module.ts")).then(function (m) { return m.OrderSuccessPageModule; }); }
+    },
+    {
+        path: 'test',
+        loadChildren: function () { return __webpack_require__.e(/*! import() | pages-test-test-module */ "pages-test-test-module").then(__webpack_require__.bind(null, /*! ./pages/test/test.module */ "./src/app/pages/test/test.module.ts")).then(function (m) { return m.TestPageModule; }); }
+    }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -560,12 +605,12 @@ var AppComponent = /** @class */ (function () {
         this.profilepic = '';
         this.menuItem = [
             { logo: 'list', item: 'Project List', highlighted: false },
-            { logo: 'person', item: 'Company Member', highlighted: false },
-            { logo: 'briefcase', item: 'Course Work', highlighted: false },
+            { logo: 'person', item: 'Ladies jacket', highlighted: false },
+            { logo: 'alert', item: 'Men\'s Jacket', highlighted: false },
+            { logo: 'heart', item: 'Wishlist', highlighted: false },
             { logo: 'laptop', item: 'Training Videos', highlighted: false },
-            { logo: 'logo-game-controller-a', item: 'Captive Games', highlighted: false },
+            { logo: 'cart', item: 'Cart', highlighted: false },
             { logo: 'lock', item: 'Change Password', highlighted: false },
-            { logo: 'alert', item: 'Help', highlighted: false },
             { logo: 'log-out', item: 'Logout', highlighted: false },
         ];
         this.active = '';
@@ -595,20 +640,42 @@ var AppComponent = /** @class */ (function () {
         this.highlightedOff();
         this.menu.toggle();
         value.highlighted = true;
-        var categoy = '';
+        var categoy;
         switch (value.item) {
             case 'Logout':
                 this.logout();
                 this.highlightedOff();
-            case 'Help':
-                categoy = 'menJackets';
+                break;
+            case 'Men\'s Jacket':
+                categoy = {
+                    type: 'menJackets',
+                    header: 'Men\'s Jacket',
+                };
                 console.log("value", value);
-            case 'Company Member':
-                categoy = 'womenJackets';
+                this.openDetailsWithQueryParams(categoy);
+                break;
+            case 'Ladies jacket':
+                categoy = {
+                    type: 'womenJackets',
+                    header: 'Ladies jacket',
+                };
                 console.log("value", value);
+                this.openDetailsWithQueryParams(categoy);
+                break;
+            case 'Wishlist':
+                categoy = 'wishlist';
+                console.log("value", value);
+                this.router.navigate(['wishlist']);
+                break;
+            case 'Cart':
+                this.router.navigate(['cart-page']);
+                break;
+            default:
+                // this.openDetailsWithQueryParams(categoy);
+                break;
         }
         console.log("categoy", categoy);
-        this.openDetailsWithQueryParams(categoy);
+        // this.openDetailsWithQueryParams(categoy);
     };
     AppComponent.prototype.highlightedOff = function () {
         this.menuItem.forEach(function (values) {
@@ -683,7 +750,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_fire_database__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/fire/database */ "./node_modules/@angular/fire/database/index.js");
 /* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/fire/storage */ "./node_modules/@angular/fire/storage/index.js");
 /* harmony import */ var ionic4_rating__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ionic4-rating */ "./node_modules/ionic4-rating/dist/index.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _components_checkout_form_stepper_checkout_form_stepper_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/checkout-form-stepper/checkout-form-stepper.component */ "./src/app/components/checkout-form-stepper/checkout-form-stepper.component.ts");
+/* harmony import */ var _angular_material_stepper__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/stepper */ "./node_modules/@angular/material/esm5/stepper.es5.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
 
 
 
@@ -701,20 +773,27 @@ __webpack_require__.r(__webpack_exports__);
 
 // environment
 
+
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"], _components_error_popup_error_popup_component__WEBPACK_IMPORTED_MODULE_9__["ErrorPopupComponent"]],
-            entryComponents: [_components_error_popup_error_popup_component__WEBPACK_IMPORTED_MODULE_9__["ErrorPopupComponent"],
+            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"], _components_error_popup_error_popup_component__WEBPACK_IMPORTED_MODULE_9__["ErrorPopupComponent"], _components_checkout_form_stepper_checkout_form_stepper_component__WEBPACK_IMPORTED_MODULE_17__["CheckoutFormStepperComponent"]],
+            entryComponents: [_components_error_popup_error_popup_component__WEBPACK_IMPORTED_MODULE_9__["ErrorPopupComponent"], _components_checkout_form_stepper_checkout_form_stepper_component__WEBPACK_IMPORTED_MODULE_17__["CheckoutFormStepperComponent"]
             ],
             imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"],
-                _angular_fire__WEBPACK_IMPORTED_MODULE_10__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_15__["environment"].firebase),
+                _angular_fire__WEBPACK_IMPORTED_MODULE_10__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_16__["environment"].firebase),
                 _angular_fire_auth__WEBPACK_IMPORTED_MODULE_11__["AngularFireAuthModule"],
                 _angular_fire_database__WEBPACK_IMPORTED_MODULE_12__["AngularFireDatabaseModule"],
                 _angular_fire_storage__WEBPACK_IMPORTED_MODULE_13__["AngularFireStorageModule"],
                 ionic4_rating__WEBPACK_IMPORTED_MODULE_14__["IonicRatingModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_15__["BrowserAnimationsModule"],
+                _angular_material_stepper__WEBPACK_IMPORTED_MODULE_18__["MatStepperModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_19__["HttpClientModule"]
+                // CheckoutFormStepperComponent,
             ],
             providers: [
                 _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
@@ -725,6 +804,50 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/checkout-form-stepper/checkout-form-stepper.component.scss":
+/*!***************************************************************************************!*\
+  !*** ./src/app/components/checkout-form-stepper/checkout-form-stepper.component.scss ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvY2hlY2tvdXQtZm9ybS1zdGVwcGVyL2NoZWNrb3V0LWZvcm0tc3RlcHBlci5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/components/checkout-form-stepper/checkout-form-stepper.component.ts":
+/*!*************************************************************************************!*\
+  !*** ./src/app/components/checkout-form-stepper/checkout-form-stepper.component.ts ***!
+  \*************************************************************************************/
+/*! exports provided: CheckoutFormStepperComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CheckoutFormStepperComponent", function() { return CheckoutFormStepperComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var CheckoutFormStepperComponent = /** @class */ (function () {
+    function CheckoutFormStepperComponent() {
+    }
+    CheckoutFormStepperComponent.prototype.ngOnInit = function () { };
+    CheckoutFormStepperComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-checkout-form-stepper',
+            template: __webpack_require__(/*! raw-loader!./checkout-form-stepper.component.html */ "./node_modules/raw-loader/index.js!./src/app/components/checkout-form-stepper/checkout-form-stepper.component.html"),
+            styles: [__webpack_require__(/*! ./checkout-form-stepper.component.scss */ "./src/app/components/checkout-form-stepper/checkout-form-stepper.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], CheckoutFormStepperComponent);
+    return CheckoutFormStepperComponent;
 }());
 
 
@@ -858,6 +981,7 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 var environment = {
+    BASE_URL: "http://localhost:3000/",
     production: false,
     firebase: {
         apiKey: "AIzaSyB7NxldF6h-O1CvHDFCBo5rsha7CSvolTQ",

@@ -5695,7 +5695,7 @@ MatTabsModule.decorators = [
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar class=\"bg-color\">\n    <ion-title>{{product.headerType}}</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-back-button class=\"white\"></ion-back-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\">\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content >\n  <div style=\"height: 90%;overflow: scroll;\">\n  <ion-card>\n    <ion-row style=\"height: 250px;\">\n      <ion-col>\n        <ion-slides pager=\"true\">\n          <ion-slide *ngFor=\"let product of productImages;\">\n            <img [src]=\"product\" style=\"height: 250px;\" />\n          </ion-slide>\n        </ion-slides>\n        <div style=\" width: 100%;\n       font-size: 30px;\n        padding-top: 5%;\n        text-align: center;\n        position: absolute;\n        z-index: 99;\n        opacity: 0.5;\n        top: 0px;\n        color: white;\n        font-weight: bold;\n        left: 40%;\">\n          <ion-icon name=\"heart\" style=\"color:rgb(106, 112, 108)\" (click)=\"wishlist(product.id)\"\n            [ngClass]=\"{wish: product.wish}\"></ion-icon>\n        </div>\n      </ion-col>\n    </ion-row>\n    <ion-card-header>\n      <ion-card-title>\n        <h5 style=\"margin: 0;\">{{product.title}}</h5>\n      </ion-card-title>\n      <ion-card-subtitle>\n        <label>{{product.headerType}}</label>\n      </ion-card-subtitle>\n    </ion-card-header>\n    <ion-card-content>\n      <ion-row>\n          <ion-col size=\"4\" style=\"padding-left: 0 !important;\"> \n              <ion-badge color=\"success\">4 <ion-icon name=\"star\"></ion-icon></ion-badge>\n           </ion-col>\n           <ion-col size=\"8\" style=\"text-align:right\">\n            <label style=\"color:black;font-size: 25px\"><s style=\"color:grey;font-size: 22px\">$ 28</s> $ {{product.price}}</label>\n            </ion-col>\n      </ion-row>\n      <!-- <ion-row>\n        <ion-col size=\"6\" class=\"p0\">\n          <ion-button expand=\"block\" fill=\"outline\">Buy Now</ion-button>\n        </ion-col>\n        <ion-col size=\"6\" class=\"p0\">\n          <ion-button expand=\"block\" (click)=\"addToCart(product)\">Add To Cart</ion-button>\n        </ion-col>\n      </ion-row> -->\n    </ion-card-content>\n  </ion-card>\n  <ion-card *ngIf=\"!skeleton\">\n      <ion-card-subtitle>\n       \n        <!-- <mat-accordion>\n          <mat-expansion-panel (opened)=\"panelOpenState = true\" (closed)=\"panelOpenState = false\">\n            <mat-expansion-panel-header>\n              <mat-panel-title>\n                Product description\n              </mat-panel-title>\n            </mat-expansion-panel-header>\n            <p>{{product.discription}}</p>\n          </mat-expansion-panel>\n        </mat-accordion> -->\n      </ion-card-subtitle>\n    <ion-card-content>\n      <h6 style=\"margin-bottom: 10px; color:#333333;\">  Description</h6>\n        <p>{{product.discription}}</p>\n       \n    </ion-card-content>\n\n  </ion-card>\n</div>\n<!-- <div \nstyle=\" padding: 0px;\n  margin:0;\n   position: absolute;\n   bottom: 0;\n   width: 100%;\n  \" > -->\n  <ion-card style=\" padding: 0px;\n  margin:0;\n   position: absolute;\n   bottom: 0;\n   width: 100%;\n  \">\n  \n  <ion-card-content style=\"padding-top: 0;padding-bottom: 0;\">\n      <ion-row>\n          <ion-col size=\"6\" class=\"p0\">\n            <ion-button expand=\"block\" fill=\"outline\" class=\"checkout-btn\">Buy Now</ion-button>\n          </ion-col>\n          <ion-col size=\"6\" class=\"p0\">\n            <ion-button expand=\"block\" (click)=\"addToCart(product)\" class=\"butn bg-color\">Add To Cart</ion-button>\n          </ion-col>\n        </ion-row>\n  </ion-card-content>\n</ion-card>\n  <!-- </div> -->\n</ion-content>"
+module.exports = "<ion-header>\n  <ion-toolbar class=\"bg-color\">\n    <ion-title>{{product.headerType}}</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-back-button class=\"white\"></ion-back-button>\n    </ion-buttons>\n    <ion-buttons slot=\"end\">\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div style=\"height: 90%;overflow: scroll;\">\n    <ion-card>\n      <ion-row style=\"height: 250px;\">\n        <ion-col>\n          <ion-slides pager=\"false\">\n            <ion-slide *ngFor=\"let product of productImages;\">\n              <img [src]=\"product\" style=\"height: 250px;\" />\n            </ion-slide>\n          </ion-slides>\n          <div style=\" \n        width: 100%;\n        font-size: 30px;\n        /* padding-top: 5%; */\n        text-align: right;\n        position: absolute;\n        z-index: 99;\n        opacity: 0.5;\n        /* top: 0px; */\n        color: white;\n        font-weight: bold;\n        /* left: 40%; */\n        bottom: -15%;\n        padding-right: 24px;\n        \">\n            <ion-icon name=\"heart\" style=\"color:rgb(106, 112, 108);font-size:22px\" (click)=\"wishlist(product.id)\"\n              [ngClass]=\"{wish: product.wish}\"></ion-icon>\n          </div>\n        </ion-col>\n      </ion-row>\n      <ion-card-header>\n        <ion-card-title style=\"width: 90%;\">\n          <h5 style=\"margin: 0;\">{{product.title}}</h5>\n        </ion-card-title>\n        <ion-card-subtitle>\n          <label>{{product.headerType}}</label>\n        </ion-card-subtitle>\n      </ion-card-header>\n      <ion-card-content>\n        <ion-row>\n          <ion-col size=\"4\" style=\"padding-left: 0 !important;\">\n            <ion-badge color=\"success\">4 <ion-icon name=\"star\"></ion-icon>\n            </ion-badge>\n          </ion-col>\n          <ion-col size=\"8\" style=\"text-align:right\">\n            <label style=\"color:black;font-size: 25px\"><s style=\"color:grey;font-size: 22px\">$ 28</s> $\n              {{product.price}}</label>\n          </ion-col>\n        </ion-row>\n      </ion-card-content>\n    </ion-card>\n    <ion-card *ngIf=\"!skeleton\">\n      <ion-card-subtitle>\n\n        <!-- <mat-accordion>\n          <mat-expansion-panel (opened)=\"panelOpenState = true\" (closed)=\"panelOpenState = false\">\n            <mat-expansion-panel-header>\n              <mat-panel-title>\n                Product description\n              </mat-panel-title>\n            </mat-expansion-panel-header>\n            <p>{{product.discription}}</p>\n          </mat-expansion-panel>\n        </mat-accordion> -->\n      </ion-card-subtitle>\n      <ion-card-content>\n        \n        <ng-container>\n          <h5 style=\"margin-bottom: 10px; color:#333333;\">Color options</h5>\n          <div style=\"background: red;width:20px; height:20px;border-radius:50%;float: left;margin-right:10px\"></div>\n          <div style=\"background: green;width:20px; height:20px;border-radius:50%;float: left;margin-right:10px\"></div>\n          <div style=\"background: grey;width:20px; height:20px;border-radius:50%;float: left;margin-right:10px\"></div>\n          <div style=\"background: blue;width:20px; height:20px;border-radius:50%;float: left;margin-right:10px\"></div>\n        </ng-container>\n        <br>\n        <ng-container>\n          <h5 style=\"margin-bottom: 10px; color:#333333;\">Size options</h5>\n          <div style=\"border:solid 1px grey;width:20px; height:20px;float: left;margin-right:10px;text-align:center;\"\n            class=\"flex-center\" *ngFor=\"let size of size;\">{{size}}</div>\n          <!-- <div style=\"border:solid 1px grey; width:20px; height:20px;float: left;margin-right:10px;text-align:center;\"\n            class=\"flex-center\">M</div>\n          <div style=\"border:solid 1px grey;width:20px; height:20px;float: left;margin-right:10px;text-align:center;\"\n            class=\"flex-center\">L</div>\n          <div style=\"border:solid 1px grey;width:20px; height:20px;float: left;margin-right:10px;text-align:center;\"\n            class=\"flex-center\">XL</div> -->\n        </ng-container>\n        <br>\n        <ion-item style=\"width:45%\">\n            <ion-label>Qty</ion-label>\n            <ion-select [(ngModel)]=\"qty\" value=\"1\">\n              <ion-select-option value=\"1\" selected>1</ion-select-option>\n              <ion-select-option value=\"2\">2</ion-select-option>\n              <ion-select-option value=\"3\" >3</ion-select-option>\n              <ion-select-option value=\"4\">4</ion-select-option>\n            </ion-select>\n          </ion-item>\n        <ng-container>\n         <ion-row style=\"margin-top:10px;justify-content: space-between;\n         display: flex\">\n           <ion-col size=\"4\" style=\"text-align: center;\n           border: solid 1px grey;align-items: center;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\">\n              <ion-icon name=\"cash\" style=\"font-size: 20px;\"></ion-icon>\n              <p>Pay cash</p>\n           </ion-col>\n           <ion-col size=\"4\"  style=\"text-align: center;\n           border: solid 1px grey;align-items: center;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\">\n              <ion-icon name=\"undo\" style=\"font-size: 20px;\"></ion-icon>\n              <p>10 Day return</p>\n           </ion-col>\n           <ion-col size=\"4\"  style=\"text-align: center;\n           border: solid 1px grey;align-items: center;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\">\n              <ion-icon name=\"flash\" style=\"font-size: 20px;\"></ion-icon>\n              <p>lightning delivery</p>\n           </ion-col>\n         </ion-row>\n        </ng-container>\n        <br>\n       \n        <h6 style=\"margin-bottom: 10px;margin-top:10px; color:#333333;\"> Description</h6>\n        <p>{{product.discription}}</p>\n\n      </ion-card-content>\n\n    </ion-card>\n  </div>\n  <!-- <div \nstyle=\" padding: 0px;\n  margin:0;\n   position: absolute;\n   bottom: 0;\n   width: 100%;\n  \" > -->\n  <ion-card style=\" padding: 0px;\n  margin:0;\n   position: absolute;\n   bottom: 0;\n   width: 100%;\n  \">\n\n    <ion-card-content style=\"padding-top: 0;padding-bottom: 0;\" >\n      <ion-row *ngIf=\"!fromCart\">\n        <ion-col size=\"6\" class=\"p0\">\n          <ion-button expand=\"block\" fill=\"outline\" style=\"width: 95%;\" class=\"checkout-btn\"\n            (click)=\"sendToInvoicePage()\">Buy Now</ion-button>\n        </ion-col>\n        <ion-col size=\"6\" class=\"p0\">\n          <ion-button expand=\"block\" (click)=\"addToCart(product)\" style=\"width: 95%;\" class=\"butn bg-color\">Add To Cart\n          </ion-button>\n        </ion-col>\n      </ion-row>\n    </ion-card-content>\n  </ion-card>\n  <!-- </div> -->\n</ion-content>"
 
 /***/ }),
 
@@ -5795,7 +5795,7 @@ ProductDetailPagePageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".mat-tab-label {\n  min-width: 25px !important;\n  padding: 5px;\n  background-color: transparent;\n  font-weight: 700;\n}\n\n/* Styles for the active tab label */\n\n.mat-tab-label.mat-tab-label-active {\n  min-width: 25px !important;\n  padding: 5px;\n  background-color: transparent;\n  font-weight: 700;\n}\n\n/* Styles for the ink bar */\n\n.mat-ink-bar {\n  background-color: green !important;\n}\n\n.checkout-btn {\n  --color:#de6161;\n  --border-color: #de6161;\n  width: 100%;\n  --color-activated: #de6161;\n}\n\n.add-cart {\n  background-color: #de6161;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3ViYy0yMS9Eb2N1bWVudHMvaW9uYXBwL2dpdC9uZXdHaXQvbmxmSW9uaWMvc3JjL2FwcC9wYWdlcy9wcm9kdWN0LWRldGFpbC1wYWdlL3Byb2R1Y3QtZGV0YWlsLXBhZ2UucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9wcm9kdWN0LWRldGFpbC1wYWdlL3Byb2R1Y3QtZGV0YWlsLXBhZ2UucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksMEJBQUE7RUFDQSxZQUFBO0VBQ0EsNkJBQUE7RUFFQSxnQkFBQTtBQ0FKOztBREdBLG9DQUFBOztBQUNBO0VBQ0ksMEJBQUE7RUFDQSxZQUFBO0VBQ0EsNkJBQUE7RUFFQSxnQkFBQTtBQ0RKOztBRElBLDJCQUFBOztBQUNBO0VBQ0ksa0NBQUE7QUNESjs7QURHQTtFQUNJLGVBQUE7RUFDQSx1QkFBQTtFQUNBLFdBQUE7RUFDQSwwQkFBQTtBQ0FKOztBREVBO0VBQ0kseUJBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3Byb2R1Y3QtZGV0YWlsLXBhZ2UvcHJvZHVjdC1kZXRhaWwtcGFnZS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWF0LXRhYi1sYWJlbCB7XG4gICAgbWluLXdpZHRoOiAyNXB4ICFpbXBvcnRhbnQ7XG4gICAgcGFkZGluZzogNXB4O1xuICAgIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuICAgIFxuICAgIGZvbnQtd2VpZ2h0OiA3MDA7XG59XG5cbi8qIFN0eWxlcyBmb3IgdGhlIGFjdGl2ZSB0YWIgbGFiZWwgKi9cbi5tYXQtdGFiLWxhYmVsLm1hdC10YWItbGFiZWwtYWN0aXZlIHtcbiAgICBtaW4td2lkdGg6IDI1cHggIWltcG9ydGFudDtcbiAgICBwYWRkaW5nOiA1cHg7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XG4gICAgXG4gICAgZm9udC13ZWlnaHQ6IDcwMDtcbn1cblxuLyogU3R5bGVzIGZvciB0aGUgaW5rIGJhciAqL1xuLm1hdC1pbmstYmFyIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBncmVlbiAhaW1wb3J0YW50O1xufVxuLmNoZWNrb3V0LWJ0bntcbiAgICAtLWNvbG9yOiNkZTYxNjE7XG4gICAgLS1ib3JkZXItY29sb3I6ICNkZTYxNjE7XG4gICAgd2lkdGg6MTAwJTtcbiAgICAtLWNvbG9yLWFjdGl2YXRlZDogI2RlNjE2MTtcbn1cbi5hZGQtY2FydHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiNkZTYxNjE7XG59IiwiLm1hdC10YWItbGFiZWwge1xuICBtaW4td2lkdGg6IDI1cHggIWltcG9ydGFudDtcbiAgcGFkZGluZzogNXB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgZm9udC13ZWlnaHQ6IDcwMDtcbn1cblxuLyogU3R5bGVzIGZvciB0aGUgYWN0aXZlIHRhYiBsYWJlbCAqL1xuLm1hdC10YWItbGFiZWwubWF0LXRhYi1sYWJlbC1hY3RpdmUge1xuICBtaW4td2lkdGg6IDI1cHggIWltcG9ydGFudDtcbiAgcGFkZGluZzogNXB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgZm9udC13ZWlnaHQ6IDcwMDtcbn1cblxuLyogU3R5bGVzIGZvciB0aGUgaW5rIGJhciAqL1xuLm1hdC1pbmstYmFyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogZ3JlZW4gIWltcG9ydGFudDtcbn1cblxuLmNoZWNrb3V0LWJ0biB7XG4gIC0tY29sb3I6I2RlNjE2MTtcbiAgLS1ib3JkZXItY29sb3I6ICNkZTYxNjE7XG4gIHdpZHRoOiAxMDAlO1xuICAtLWNvbG9yLWFjdGl2YXRlZDogI2RlNjE2MTtcbn1cblxuLmFkZC1jYXJ0IHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2RlNjE2MTtcbn0iXX0= */"
+module.exports = ".mat-tab-label {\n  min-width: 25px !important;\n  padding: 5px;\n  background-color: transparent;\n  font-weight: 700;\n}\n\n/* Styles for the active tab label */\n\n.mat-tab-label.mat-tab-label-active {\n  min-width: 25px !important;\n  padding: 5px;\n  background-color: transparent;\n  font-weight: 700;\n}\n\n/* Styles for the ink bar */\n\n.mat-ink-bar {\n  background-color: green !important;\n}\n\n.checkout-btn {\n  --color:#de6161;\n  --border-color: #de6161;\n  width: 100%;\n  --color-activated: #de6161;\n}\n\n.add-cart {\n  background-color: #de6161;\n}\n\n.flex-center {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3ViYy0yMS9Eb2N1bWVudHMvaW9uYXBwL2dpdC9uZXdHaXQvbmxmSW9uaWMvc3JjL2FwcC9wYWdlcy9wcm9kdWN0LWRldGFpbC1wYWdlL3Byb2R1Y3QtZGV0YWlsLXBhZ2UucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9wcm9kdWN0LWRldGFpbC1wYWdlL3Byb2R1Y3QtZGV0YWlsLXBhZ2UucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksMEJBQUE7RUFDQSxZQUFBO0VBQ0EsNkJBQUE7RUFFQSxnQkFBQTtBQ0FKOztBREdBLG9DQUFBOztBQUNBO0VBQ0ksMEJBQUE7RUFDQSxZQUFBO0VBQ0EsNkJBQUE7RUFFQSxnQkFBQTtBQ0RKOztBRElBLDJCQUFBOztBQUNBO0VBQ0ksa0NBQUE7QUNESjs7QURHQTtFQUNJLGVBQUE7RUFDQSx1QkFBQTtFQUNBLFdBQUE7RUFDQSwwQkFBQTtBQ0FKOztBREVBO0VBQ0kseUJBQUE7QUNDSjs7QURFQTtFQUNJLG9CQUFBO0VBQUEsYUFBQTtFQUNBLHlCQUFBO1VBQUEsbUJBQUE7RUFDQSx3QkFBQTtVQUFBLHVCQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9wcm9kdWN0LWRldGFpbC1wYWdlL3Byb2R1Y3QtZGV0YWlsLXBhZ2UucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1hdC10YWItbGFiZWwge1xuICAgIG1pbi13aWR0aDogMjVweCAhaW1wb3J0YW50O1xuICAgIHBhZGRpbmc6IDVweDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgICBcbiAgICBmb250LXdlaWdodDogNzAwO1xufVxuXG4vKiBTdHlsZXMgZm9yIHRoZSBhY3RpdmUgdGFiIGxhYmVsICovXG4ubWF0LXRhYi1sYWJlbC5tYXQtdGFiLWxhYmVsLWFjdGl2ZSB7XG4gICAgbWluLXdpZHRoOiAyNXB4ICFpbXBvcnRhbnQ7XG4gICAgcGFkZGluZzogNXB4O1xuICAgIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuICAgIFxuICAgIGZvbnQtd2VpZ2h0OiA3MDA7XG59XG5cbi8qIFN0eWxlcyBmb3IgdGhlIGluayBiYXIgKi9cbi5tYXQtaW5rLWJhciB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogZ3JlZW4gIWltcG9ydGFudDtcbn1cbi5jaGVja291dC1idG57XG4gICAgLS1jb2xvcjojZGU2MTYxO1xuICAgIC0tYm9yZGVyLWNvbG9yOiAjZGU2MTYxO1xuICAgIHdpZHRoOjEwMCU7XG4gICAgLS1jb2xvci1hY3RpdmF0ZWQ6ICNkZTYxNjE7XG59XG4uYWRkLWNhcnR7XG4gICAgYmFja2dyb3VuZC1jb2xvcjojZGU2MTYxO1xufVxuXG4uZmxleC1jZW50ZXJ7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xufSIsIi5tYXQtdGFiLWxhYmVsIHtcbiAgbWluLXdpZHRoOiAyNXB4ICFpbXBvcnRhbnQ7XG4gIHBhZGRpbmc6IDVweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XG4gIGZvbnQtd2VpZ2h0OiA3MDA7XG59XG5cbi8qIFN0eWxlcyBmb3IgdGhlIGFjdGl2ZSB0YWIgbGFiZWwgKi9cbi5tYXQtdGFiLWxhYmVsLm1hdC10YWItbGFiZWwtYWN0aXZlIHtcbiAgbWluLXdpZHRoOiAyNXB4ICFpbXBvcnRhbnQ7XG4gIHBhZGRpbmc6IDVweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XG4gIGZvbnQtd2VpZ2h0OiA3MDA7XG59XG5cbi8qIFN0eWxlcyBmb3IgdGhlIGluayBiYXIgKi9cbi5tYXQtaW5rLWJhciB7XG4gIGJhY2tncm91bmQtY29sb3I6IGdyZWVuICFpbXBvcnRhbnQ7XG59XG5cbi5jaGVja291dC1idG4ge1xuICAtLWNvbG9yOiNkZTYxNjE7XG4gIC0tYm9yZGVyLWNvbG9yOiAjZGU2MTYxO1xuICB3aWR0aDogMTAwJTtcbiAgLS1jb2xvci1hY3RpdmF0ZWQ6ICNkZTYxNjE7XG59XG5cbi5hZGQtY2FydCB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNkZTYxNjE7XG59XG5cbi5mbGV4LWNlbnRlciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xufSJdfQ== */"
 
 /***/ }),
 
@@ -5813,22 +5813,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _tsFiles_products__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../tsFiles/products */ "./src/app/tsFiles/products.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
 
 
 
 
 let ProductDetailPagePage = class ProductDetailPagePage {
-    constructor(route, router) {
+    constructor(route, router, toastController) {
         this.route = route;
         this.router = router;
+        this.toastController = toastController;
         // @ViewChild(IonContent) content: IonContent;
         this.products = _tsFiles_products__WEBPACK_IMPORTED_MODULE_3__["products"].jackets;
         this.productImages = [];
         this.rate = 4;
         this.cartBadge = 0;
+        this.qty = "1";
+        this.size = ['S', 'M', 'L', 'XL'];
+        this.fromCart = false;
         this.route.queryParams.subscribe(params => {
             if (params && params.special) {
                 this.data = JSON.parse(params.special);
+                this.fromCart = params.fromCart;
             }
         });
         let data = [];
@@ -5839,6 +5846,9 @@ let ProductDetailPagePage = class ProductDetailPagePage {
         else {
             this.cartBadge = data.length;
         }
+    }
+    ionViewWillEnter() {
+        console.log("fro cart", this.fromCart);
     }
     ngOnInit() {
         _tsFiles_products__WEBPACK_IMPORTED_MODULE_3__["products"].jackets.map((item) => {
@@ -5858,6 +5868,9 @@ let ProductDetailPagePage = class ProductDetailPagePage {
             if (item.id == id) {
                 item['wish'] ? item['wish'] = !item['wish'] : item['wish'] = true;
             }
+            if (item['wish']) {
+                this.presentToast();
+            }
         });
     }
     addToCart(data) {
@@ -5875,10 +5888,33 @@ let ProductDetailPagePage = class ProductDetailPagePage {
         localStorage.setItem('products', JSON.stringify(a));
         this.cartBadge = a.length;
     }
+    sendToInvoicePage() {
+        console.log("daatatat", this.product);
+        let navigationExtras = {
+            queryParams: {
+                single: JSON.stringify(this.product)
+            }
+        };
+        this.product['qty'] = parseInt(this.qty);
+        localStorage.setItem('singleItem', JSON.stringify(this.product));
+        this.router.navigate(['address-screen']);
+    }
+    presentToast() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const toast = yield this.toastController.create({
+                message: 'Item saved to wishlist.',
+                duration: 2000,
+                // color: 'light',
+                animated: true,
+            });
+            toast.present();
+        });
+    }
 };
 ProductDetailPagePage.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"] }
 ];
 ProductDetailPagePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -5887,7 +5923,8 @@ ProductDetailPagePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
         styles: [__webpack_require__(/*! ./product-detail-page.page.scss */ "./src/app/pages/product-detail-page/product-detail-page.page.scss")]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"]])
 ], ProductDetailPagePage);
 
 

@@ -469,7 +469,7 @@ module.exports = "<ion-header>\n  <ion-toolbar class=\"bg-color\">\n    <ion-but
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <ion-header translucent>\n  <ion-toolbar>\n    <ion-title>Modal Content</ion-title>\n\n    <ion-buttons slot=\"end\">\n        <ion-button > \n          <ion-icon name=\"md-refresh\"></ion-icon>\n        </ion-button>\n      <ion-button >Close</ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content fullscreen>\n        <ion-refresher slot=\"fixed\" pullFactor=\"0.5\" pullMin=\"100\" pullMax=\"200\" >\n          <ion-refresher-content>\n              \n          </ion-refresher-content>\n        </ion-refresher>\n  <ion-list>\n      <ion-item>\n      <ion-avatar slot=\"start\">\n      </ion-avatar>\n      <ion-label>\n       \n        <p>Hello world</p>\n      </ion-label>\n    </ion-item>\n  </ion-list>\n  \n</ion-content> -->\n<div style=\"width:100%;height:100%\" > \n    <div style=\"background:#5b39b7; width:100%;height:50px;display: flex;\n    align-items: center;justify-content:center\">\n      <h5 style=\"color:white\">Login Fail</h5>\n    </div> \n    <div>\n      <ul  *ngFor=\"let item of errorList\" style=\"padding-left:20px\">\n        <!-- <li>{{item}}</li> -->\n        <h6>{{item}}</h6>\n      </ul>\n      \n    </div>\n    <div style=\"bottom: 0; position: absolute;width: 100%\">\n      <ion-button expand=\"full\" type=\"submit\" color=\"#fff !important\" style=\"background: #5b39b7;\" (click)=\"closeModal()\">Close</ion-button>\n\n    </div>\n</div>\n"
+module.exports = "<!-- <ion-header translucent>\n  <ion-toolbar>\n    <ion-title>Modal Content</ion-title>\n\n    <ion-buttons slot=\"end\">\n        <ion-button > \n          <ion-icon name=\"md-refresh\"></ion-icon>\n        </ion-button>\n      <ion-button >Close</ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content fullscreen>\n        <ion-refresher slot=\"fixed\" pullFactor=\"0.5\" pullMin=\"100\" pullMax=\"200\" >\n          <ion-refresher-content>\n              \n          </ion-refresher-content>\n        </ion-refresher>\n  <ion-list>\n      <ion-item>\n      <ion-avatar slot=\"start\">\n      </ion-avatar>\n      <ion-label>\n       \n        <p>Hello world</p>\n      </ion-label>\n    </ion-item>\n  </ion-list>\n  \n</ion-content> -->\n<div style=\"width:100%;height:100%\" > \n    <div style=\"background:#de6161; width:100%;height:50px;display: flex;\n    align-items: center;justify-content:center\">\n      <h5 style=\"color:white\">Login Fail</h5>\n    </div> \n    <div>\n      <ul  *ngFor=\"let item of errorList\" style=\"padding-left:20px\">\n        <!-- <li>{{item}}</li> -->\n        <h6>{{item}}</h6>\n      </ul>\n      \n    </div>\n    <div style=\"bottom: 0; position: absolute;width: 100%\">\n      <ion-button expand=\"full\" type=\"submit\" color=\"#fff !important\" style=\"background: #de6161;margin: 0;\" (click)=\"closeModal()\">Close</ion-button>\n\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -529,6 +529,14 @@ var routes = [
     {
         path: 'invoice-page',
         loadChildren: function () { return __webpack_require__.e(/*! import() | pages-invoice-page-invoice-page-module */ "pages-invoice-page-invoice-page-module").then(__webpack_require__.bind(null, /*! ./pages/invoice-page/invoice-page.module */ "./src/app/pages/invoice-page/invoice-page.module.ts")).then(function (m) { return m.InvoicePagePageModule; }); }
+    },
+    {
+        path: 'order-success',
+        loadChildren: function () { return __webpack_require__.e(/*! import() | pages-order-success-order-success-module */ "pages-order-success-order-success-module").then(__webpack_require__.bind(null, /*! ./pages/order-success/order-success.module */ "./src/app/pages/order-success/order-success.module.ts")).then(function (m) { return m.OrderSuccessPageModule; }); }
+    },
+    {
+        path: 'test',
+        loadChildren: function () { return __webpack_require__.e(/*! import() | pages-test-test-module */ "pages-test-test-module").then(__webpack_require__.bind(null, /*! ./pages/test/test.module */ "./src/app/pages/test/test.module.ts")).then(function (m) { return m.TestPageModule; }); }
     }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -663,7 +671,7 @@ var AppComponent = /** @class */ (function () {
                 this.router.navigate(['cart-page']);
                 break;
             default:
-                this.openDetailsWithQueryParams(categoy);
+                // this.openDetailsWithQueryParams(categoy);
                 break;
         }
         console.log("categoy", categoy);
@@ -746,6 +754,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
 /* harmony import */ var _components_checkout_form_stepper_checkout_form_stepper_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/checkout-form-stepper/checkout-form-stepper.component */ "./src/app/components/checkout-form-stepper/checkout-form-stepper.component.ts");
 /* harmony import */ var _angular_material_stepper__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/stepper */ "./node_modules/@angular/material/esm5/stepper.es5.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 
 
 
@@ -766,6 +775,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -781,7 +791,8 @@ var AppModule = /** @class */ (function () {
                 _angular_fire_storage__WEBPACK_IMPORTED_MODULE_13__["AngularFireStorageModule"],
                 ionic4_rating__WEBPACK_IMPORTED_MODULE_14__["IonicRatingModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_15__["BrowserAnimationsModule"],
-                _angular_material_stepper__WEBPACK_IMPORTED_MODULE_18__["MatStepperModule"]
+                _angular_material_stepper__WEBPACK_IMPORTED_MODULE_18__["MatStepperModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_19__["HttpClientModule"]
                 // CheckoutFormStepperComponent,
             ],
             providers: [
@@ -970,6 +981,7 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 var environment = {
+    BASE_URL: "http://localhost:3000/",
     production: false,
     firebase: {
         apiKey: "AIzaSyB7NxldF6h-O1CvHDFCBo5rsha7CSvolTQ",

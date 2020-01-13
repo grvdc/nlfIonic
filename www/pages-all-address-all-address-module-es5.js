@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar class=\"bg-color\">\n    <ion-title>all-address</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ng-container *ngIf=\"clientAddress.length > 0\">\n      <ion-card *ngFor=\"let item of clientAddress;index as index\">\n          <ion-item>\n      \n            <ion-label class=\"ion-text-wrap\">\n              <ion-text>\n                <h2><b>{{item.name}}</b></h2>\n              </ion-text>\n              <ion-text>\n                <h3>{{item.address}}, {{item.landmark}} , {{item.city}}, {{item.state}} <b>- {{item.zip}}</b></h3>\n              </ion-text>\n              <ion-text>\n                <h3>{{item.mobile}}</h3>\n              </ion-text>\n              <ion-button (click)=\"sendBacktoInvoice(item)\">Select</ion-button>\n              <ion-button (click)=\"remove(index)\">Remove</ion-button>\n            </ion-label>\n          </ion-item>\n        </ion-card>\n        <ion-card >\n          <ion-item>\n            <ion-text>\n              <h5>Add New Address</h5>\n            </ion-text>\n          </ion-item>\n          <ion-item>\n              \n              <ion-button (click)=\"addAddress()\">Add New Address</ion-button>\n            </ion-item>\n        </ion-card>\n  </ng-container>\n  <ng-container  *ngIf=\"clientAddress.length == 0\">\n      <ion-card >\n          <ion-item>\n            <ion-text>\n              <h5>No Address found</h5>\n            </ion-text>\n          </ion-item>\n          <ion-item>\n              \n              <ion-button (click)=\"addAddress()\">Add Address</ion-button>\n            </ion-item>\n        </ion-card>\n  </ng-container>\n \n</ion-content>"
+module.exports = "<ion-header>\n  <ion-toolbar class=\"bg-color\">\n    <ion-title>all-address</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <h6 style=\"padding-left:15px\">Slect Address</h6>\n  <ng-container *ngIf=\"clientAddress.length > 0\">\n      <ion-card *ngFor=\"let item of clientAddress;index as index\">\n          <ion-item>\n      \n            <ion-label class=\"ion-text-wrap\">\n              <ion-text>\n                <h2><b>{{item.name}}</b></h2>\n              </ion-text>\n              <ion-text>\n                <h3>{{item.address}}, {{item.landmark}} , {{item.city}}, {{item.state}} <b>- {{item.zip}}</b></h3>\n              </ion-text>\n              <ion-text>\n                <h3>{{item.mobile}}</h3>\n              </ion-text>\n              <ion-button (click)=\"sendBacktoInvoice(item)\">Select</ion-button>\n              <ion-button (click)=\"remove(index)\">Remove</ion-button>\n            </ion-label>\n          </ion-item>\n        </ion-card>\n        <ion-card >\n          <ion-item>\n            <ion-text>\n              <h5>Add New Address</h5>\n            </ion-text>\n          </ion-item>\n          <ion-item>\n              \n              <ion-button (click)=\"addAddress()\">Add New Address</ion-button>\n            </ion-item>\n        </ion-card>\n  </ng-container>\n  <ng-container  *ngIf=\"clientAddress.length == 0\">\n      <ion-card >\n          <ion-item>\n            <ion-text>\n              <h5>No Address found</h5>\n            </ion-text>\n          </ion-item>\n          <ion-item>\n              \n              <ion-button (click)=\"addAddress()\">Add Address</ion-button>\n            </ion-item>\n        </ion-card>\n  </ng-container>\n \n</ion-content>"
 
 /***/ }),
 
@@ -120,17 +120,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
 
 
 
 var AllAddressPage = /** @class */ (function () {
-    function AllAddressPage(router) {
-        var _this = this;
+    function AllAddressPage(router, loadingController) {
         this.router = router;
+        this.loadingController = loadingController;
         this.login = '';
         this.address = [];
         this.clientAddress = [];
         this.aa = [];
+    }
+    AllAddressPage.prototype.ngOnInit = function () {
+    };
+    AllAddressPage.prototype.ionViewWillEnter = function () {
+        this.reload();
+        if (this.clientAddress.length == 0) {
+            this.router.navigate(['address-screen']);
+        }
+    };
+    AllAddressPage.prototype.reload = function () {
+        var _this = this;
         this.login = localStorage.getItem("login");
         this.address = JSON.parse(localStorage.getItem('address'));
         this.address.filter(function (item) {
@@ -140,8 +153,6 @@ var AllAddressPage = /** @class */ (function () {
             }
         });
         console.log('cleintaddress', this.clientAddress);
-    }
-    AllAddressPage.prototype.ngOnInit = function () {
     };
     AllAddressPage.prototype.sendBacktoInvoice = function (data) {
         console.log('selected Address', data);
@@ -166,8 +177,26 @@ var AllAddressPage = /** @class */ (function () {
         });
         localStorage.setItem('address', JSON.stringify(this.address));
     };
+    AllAddressPage.prototype.showLoader = function () {
+        this.loaderToShow = this.loadingController.create({
+            message: 'This Loader will Not AutoHide'
+        }).then(function (res) {
+            res.present();
+            res.onDidDismiss().then(function (dis) {
+                console.log('Loading dismissed!');
+            });
+        });
+        // this.hideLoader();
+    };
+    AllAddressPage.prototype.hideLoader = function () {
+        var _this = this;
+        setTimeout(function () {
+            _this.loadingController.dismiss();
+        }, 4000);
+    };
     AllAddressPage.ctorParameters = function () { return [
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"] }
     ]; };
     AllAddressPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -175,7 +204,8 @@ var AllAddressPage = /** @class */ (function () {
             template: __webpack_require__(/*! raw-loader!./all-address.page.html */ "./node_modules/raw-loader/index.js!./src/app/pages/all-address/all-address.page.html"),
             styles: [__webpack_require__(/*! ./all-address.page.scss */ "./src/app/pages/all-address/all-address.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"]])
     ], AllAddressPage);
     return AllAddressPage;
 }());

@@ -115,14 +115,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _tsFiles_products__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../tsFiles/products */ "./src/app/tsFiles/products.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
 
 
 
 
 let ShopBycaegoriePage = class ShopBycaegoriePage {
-    constructor(route, router) {
+    constructor(route, router, toastController) {
         this.route = route;
         this.router = router;
+        this.toastController = toastController;
         this.products = _tsFiles_products__WEBPACK_IMPORTED_MODULE_3__["products"].jackets;
         this.productDisplay = [];
         this.showError = false;
@@ -175,10 +178,32 @@ let ShopBycaegoriePage = class ShopBycaegoriePage {
         console.log('a', a);
         localStorage.setItem('products', JSON.stringify(a));
     }
+    wishlist(id) {
+        _tsFiles_products__WEBPACK_IMPORTED_MODULE_3__["products"].jackets.map((item) => {
+            if (item.id == id) {
+                item['wish'] ? item['wish'] = !item['wish'] : item['wish'] = true;
+            }
+            if (item['wish']) {
+                this.presentToast();
+            }
+        });
+    }
+    presentToast() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const toast = yield this.toastController.create({
+                message: 'Item saved to wishlist.',
+                duration: 2000,
+                // color: 'light',
+                animated: true,
+            });
+            toast.present();
+        });
+    }
 };
 ShopBycaegoriePage.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"] }
 ];
 ShopBycaegoriePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -186,7 +211,8 @@ ShopBycaegoriePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         template: __webpack_require__(/*! raw-loader!./shop-bycaegorie.page.html */ "./node_modules/raw-loader/index.js!./src/app/pages/shop-bycaegorie/shop-bycaegorie.page.html"),
         styles: [__webpack_require__(/*! ./shop-bycaegorie.page.scss */ "./src/app/pages/shop-bycaegorie/shop-bycaegorie.page.scss")]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"]])
 ], ShopBycaegoriePage);
 
 
