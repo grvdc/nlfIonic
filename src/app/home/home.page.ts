@@ -255,8 +255,16 @@ export class HomePage {
   }
 
   test(data){
-    console.log("test categories", data);
+   
   }
 
+  goToAllCategories(data){
+    console.log("test categories", data);
+    if(data.id == 14){
+      this.router.navigateByUrl('/all-categories');
+    }
+    
+   
+  }
   
 }

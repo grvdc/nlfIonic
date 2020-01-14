@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar class="bg-color">
+    <ion-title>all-categories</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col size="3" class="flex-center" *ngFor="let cat of categories">
+      <ion-avatar class="border">
+        <img [src]="cat.image" />
+      </ion-avatar>
+     <ion-text>
+        <p>{{cat.name | titlecase}}</p>
+      </ion-text>
+    </ion-col>
+ 
+  </ion-row>
+</ion-content>

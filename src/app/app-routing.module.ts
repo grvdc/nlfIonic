@@ -48,6 +48,14 @@ const routes: Routes = [
   {
     path: 'test',
     loadChildren: () => import('./pages/test/test.module').then( m => m.TestPageModule)
+  },
+  {
+    path: 'all-components',
+    loadChildren: () => import('./pages/all-components/all-components.module').then( m => m.AllComponentsPageModule)
+  },
+  {
+    path: 'all-categories',
+    loadChildren: () => import('./pages/all-categories/all-categories.module').then( m => m.AllCategoriesPageModule)
   }
 ];
 

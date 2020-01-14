@@ -30,8 +30,8 @@
          ;align-items: center;
    display: flex;
    flex-direction: column;
-   justify-content: center;margin-top:5px;margin-bottom: 5px;" (click)="test(s)">
-          <ion-thumbnail *ngIf="s.image">
+   justify-content: center;margin-top:5px;margin-bottom: 5px;" (click)="goToAllCategories(s)">
+          <ion-thumbnail *ngIf="s.image" >
             <img [src]="s.image">
           </ion-thumbnail>
 
