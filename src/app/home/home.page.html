@@ -1,11 +1,14 @@
 <ion-header>
   <ion-toolbar class="bg-color">
     <ion-buttons slot="start">
-      <ion-menu-button class="white"></ion-menu-button>
+      <ion-menu-button class="white">
+        <img src="https://pbs.twimg.com/profile_images/862398262267052032/uqmSDxZT_400x400.png" />
+      </ion-menu-button>
     </ion-buttons>
-    <ion-title *ngIf="!searchInput">Home </ion-title>
+    <ion-title *ngIf="!searchInput" style="padding:0">Home </ion-title>
     <ion-buttons slot="end">
       <app-cart-at-header [cartCount]="cartBadge"></app-cart-at-header>
+      
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -53,7 +56,8 @@
   padding-left: 10px;
   height: 50px;
   padding-right: 10px;
-  background: #ffeeee;">
+  background: #ffeeee;display: flex;
+    align-items: center;">
     <p style="text-align: left;
     width: 50%;
     float: left">DEALS OF THE DAY</p>
@@ -103,7 +107,8 @@
   padding-left: 10px;
   height: 50px;
   padding-right: 10px;
-  background: #ffeeee;">
+  background: #ffeeee;display: flex;
+    align-items: center;">
     <p style="text-align: left;
     width: 50%;
     float: left">Footwear</p>
@@ -149,7 +154,8 @@ padding-left: 10px;
 height: 50px;
 padding-right: 10px;
 background: #ffeeee;
-margin-top: 10px;">
+margin-top: 10px;display: flex;
+    align-items: center;">
   <p style="text-align: left;
   width: 50%;
   float: left">Just For you</p>

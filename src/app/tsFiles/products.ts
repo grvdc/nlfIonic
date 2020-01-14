@@ -15,21 +15,7 @@ export const products = {
           'https://rukminim1.flixcart.com/image/714/857/k47cgi80/jacket/e/z/k/s-58452101-puma-original-imafn2dvzw8nfhnw.jpeg?q=50',
         ]
       },
-      // {
-      //   id: 2,
-      //   img: 'https://rukminim1.flixcart.com/image/800/960/jn97frk0/shrug/n/3/g/xxl-103xxlblack-ag-fashions-original-imaf8pfh9bmkh7qu.jpeg?q=50',
-      //   price: 25,
-      //   jacketType: 'womenJackets',
-      //   headerType:'Women Jacket',
-      //   title:'AG Fashion ',
-      //   discription: 'Women Jacket Style Full Sleeve Black Shrug',
-      //   productimages:[
-      //     'https://rukminim1.flixcart.com/image/800/960/jn97frk0/shrug/n/3/g/xxl-103xxlblack-ag-fashions-original-imaf8pfh9bmkh7qu.jpeg?q=50',
-      //     'https://rukminim1.flixcart.com/image/714/857/jnrs5u80/shrug/v/e/d/l-103-l-bk-bk-combo-ag-fashions-original-imaf8pfhktnmmyvq.jpeg?q=50',
-      //     'https://rukminim1.flixcart.com/image/714/857/jnrs5u80/shrug/v/e/d/l-103-l-bk-bk-combo-ag-fashions-original-imaf8pfhb6as8ybm.jpeg?q=50',
-      //     'https://rukminim1.flixcart.com/image/714/857/jnrs5u80/shrug/v/e/d/l-103-l-bk-bk-combo-ag-fashions-original-imaf8pfhykedrkwp.jpeg?q=50',
-      //   ]
-      // },
+ 
       {
         id: 3,
         img: 'https://rukminim1.flixcart.com/image/800/960/k0mqtu80/jacket/k/d/b/s-metronaut-j17-green-metronaut-original-imafke5rd5rfgv8t.jpeg?q=50',
@@ -46,13 +32,7 @@ export const products = {
           'https://rukminim1.flixcart.com/image/714/857/k0mqtu80/jacket/k/d/b/s-metronaut-j17-green-metronaut-original-imafke5rcgbsem3u.jpeg?q=50',
         ]
       },
-      // {
-      //   id: 4,
-      //   img: 'https://www.bootbarn.com/on/demandware.static/-/Sites-master-product-catalog-shp/default/dwc6dd5539/images/P31/356P31_N9_P1.JPG',
-      //   price: 25,
-      //   jacketType: 'womenJackets',
-      //   headerType:'Women Jacket',
-      // },
+    
       {
         id: 5,
         img: 'https://rukminim1.flixcart.com/image/714/857/k1s6ljk0/jacket/e/r/r/s-metro-j025-grey-metronaut-original-imafhaynz2qyxzhz.jpeg?q=50',
@@ -117,6 +97,25 @@ export const products = {
           'https://rukminim1.flixcart.com/image/714/857/k47cgi80/jacket/g/d/v/m-adaw19jk022a-adrenex-original-imafn5w4gj27m5e3.jpeg?q=50',
         ]
       }
-      
-    ]
+    ],
+
+    baby:[{
+      id: 'bby001',
+      subcategory:'bottle',
+        img: 'https://rukminim1.flixcart.com/image/800/960/k0mqtu80/jacket/k/d/b/s-metronaut-j17-green-metronaut-original-imafke5rd5rfgv8t.jpeg?q=50',
+        price: 25,
+        jacketType: 'womenJackets',
+        headerType:'Women Jacket',
+        title:'Full Sleeve Solid Women Jacket',
+        discription: 'A jacket is a mid-stomach–length garment for the upper body. A jacket typically has sleeves.',
+        rate:3.5,
+        productimages:[
+          'https://rukminim1.flixcart.com/image/800/960/k0mqtu80/jacket/k/d/b/s-metronaut-j17-green-metronaut-original-imafke5rd5rfgv8t.jpeg?q=50',
+          'https://rukminim1.flixcart.com/image/714/857/k0mqtu80/jacket/k/d/b/s-metronaut-j17-green-metronaut-original-imafke5rhmdhnkse.jpeg?q=50',
+          'https://rukminim1.flixcart.com/image/714/857/k0mqtu80/jacket/k/d/b/s-metronaut-j17-green-metronaut-original-imafke5rvwg45bfh.jpeg?q=50',
+          'https://rukminim1.flixcart.com/image/714/857/k0mqtu80/jacket/k/d/b/s-metronaut-j17-green-metronaut-original-imafke5rcgbsem3u.jpeg?q=50',
+        ]
+    }
+  
+  ]
   };

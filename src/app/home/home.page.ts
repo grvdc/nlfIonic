@@ -118,20 +118,14 @@ export class HomePage {
         isBeginningSlide: true,
         isEndSlide: false,
         slidesItems: [
-          {
-            id: 11,
-            image: 'https://ae01.alicdn.com/kf/HTB1ydBaPFXXXXXNXXXXq6xXFXXXc/Women-Clothes-Brief-Party-Pencil-Midi-Dress-UK-Women-Ladies-Clothing-Dresses-Bandage-Bodycon.jpg',
-            category: 'Apparel & Accessories'
+          { id: 11,image: 'https://ae01.alicdn.com/kf/HTB1ydBaPFXXXXXNXXXXq6xXFXXXc/Women-Clothes-Brief-Party-Pencil-Midi-Dress-UK-Women-Ladies-Clothing-Dresses-Bandage-Bodycon.jpg',
+            category: 'Clothing'
           },
-          {
-            id: 12,
-            image: 'assets/electronics.png',
-            category: 'Electronics'
+          { id: 12,image: 'assets/electronics.png',
+            category: 'Mobile & Accessories'
           },
-          {
-            id: 13,
-            image: 'assets/homeappliance.png',
-            category: 'Home Appliances'
+          { id: 13,image: 'assets/homeappliance.png',
+            category: 'Home & kitchen'
           },
           {
             id: 14,
