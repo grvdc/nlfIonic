@@ -44,11 +44,19 @@ ion-content{
     width: 100% !important;
   }
 
+.all-cat{
+  width: 32px !important;
+}
 
 
 
+.prev-icon-custom{
+  background: url('../../assets/back.png') no-repeat scroll 0px 0px;
+}
 
-
+.next-icon-custom{
+  background: url('../../assets/forward.png') no-repeat scroll 0px 0px;
+}
   .custon-nav{
     height: 48px;
     width: 20px;
@@ -59,16 +67,12 @@ ion-content{
     top: 50%;
     transform: translateY(-50%);
 }
-.prev-icon-custom{
-    // background: url(../../assets/images/carousal-icon.png) no-repeat scroll 0px 0px;
-}
+
 .prev-icon-custom.disabled{
     opacity: 0.4;
     cursor: default;
 }
-.next-icon-custom{
-    // background: url(../../assets/images/carousal-icon.png) no-repeat scroll -32px 0px;
-}
+
 .next-icon-custom.disabled{
     opacity: 0.4;
     cursor: default;

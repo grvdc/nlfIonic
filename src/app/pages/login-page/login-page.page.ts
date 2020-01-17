@@ -107,6 +107,8 @@ export class LoginPagePage implements OnInit {
   // Login When Email Id And Password entered //End
 
 
-
+goToSignUpPage(){
+  this.router.navigateByUrl('/sign-up');
+}
 
 }

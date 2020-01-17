@@ -9,6 +9,11 @@
 </ion-header>
 
 <ion-content *ngIf="!showError">
+
+       
+
+
+
     <ion-row style="padding-top:10px; padding-right: 10px;">
         <!-- <ion-col size="6" *ngFor="let product of productDisplay;" style="padding:10px">
           <ion-card style="margin: 0px;">
@@ -26,8 +31,8 @@
             </ion-button>
           </ion-card>
         </ion-col> -->
-        <ion-col style="padding-left: 10px !important;padding-right: 0 !important;padding-top:0 !important" sizeLg="4" sizeMd="4" sizeXs="6"  *ngFor="let product of productDisplay;index as index" >
-          <ion-card >
+        <ion-col style="padding-left: 10px !important;padding-right: 0 !important;padding-top:0 !important" sizeLg="4" sizeMd="4" sizeXs="6"  *ngFor="let product of productDisplay;index as index">
+          <ion-card  class="list card animated fadeInUp">
             <img [src]="product.img" style="height: 185px !important" (click)="goToProductDetailPage(product.id)" />
             <div style=" width: 100%;
             padding-top: 5%;

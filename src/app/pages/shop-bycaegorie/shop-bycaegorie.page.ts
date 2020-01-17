@@ -36,7 +36,11 @@ export class ShopBycaegoriePage implements OnInit {
   ngOnInit() {
     products.jackets.map((item)=>{
       if(this.data.type === item.jacketType){
+        // setTimeout(() => {
+        //   this.productDisplay.push(item);
+        // }, 450)
         this.productDisplay.push(item);
+       
         console.log("this.productDisplay",item.jacketType);
 
       }

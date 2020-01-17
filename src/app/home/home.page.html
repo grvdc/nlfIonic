@@ -2,18 +2,26 @@
   <ion-toolbar class="bg-color">
     <ion-buttons slot="start">
       <ion-menu-button class="white">
-        <img src="https://pbs.twimg.com/profile_images/862398262267052032/uqmSDxZT_400x400.png" />
       </ion-menu-button>
     </ion-buttons>
+    
     <ion-title *ngIf="!searchInput" style="padding:0">Home </ion-title>
-    <ion-buttons slot="end">
+    
+    <div slot="end" style="display: flex;
+    align-items: center;">
+    <ion-icon name="search" style="font-size: 22px !important;" (click)="showSearchBar()"></ion-icon>
+    <ion-buttons >
       <app-cart-at-header [cartCount]="cartBadge"></app-cart-at-header>
       
     </ion-buttons>
+  </div>
   </ion-toolbar>
 </ion-header>
-
+<div style="width:100%" style="background:#de6161" *ngIf="searchBar">
+    <ion-searchbar animated (keydown.enter)="onKeydown($event)"></ion-searchbar>
+</div>
 <ion-content>
+ 
   <ion-skeleton-text animated *ngIf="skeletonText"></ion-skeleton-text>
   <ion-slides pager="false" [options]="slideOpts" *ngIf="!skeletonText">
     <ion-slide *ngFor="let item of slide">
@@ -34,8 +42,10 @@
    display: flex;
    flex-direction: column;
    justify-content: center;margin-top:5px;margin-bottom: 5px;" (click)="goToAllCategories(s)">
-          <ion-thumbnail *ngIf="s.image" >
-            <img [src]="s.image">
+          <ion-thumbnail *ngIf="s.image" style="display: flex; align-items: center;
+          justify-content: center;" >
+            <img [src]="s.image" *ngIf="s.category !== 'All Categories'">
+            <img [src]="s.image" style="width:32px !important" *ngIf="s.category === 'All Categories'">
           </ion-thumbnail>
 
 
@@ -48,7 +58,7 @@
   </ion-card>
   <!-- Categories End -->
 
-  <ion-card>
+  <ion-card class="animated zoomIn" (click)="goToShopPage()">
     <img src="https://cdn.pixabay.com/photo/2018/12/09/11/24/sale-3864703__340.jpg"  style="height: 120px;"/>
     </ion-card>
 
@@ -63,7 +73,7 @@
     float: left">DEALS OF THE DAY</p>
     <p style="text-align: right;
     width: 50%;
-    float: left">View All</p>
+    float: left" (click)="goToShopPage()">View All</p>
 
   </div>
 
@@ -72,6 +82,13 @@
   <!-- start Deal for the day -->
   <ion-grid style="padding: 0;">
       <ion-row style="padding-top:10px; padding-right: 10px;">
+          <!-- <ion-col size="1">
+              <span class="slider-nav arrow-prev"
+              >
+              <div class="prev-icon-custom custon-nav"
+                ></div>
+            </span>
+            </ion-col> -->
           <ion-col style="padding-left: 10px !important;padding-right: 0 !important;padding-top:0 !important;    padding-bottom: 0 !important" size="12"
              >
    
@@ -82,7 +99,7 @@
             display: flex;
             flex-direction:inherit;
             justify-content: center;
-            ">
+            " (click)="testDetail()">
               <img [src]="deal.image" style="height: 185px !important;">
            
               <ion-card-content style="  padding: 0; padding-left: 10px;">
@@ -95,11 +112,18 @@
           </ion-slides>
    
         </ion-col>
-       
+        <!-- <ion-col size="1">
+            <span class="slider-nav arrow-prev"
+              >
+              <div class="next-icon-custom custon-nav"
+                >
+              </div>
+            </span>
+          </ion-col> -->
       </ion-row>
     </ion-grid>
   <!-- End deal for the day-->
-  <ion-card>
+  <ion-card class="animated zoomIn" (click)="goToShopPage()">
       <img src="https://m.media-amazon.com/images/G/31/img19/Fashion/JANFLIP19/AF_PC1._SX3000_QL85_.jpg" style="height: 120px;"/>
     </ion-card>
 
@@ -114,7 +138,7 @@
     float: left">Footwear</p>
     <p style="text-align: right;
     width: 50%;
-    float: left">View All</p>
+    float: left" (click)="goToShopPage()">View All</p>
 
   </div>
    
@@ -122,7 +146,7 @@
   <ion-grid style="padding: 0;">
     <ion-row style="padding-top:10px; padding-right: 10px;">
         <ion-col style="padding-left: 10px !important;padding-right: 0 !important;padding-top:0 !important; padding-bottom: 0 !important" size="12"
-           >
+        (click)="testDetail()">
  
         <ion-slides pager="false" [options]="footwearOptions"
           >
@@ -161,14 +185,14 @@ margin-top: 10px;display: flex;
   float: left">Just For you</p>
   <p style="text-align: right;
   width: 50%;
-  float: left">View All</p>
+  float: left" (click)="goToShopPage()">View All</p>
 
 </div>
 <!-- Just For you Start -->
 <ion-row style="padding-top:10px; padding-right: 10px;">
   <ion-col style="padding-left: 10px !important;padding-right: 0 !important;padding-top:0 !important" sizeLg="4"
-    sizeMd="4" sizeXs="6" >
-    <ion-card>
+    sizeMd="4" sizeXs="6" class="animated zoomIn">
+    <ion-card  (click)="testDetail()">
       <img src="https://rukminim1.flixcart.com/image/309/371/jsj90280/dress/y/a/g/m-sfdrss1483-sassafras-original-imafdzvhy5xghxt6.jpeg?q=50" style="height: 185px !important"  />
       
       <ion-card-header style="padding-top: 0px;padding-bottom: 0;">
@@ -186,7 +210,7 @@ margin-top: 10px;display: flex;
 
             </ion-col>
             <ion-col size="8" style="text-align:right">
-              <label style="color:black"><s style="color:grey">₹ 599</s> ₹380</label>
+              <label style="color:black"><s style="color:grey">₹ 89</s> ₹60</label>
             </ion-col>
           </ion-row>
         </ion-card-subtitle>
@@ -196,8 +220,8 @@ margin-top: 10px;display: flex;
     </ion-card>
   </ion-col>
   <ion-col style="padding-left: 10px !important;padding-right: 0 !important;padding-top:0 !important" sizeLg="4"
-    sizeMd="4" sizeXs="6" >
-    <ion-card>
+    sizeMd="4" sizeXs="6" class="animated zoomIn">
+    <ion-card  (click)="testDetail()">
       <img src="https://rukminim1.flixcart.com/image/309/371/jskofww0/dress/b/9/h/xs-sfdrss1477-sassafras-original-imafdzv7hfg9v9ty.jpeg?q=50" style="height: 185px !important"  />
       
       <ion-card-header style="padding-top: 0px;padding-bottom: 0;">
@@ -215,7 +239,7 @@ margin-top: 10px;display: flex;
 
             </ion-col>
             <ion-col size="8" style="text-align:right">
-              <label style="color:black"><s style="color:grey">₹ 899/-</s> ₹599</label>
+              <label style="color:black"><s style="color:grey">₹ 99/-</s> ₹59</label>
             </ion-col>
           </ion-row>
         </ion-card-subtitle>
@@ -224,6 +248,7 @@ margin-top: 10px;display: flex;
       </ion-button> -->
     </ion-card>
   </ion-col>
+
 </ion-row> 
 <!-- Just For yu end -->
 
@@ -234,7 +259,7 @@ margin-top: 10px;display: flex;
 
 
 
-
+<!-- Product Start -->
 
 <!-- <ion-row style="padding-top:10px; padding-right: 10px;">
   <ion-col style="padding-left: 10px !important;padding-right: 0 !important;padding-top:0 !important" sizeLg="4"
@@ -283,8 +308,14 @@ margin-top: 10px;display: flex;
     </ion-card>
   </ion-col>
 </ion-row>  -->
- 
+ <!-- Product End -->
 
-
+<!-- <ion-infinite-scroll threshold="1%" (ionInfinite)="loadData($event)">
+  <ion-infinite-scroll-content
+    loadingSpinner="null"
+    >
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll> -->
 </ion-content>
 <!-- <app-side-nav></app-side-nav> -->
+

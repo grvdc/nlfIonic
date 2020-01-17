@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MenuController, Platform } from '@ionic/angular';
 
 import { AlertController } from '@ionic/angular';
@@ -7,6 +7,9 @@ import * as firebase from '../../../node_modules/firebase';
 import {products } from '../tsFiles/products';
 import { AuthService } from '../services/auth.service';
 import { ToastController } from '@ionic/angular';
+import { IonInfiniteScroll } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
+import { PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +17,8 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  // @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
+  searchBar:boolean = false;
   infos = [];
 // ref = firebase.database().ref('infos/');
   searchtext='';
@@ -22,6 +27,23 @@ export class HomePage {
   searchInput:boolean = false;
   search:boolean = false;
   cartBadge = 0;
+  testtt:boolean = false;
+  testProductDetail = {
+    id: 1,
+    img: 'https://rukminim1.flixcart.com/image/714/857/k47cgi80/jacket/e/z/k/s-58452101-puma-original-imafn2dvgprxsvsb.jpeg?q=50',
+    price: 25,
+    jacketType: 'womenJackets',
+    headerType:'Women Jacket',
+    title:'Full Sleeve Solid Women Jacket',
+    discription: 'A jacket is a mid-stomach–length garment for the upper body. A jacket typically has sleeves.',
+    rate:3,
+    productimages:[
+      'https://rukminim1.flixcart.com/image/714/857/k47cgi80/jacket/e/z/k/s-58452101-puma-original-imafn2dvkjh5rm52.jpeg?q=50',
+      'https://rukminim1.flixcart.com/image/714/857/k47cgi80/jacket/e/z/k/s-58452101-puma-original-imafn2dvgprxsvsb.jpeg?q=50',
+      'https://rukminim1.flixcart.com/image/714/857/k47cgi80/jacket/e/z/k/s-58452101-puma-original-imafn2dvmkhggq3f.jpeg?q=50',
+      'https://rukminim1.flixcart.com/image/714/857/k47cgi80/jacket/e/z/k/s-58452101-puma-original-imafn2dvzw8nfhnw.jpeg?q=50',
+    ]
+  }
   slideOpts = {
     initialSlide: 1,
     speed: 400,
@@ -111,6 +133,8 @@ export class HomePage {
     public platform: Platform,
     private auth : AuthService,
     public toastController: ToastController,
+    public modalController: ModalController,
+    public popoverController: PopoverController
   ) {
 
 
@@ -158,6 +182,10 @@ export class HomePage {
     setTimeout(() => {
       this.onetwo();
     }, 3000)
+  }
+
+  showSearchBar(){
+    this.searchBar = !this.searchBar;
   }
   openmenu() {
     console.log("testtoggle");
@@ -256,9 +284,41 @@ export class HomePage {
     console.log("test categories", data);
     if(data.id == 14){
       this.router.navigateByUrl('/all-categories');
+    } else{
+      this.router.navigateByUrl('/shop-page');
     }
-    
    
   }
+  
+  onKeydown(e){
+    console.log("keyup.enter")
+  }
+
+  
+  loadData(event) {
+    setTimeout(() => {
+      this.testtt = true;
+      event.target.complete();
+    }, 500);
+  }
+
+  testDetail() {
+    console.log('datatttt',this.testProductDetail);
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        testProductDetail: JSON.stringify(this.testProductDetail)
+      }
+    };
+    this.router.navigate(['product-detail-page'], navigationExtras);
+  }
+  // toggleInfiniteScroll() {
+  //   this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
+  // }
+
+
+  goToShopPage(){
+    this.router.navigateByUrl('/shop-page');
+  }
+ 
   
 }

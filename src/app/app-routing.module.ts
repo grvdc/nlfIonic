@@ -49,13 +49,30 @@ const routes: Routes = [
     path: 'test',
     loadChildren: () => import('./pages/test/test.module').then( m => m.TestPageModule)
   },
-  {
-    path: 'all-components',
-    loadChildren: () => import('./pages/all-components/all-components.module').then( m => m.AllComponentsPageModule)
-  },
+ 
   {
     path: 'all-categories',
     loadChildren: () => import('./pages/all-categories/all-categories.module').then( m => m.AllCategoriesPageModule)
+  },
+  {
+    path: 'shop-by-category',
+    loadChildren: () => import('./pages/shop-by-category/shop-by-category.module').then( m => m.ShopByCategoryPageModule)
+  },
+  {
+    path: 'sign-up',
+    loadChildren: () => import('./pages/sign-up/sign-up.module').then( m => m.SignUpPageModule)
+  },
+  {
+    path: 'change-password',
+    loadChildren: () => import('./pages/change-password/change-password.module').then( m => m.ChangePasswordPageModule)
+  },
+  {
+    path: 'user-profile',
+    loadChildren: () => import('./pages/user-profile/user-profile.module').then( m => m.UserProfilePageModule)
+  },
+  {
+    path: 'shop-page',
+    loadChildren: () => import('./pages/shop-page/shop-page.module').then( m => m.ShopPagePageModule)
   }
 ];
 

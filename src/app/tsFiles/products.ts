@@ -1,5 +1,6 @@
 export const products = {
-    jackets : [{
+    jackets : [
+      {
         id: 1,
         img: 'https://rukminim1.flixcart.com/image/714/857/k47cgi80/jacket/e/z/k/s-58452101-puma-original-imafn2dvgprxsvsb.jpeg?q=50',
         price: 25,
@@ -101,19 +102,48 @@ export const products = {
 
     baby:[{
       id: 'bby001',
-      subcategory:'bottle',
-        img: 'https://rukminim1.flixcart.com/image/800/960/k0mqtu80/jacket/k/d/b/s-metronaut-j17-green-metronaut-original-imafke5rd5rfgv8t.jpeg?q=50',
+      subcategory:'Feeding bottle',
+        img: 'https://rukminim1.flixcart.com/image/352/352/j1fb98w0/baby-bottle/f/e/x/assured-n-m-multifunctional-baby-steel-feeding-bottle-with-original-imaescz9bcpajvf2.jpeg?q=70',
         price: 25,
-        jacketType: 'womenJackets',
-        headerType:'Women Jacket',
-        title:'Full Sleeve Solid Women Jacket',
-        discription: 'A jacket is a mid-stomach–length garment for the upper body. A jacket typically has sleeves.',
+        discount: 20,
+        headerType:'Feeding Bottle',
+        title:'Baby Feeding bottle',
+        discription: 'Chinmay Kids Multifunctional Baby Steel Feeding Bottle Cum Sipper Cum Straw With Attractive Color And Beautiful Design - 240 ml',
         rate:3.5,
         productimages:[
-          'https://rukminim1.flixcart.com/image/800/960/k0mqtu80/jacket/k/d/b/s-metronaut-j17-green-metronaut-original-imafke5rd5rfgv8t.jpeg?q=50',
-          'https://rukminim1.flixcart.com/image/714/857/k0mqtu80/jacket/k/d/b/s-metronaut-j17-green-metronaut-original-imafke5rhmdhnkse.jpeg?q=50',
-          'https://rukminim1.flixcart.com/image/714/857/k0mqtu80/jacket/k/d/b/s-metronaut-j17-green-metronaut-original-imafke5rvwg45bfh.jpeg?q=50',
-          'https://rukminim1.flixcart.com/image/714/857/k0mqtu80/jacket/k/d/b/s-metronaut-j17-green-metronaut-original-imafke5rcgbsem3u.jpeg?q=50',
+          'https://rukminim1.flixcart.com/image/352/352/j1fb98w0/baby-bottle/f/e/x/assured-n-m-multifunctional-baby-steel-feeding-bottle-with-original-imaescz9bcpajvf2.jpeg?q=70',
+          'https://rukminim1.flixcart.com/image/352/352/j1fb98w0/baby-bottle/f/e/x/assured-n-m-multifunctional-baby-steel-feeding-bottle-with-original-imaescz8bxeva2e2.jpeg?q=70',
+          'https://rukminim1.flixcart.com/image/352/352/jcw9ifk0/baby-bottle/z/f/z/multifunctional-safe-baby-thermal-insulation-stainless-steel-original-imaescz8pczcfubv.jpeg?q=70',
+        ]
+    },
+    {
+      id: 'bby002',
+      subcategory:'Diapers',
+        img: 'https://rukminim1.flixcart.com/image/352/352/jkbguq80/diaper/e/y/g/m-pants-standard-36-mamypoko-original-imaf7p8w6arfxxec.jpeg?q=70',
+        price: 25,
+        discount: 20,
+        headerType:'Diapers',
+        title:'Diapers',
+        discription: 'MamyPoko Pants Standard Diapers(36 Pieces)',
+        rate:3.5,
+        productimages:[
+          'https://rukminim1.flixcart.com/image/352/352/jkbguq80/diaper/e/y/g/m-pants-standard-36-mamypoko-original-imaf7p8w6arfxxec.jpeg?q=70',
+          'https://rukminim1.flixcart.com/image/352/352/jkbguq80/diaper/e/y/g/m-pants-standard-36-mamypoko-original-imaf7p8w3zdaearw.jpeg?q=70',
+        ]
+    },
+    {
+      id: 'bby002',
+      subcategory:'Diapers',
+        img: 'https://rukminim1.flixcart.com/image/352/352/jkbguq80/diaper/e/y/g/m-pants-standard-36-mamypoko-original-imaf7p8w6arfxxec.jpeg?q=70',
+        price: 25,
+        discount: 20,
+        headerType:'Diapers',
+        title:'Diapers',
+        discription: 'MamyPoko Pants Standard Diapers(36 Pieces)',
+        rate:3.5,
+        productimages:[
+          'https://rukminim1.flixcart.com/image/352/352/jkbguq80/diaper/e/y/g/m-pants-standard-36-mamypoko-original-imaf7p8w6arfxxec.jpeg?q=70',
+          'https://rukminim1.flixcart.com/image/352/352/jkbguq80/diaper/e/y/g/m-pants-standard-36-mamypoko-original-imaf7p8w3zdaearw.jpeg?q=70',
         ]
     }
   

@@ -1,3 +1,13 @@
+<ion-header>
+    <ion-toolbar style="--background: transparent ; background-image: url('../../../assets/login.jpg');">
+      <!-- <ion-title class="white">Login</ion-title> -->
+      <ion-buttons slot="start">
+        <ion-back-button class="white"></ion-back-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
 <div class="mylogin-page">
   <div class="login-color">
 
@@ -27,7 +37,7 @@
         </ion-col>
         <ion-col size="10" style="color: white;">
           <!-- <p class="forgot-password">Forgot password?</p> -->
-          <p>Don't have an account? <a class="sign-up-a" style="color: #de6161">Sign Up</a><br><br></p>
+          <p>Don't have an account? <a class="sign-up-a" style="color: #de6161;font-size: 18px;" (click)="goToSignUpPage()">Sign Up</a><br><br></p>
         </ion-col>
        
         

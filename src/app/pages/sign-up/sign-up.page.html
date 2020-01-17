@@ -1,0 +1,78 @@
+<ion-header>
+    <ion-toolbar style="--background: transparent ; background-image: url('../../../assets/login.jpg');">
+      <ion-title class="white">Register</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button class="white"></ion-back-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+<div class="mylogin-page">
+  
+  <div class="login-color">
+
+    <!-- <div class="login-header">Login</div> -->
+    <div class="content">
+      <ion-row class="center" >
+        <ion-col size="10">
+          <ion-item class="login transparent">
+            
+            <ion-input clearInput type="text" placeholder="First Name" name="firstname" [(ngModel)]="firstName"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="10">
+          <ion-item class="login transparent">
+            <!-- <ion-label class="icon-color">
+              <ion-icon name="person"></ion-icon>
+            </ion-label> -->
+            <ion-input clearInput type="text" placeholder="Last Name" name="lastname" [(ngModel)]="lastName"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="10">
+         <ion-item class="login transparent">
+           <!--   <ion-label class="icon-color">
+              <ion-icon name="person"></ion-icon>
+            </ion-label> -->
+            <ion-input clearInput type="text" placeholder="Email" name="email" [(ngModel)]="email"></ion-input>
+            <!-- <ion-label class="icon-color">
+              <ion-icon name="person"></ion-icon>
+            </ion-label> -->
+          </ion-item>
+        </ion-col>
+        <ion-col size="10">
+          <ion-item class="login transparent">
+            <!-- <ion-label class="icon-color">
+              <ion-icon name="lock"></ion-icon>
+            </ion-label> -->
+            <ion-input clearInput type="password" placeholder="Password" name="password" [(ngModel)]="password"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="10">
+          <ion-item class="login transparent">
+            <!-- <ion-label class="icon-color">
+              <ion-icon name="lock"></ion-icon>
+            </ion-label> -->
+            <ion-input clearInput type="password" placeholder="Confirm Password" name="confirmpassword" [(ngModel)]="confirmPassword"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="10">
+          <!-- <p class="forgot-password" style="margin: 0;padding: 0;">Forgot password?</p> -->
+            
+          <ion-button expand="full" type="submit" style="height: 48px;" color="#fff !important" class="butn bg-color" (click)="validate()">Create Account</ion-button>
+        </ion-col>
+        <ion-col size="10" style="color: white;">
+          <!-- <p class="forgot-password">Forgot password?</p> -->
+          <p>Allready have an account? <a class="sign-up-a" style="color: #de6161;font-size: 18px;" (click)="goTologinPage()">Sign In</a><br><br></p>
+        </ion-col>
+       
+        
+      </ion-row>
+    </div>
+    <div class="sign-up">
+      
+      
+    </div>
+
+  </div>
+</div>

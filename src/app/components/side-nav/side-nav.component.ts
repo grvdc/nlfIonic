@@ -9,74 +9,74 @@ import { MenuController } from '@ionic/angular';
 })
 export class SideNavComponent implements OnInit {
   menuItem = [
-    // { logo: 'list', item: 'Project List', highlighted: false },
+    { logo: 'home', item: 'Home', highlighted: false },
+    // { logo: 'search', item: 'Search', highlighted: false },
+    { logo: 'cart', item: 'Cart', highlighted: false },
+
     // { logo: 'person', item: 'Ladies jacket', highlighted: false },
     // { logo: 'alert', item: 'Men\'s Jacket', highlighted: false },
-    // { logo: 'heart', item: 'Wishlist', highlighted: false },
-    // { logo: 'laptop', item: 'Training Videos', highlighted: false },
+    { logo: 'notifications', item: 'Notifications', highlighted: false },
+    { logo: 'list', item: 'Order History', highlighted: false },
+    { logo: 'heart', item: 'Wishlist', highlighted: false },
+    { logo: 'cube', item: 'Offers', highlighted: false },
     // { logo: 'cart', item: 'Cart', highlighted: false },
     // { logo: 'lock', item: 'Change Password', highlighted: false },
-    // { logo: 'log-out', item: 'Logout', highlighted: false },
+    // { logo: 'lock', item: 'Sign Up', highlighted: false },
+    // { logo: 'log-in', item: 'Login', highlighted: false },
   ]
   constructor(
     private menu: MenuController,
-    private router: Router
+    private router: Router,
+    public menuCtrl: MenuController
   ) {
     let login = localStorage.getItem("login");
-    if (!login) {
-      // this.router.navigateByUrl('/login-page');
-      this.menuItem = [
-        { logo: 'list', item: 'Project List', highlighted: false },
-        { logo: 'person', item: 'Ladies jacket', highlighted: false },
-        { logo: 'alert', item: 'Men\'s Jacket', highlighted: false },
-        { logo: 'heart', item: 'Wishlist', highlighted: false },
-      ]
-    } else{
-      this.menuItem = [
-        { logo: 'list', item: 'Project List', highlighted: false },
-        { logo: 'person', item: 'Ladies jacket', highlighted: false },
-        { logo: 'alert', item: 'Men\'s Jacket', highlighted: false },
-        { logo: 'heart', item: 'Wishlist', highlighted: false },
-        { logo: 'laptop', item: 'Training Videos', highlighted: false },
-        { logo: 'cart', item: 'Cart', highlighted: false },
-        { logo: 'lock', item: 'Change Password', highlighted: false },
-        { logo: 'log-out', item: 'Logout', highlighted: false },
-      ]
-    }
-   }
+
+  }
 
   ngOnInit() {
-   
+
   }
 
   ionViewWillEnter() {
-   
-    
-   
-}
+
+
+
+  }
   print(value) {
     this.highlightedOff();
     this.menu.toggle();
     value.highlighted = true;
-    let categoy :any;
+    let categoy: any;
     switch (value.item) {
+      case 'Home':
+        this.router.navigate(['/']);
+        this.highlightedOff();
+        break;
+      case 'Login':
+        this.router.navigate(['login-page']);
+        this.highlightedOff();
+        break;
+      case 'Sign Up':
+        this.router.navigate(['sign-up']);
+        this.highlightedOff();
+        break;
       case 'Logout':
         this.logout();
         this.highlightedOff();
         break;
       case 'Men\'s Jacket':
-          categoy ={
-            type: 'menJackets',
-            header: 'Men\'s Jacket',
-           } 
+        categoy = {
+          type: 'menJackets',
+          header: 'Men\'s Jacket',
+        }
         console.log("value", value);
         this.openDetailsWithQueryParams(categoy);
         break;
       case 'Ladies jacket':
-        categoy ={
-         type: 'womenJackets',
-         header: 'Ladies jacket',
-        } 
+        categoy = {
+          type: 'womenJackets',
+          header: 'Ladies jacket',
+        }
         console.log("value", value);
         this.openDetailsWithQueryParams(categoy);
         break;
@@ -86,11 +86,15 @@ export class SideNavComponent implements OnInit {
         this.router.navigate(['wishlist']);
         break;
       case 'Cart':
-          this.router.navigate(['cart-page']);
-          break;
+        this.router.navigate(['cart-page']);
+        break;
+      case 'Change Password':
+        this.router.navigate(['change-password']);
+        this.highlightedOff();
+        break;
       default:
-          // this.openDetailsWithQueryParams(categoy);
-          break;
+        // this.openDetailsWithQueryParams(categoy);
+        break;
 
     }
     console.log("categoy", categoy);
@@ -122,5 +126,10 @@ export class SideNavComponent implements OnInit {
       }
     };
     this.router.navigate(['shop-bycaegorie'], navigationExtras);
+  }
+  
+  goToProfile(){
+    this.router.navigate(['user-profile']);
+    this.menuCtrl.toggle()
   }
 }

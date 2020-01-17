@@ -23,6 +23,7 @@ export class ProductDetailPagePage implements OnInit {
   qty = "1" ;
   size = ['S','M', 'L', 'XL'];
   fromCart:boolean = false;
+  testdata:any;
   constructor(private route: ActivatedRoute, private router: Router,
     public toastController: ToastController
     ) { 
@@ -30,6 +31,8 @@ export class ProductDetailPagePage implements OnInit {
       if (params && params.special) {
         this.data = JSON.parse(params.special);
         this.fromCart = params.fromCart
+      }else if (params && params.testProductDetail){
+        this.product = JSON.parse(params.testProductDetail);
       }
     });
     let data = [];
@@ -43,19 +46,25 @@ export class ProductDetailPagePage implements OnInit {
   }
     
   ionViewWillEnter() {
-   
-   console.log("fro cart",this.fromCart)
+   console.log("fro cart",this.product)
 }
   ngOnInit() {
-    products.jackets.map((item)=>{
-      if(this.data === item.id){
-        this.product = item;
-        item.productimages.map((newitem)=>{
-          this.productImages.push(newitem);
-        })
-
-      }
-    })
+    if(this.data){
+      products.jackets.map((item)=>{
+        if(this.data === item.id){
+          this.product = item;
+          item.productimages.map((newitem)=>{
+            this.productImages.push(newitem);
+          })
+  
+        }
+      })
+    }else{
+      this.product['productimages'].map((item)=>{
+        this.productImages.push(item);
+      })
+    }
+  
 
   }
 

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>shop-by-category</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-slides pager="false" [options]="opt" #slideWithNav3
+          >
+          <ion-slide *ngFor="let item of products">
+              <ion-card style="width:80%;background: white;">
+                  <ion-card-content style="padding: 0;">
+                      <p>{{item.subcategory}}</p>
+                  </ion-card-content>
+                </ion-card>
+           
+          </ion-slide>
+        </ion-slides>
+ 
+      </ion-col>
+    
+    </ion-row>
+  </ion-grid>
+
+  <ion-button (click)="test(1)">One</ion-button>
+  <ion-button (click)="test(2)">two</ion-button>
+
+</ion-content>

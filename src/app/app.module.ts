@@ -36,7 +36,6 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
     BrowserAnimationsModule,
     MatStepperModule,
     HttpClientModule,
-    
     // CheckoutFormStepperComponent,
   ],
   providers: [
