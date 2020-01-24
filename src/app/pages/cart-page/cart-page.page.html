@@ -1,8 +1,7 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar class="bg-color">
     <ion-buttons slot="start">
       <ion-back-button class="white"></ion-back-button>
-      <!-- <ion-menu-button class="white"></ion-menu-button> -->
     </ion-buttons>
     <ion-title>Cart</ion-title>
   </ion-toolbar>
@@ -91,8 +90,7 @@
 
               </ion-col>
               <ion-col size="5" style="align-self: flex-end;display :flex;font-size:18pt;justify-content: flex-end;padding-right: 0;">
-                  <!-- <ion-icon name="heart" style="color:rgb(106, 112, 108)" (click)="wishlist(item,index)" [ngClass]="{wish: item.wish}"></ion-icon> -->
-                  <!-- <ion-icon name="trash" (click)="indexFinding(index)" style="color:red"></ion-icon> -->
+                 
               </ion-col>
             </ion-row>
 
@@ -159,7 +157,148 @@ bottom: 0;
     </ion-card-content>
   </ion-card>
 
+</ion-content> -->
+
+
+
+
+<!-- New Design Start -->
+<ion-header>
+  <ion-toolbar class="bg-color">
+    <ion-buttons slot="start">
+      <ion-back-button class="white"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content style="--background: #fdeded;">
+  <ion-card style="margin: 15px;
+    background: white;
+    border-radius: 10px;">
+    <ion-item no-padding>
+      <ion-row style="width:100%">
+        <ion-col size="3" style="    justify-content: center;
+        display: flex;
+        align-items: center;">
+          <ion-thumbnail>
+            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          </ion-thumbnail>
+        </ion-col>
+        <ion-col size="9">
+          <ion-row>
+            <ion-col size="12">
+              <h5 style="margin:0">Product Description</h5>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="8">
+              <p style="margin:0">Rs. 350 <ion-icon name="close"></ion-icon> 1</p>
+            </ion-col>
+            <ion-col size="4" style="    display: flex; justify-content: flex-end;">
+              <p style="    margin: 0;
+                border: solid 1px grey;
+                width: 20px;
+                display: flex;
+                justify-content: center;
+            ">1</p>
+            </ion-col>
+
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item no-padding>
+      <ion-row style="width:100%">
+        <ion-col size="3" style="    justify-content: center;
+          display: flex;
+          align-items: center;">
+          <ion-thumbnail>
+            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          </ion-thumbnail>
+        </ion-col>
+        <ion-col size="9">
+          <ion-row>
+            <ion-col size="12">
+              <h5 style="margin:0">Product Description</h5>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="8">
+              <p style="margin:0">Rs. 350 <ion-icon name="close"></ion-icon> 1</p>
+            </ion-col>
+            <ion-col size="4" style="    display: flex; justify-content: flex-end;">
+              <p style="    margin: 0;
+                  border: solid 1px grey;
+                  width: 20px;
+                  display: flex;
+                  justify-content: center;
+              ">1</p>
+            </ion-col>
+
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item no-padding>
+      <ion-row style="width:100%">
+        <ion-col size="3" style="    justify-content: center;
+            display: flex;
+            align-items: center;">
+          <ion-thumbnail>
+            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          </ion-thumbnail>
+        </ion-col>
+        <ion-col size="9">
+          <ion-row>
+            <ion-col size="12">
+              <h5 style="margin:0">Product Description</h5>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="8">
+              <p style="margin:0">Rs. 350 <ion-icon name="close"></ion-icon> 1</p>
+            </ion-col>
+            <ion-col size="4" style="    display: flex; justify-content: flex-end;">
+              <p style="    margin: 0;
+                    border: solid 1px grey;
+                    width: 20px;
+                    display: flex;
+                    justify-content: center;
+                ">1</p>
+            </ion-col>
+
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-card>
+
+
+  <ion-card style="margin: 15px;
+  background: white;
+  border-radius: 10px;">
+      <ion-card-header>
+          <ion-card-title>Have a Coupon?</ion-card-title>
+      <ion-card-subtitle>
+      enter your coupon code here & get awesome discount.
+      </ion-card-subtitle>
+        </ion-card-header>
+        <ion-row style="width: 100%;padding: 10px;padding-top: 0;">
+            <ion-col size="8">
+              <ion-input style="background: #eaeaea;    position: inherit;height: 35px;--padding-start: 10px !important;;"
+                clearInput placeholder="Enter Coupon"></ion-input>
+            </ion-col>
+            <ion-col size="4" style="padding:0">
+    
+              <ion-button expand="block" fill="outline" style="height: 35px;">Check</ion-button>
+            </ion-col>
+           
+          </ion-row>
+  </ion-card>
+
 </ion-content>
+
+<!-- New design End -->
 
 <ion-content *ngIf="!cartItems.length">
   <ion-text>Nothing in cart</ion-text>

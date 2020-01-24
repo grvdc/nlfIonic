@@ -1,22 +1,138 @@
 <ion-header>
   <ion-toolbar class="bg-color">
-      <ion-buttons slot="start">
-          <ion-back-button class="white"></ion-back-button>
-        </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button class="white"></ion-back-button>
+    </ion-buttons>
     <ion-title>user-profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-    <div class="profile-header">
-        <ion-avatar style="width: 120px;
+<ion-content style="--background: #efefef">
+  <div class="profile-header">
+    <ion-avatar style="width: 120px;
         height: 120px;border: solid 2px white">
-            <img src="https://www.sdgpakistan.pk/uploads/team/head-659652__340.png">
-          </ion-avatar>
-          <h5 style="color:white;margin:0">Dummy User</h5>
-    </div>
+      <img src="https://www.sdgpakistan.pk/uploads/team/head-659652__340.png">
+    </ion-avatar>
+    <ion-icon name="camera" style="font-size: 30px;
+    color: #f98585;
+    top: 20%;
+    left: 58%;
+    position: absolute;"></ion-icon>
 
-    <!-- <div>
+    <h5 style="color:white;margin:0">Dummy User</h5>
+  </div>
+
+  <ion-row style="height: 50px;background:white;">
+    <ion-col size="6" style="border-bottom: solid 2px grey;justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;">
+      <ion-icon name="heart" style="font-size: 20px;"></ion-icon>
+      <h5 style="margin: 0;">My Wishlist</h5>
+    </ion-col>
+    <ion-col size="6" style="border-bottom: solid 2px grey;
+    border-left: solid 2px grey;justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;">
+      <ion-icon name="cube" style="font-size: 20px;"></ion-icon>
+      <h5 style="margin: 0;">My Order</h5>
+    </ion-col>
+  </ion-row>
+  
+
+  <ion-card *ngIf="!edit && show">
+      <ion-item class="login" (click)="editDetail()">
+          <ion-label slot="end" style="display: flex;
+          justify-content: flex-end;
+          align-items: center;">
+            <ion-icon name="create" style="font-size: 20px;"></ion-icon>Edit
+          </ion-label>
+        </ion-item>
+    <ion-item class="login">
+      <ion-label style="display: flex;
+      align-items: center">
+        <ion-icon name="person"></ion-icon>
+        <h6 style="padding-left: 7px;">{{firstName}} {{lastName}}</h6>
+      </ion-label>
+      <!-- <ion-input clearInput disabled="false" type="text" placeholder="Full Name" name="fullname" [(ngModel)]="fullName"></ion-input> -->
+    </ion-item>
+    <ion-item class="login">
+      <ion-label style="display: flex;
+      align-items: center">
+        <ion-icon name="call"></ion-icon>
+        <h6 style="padding-left: 7px;">{{mobile}}</h6>
+      </ion-label>
+      <!-- <ion-input clearInput type="text" disabled="true" placeholder="Mobile No." name="mobile" [(ngModel)]="mobile"></ion-input> -->
+      
+    </ion-item>
+    <ion-item class="login">
+      <ion-label style="display: flex;
+      align-items: center">
+        <ion-icon name="mail"></ion-icon>
+        <h6 style="padding-left: 7px;">{{email}}</h6>
+
+      </ion-label>
+      <!-- <ion-input clearInput type="text" placeholder="Email Address" name="email" [(ngModel)]="email"></ion-input> -->
+    </ion-item>
+    <ion-item class="login">
+      <ion-label style="display: flex;
+      align-items: center">
+        <ion-icon name="pin"></ion-icon>
+        <h6 style="padding-left: 7px;">{{address}}</h6>
+
+      </ion-label>
+      <!-- <ion-textarea clearInput type="text" placeholder="Address" name="address" [(ngModel)]="address"></ion-textarea> -->
+    </ion-item>
+  </ion-card>
+
+  <ion-card *ngIf="edit">
+      <ion-item class="login"><h4>Edit Details</h4></ion-item>
+    <ion-item class="login">
+      <ion-label position="stacked">
+        First Name
+      </ion-label>
+      <ion-input clearInput disabled="false" type="text" placeholder="First Name" name="fname" [(ngModel)]="firstName"></ion-input>
+    </ion-item>
+    <ion-item class="login">
+    <ion-label position="stacked">
+        Last Name
+      </ion-label>
+      <ion-input clearInput disabled="false" type="text" placeholder="Last Name" name="lname" [(ngModel)]="lastName"></ion-input>
+    </ion-item>
+    <ion-item class="login">
+      <ion-label position="stacked">
+        Mobile
+      </ion-label>
+      <ion-input clearInput type="text"  placeholder="Mobile No." name="mobile" [(ngModel)]="mobile"></ion-input>
+      
+    </ion-item>
+    <ion-item class="login">
+      <ion-label position="stacked">
+        Email
+      </ion-label>
+      <ion-input clearInput type="text" placeholder="Email Address" name="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+    <ion-item class="login">
+      <ion-label position="stacked">
+        Full Address
+      </ion-label>
+      <ion-textarea clearInput type="text" placeholder="Address" name="address" [(ngModel)]="address"></ion-textarea>
+    </ion-item>
+
+    <ion-item class="login" (click)="editDetail()">
+        <ion-label slot="end" style="display: flex;
+        justify-content: flex-end;
+        align-items: center;">
+          <ion-icon name="save" style="font-size: 20px;"></ion-icon>Save
+        </ion-label>
+      </ion-item>
+  </ion-card>
+
+
+
+
+  <!-- <div>
           <ion-segment color="secondary" [(ngModel)]="page">
               <ion-segment-button value="0" checked (click)="selectedTab(0)">
                 <label>Info</label>
@@ -61,6 +177,6 @@
         </ion-slide>
         
       </ion-slides> -->
-     
+
 
 </ion-content>

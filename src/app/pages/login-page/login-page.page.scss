@@ -67,3 +67,9 @@
 ion-col{
     padding: 0 !important;
 }
+ion-item {
+    --highlight-color-focused: red;
+    --highlight-color-valid: #de6161;
+    --highlight-color-invalid: red;
+    // --highlight-color-focused: var(--ion-color-light);
+  }

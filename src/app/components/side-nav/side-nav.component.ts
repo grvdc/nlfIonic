@@ -10,6 +10,7 @@ import { MenuController } from '@ionic/angular';
 export class SideNavComponent implements OnInit {
   menuItem = [
     { logo: 'home', item: 'Home', highlighted: false },
+    { logo: 'cube', item: 'Offers', highlighted: false },
     // { logo: 'search', item: 'Search', highlighted: false },
     { logo: 'cart', item: 'Cart', highlighted: false },
 
@@ -18,11 +19,10 @@ export class SideNavComponent implements OnInit {
     { logo: 'notifications', item: 'Notifications', highlighted: false },
     { logo: 'list', item: 'Order History', highlighted: false },
     { logo: 'heart', item: 'Wishlist', highlighted: false },
-    { logo: 'cube', item: 'Offers', highlighted: false },
     // { logo: 'cart', item: 'Cart', highlighted: false },
     // { logo: 'lock', item: 'Change Password', highlighted: false },
     // { logo: 'lock', item: 'Sign Up', highlighted: false },
-    // { logo: 'log-in', item: 'Login', highlighted: false },
+    { logo: 'log-in', item: 'Login', highlighted: false },
   ]
   constructor(
     private menu: MenuController,

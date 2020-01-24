@@ -111,4 +111,8 @@ goToSignUpPage(){
   this.router.navigateByUrl('/sign-up');
 }
 
+newlogin(){
+  this.router.navigateByUrl('/home');
+}
+
 }

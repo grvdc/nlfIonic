@@ -34,3 +34,17 @@
     align-items: center;
     justify-content: center;
 }
+.hilight{
+    border:solid 2px rgb(236, 121, 127);
+
+}
+ion-item {
+    --highlight-color-valid: transparent;
+    --highlight-color-invalid: transparent;
+    --highlight-color-focused: var(--ion-color-light);
+  }
+
+  ion-item{
+    --inner-padding-end: 0px;
+    --padding-start:0px
+}

@@ -10,10 +10,10 @@
 <ion-content class="light-bg">
   <ion-row style="margin-top: 15px">
      
-    <ion-col size="4" class="flex-center animated zoomIn" *ngFor="let cat of categories" (click)="goToShopPage()">
-      <ion-avatar class="border">
+    <ion-col size="3" class="flex-center animated zoomIn" *ngFor="let cat of categories" (click)="goToShopPage()">
+      <ion-thumbnail class="border">
         <img [src]="cat.image" />
-      </ion-avatar>
+      </ion-thumbnail>
      <ion-text>
         <p>{{cat.name | titlecase}}</p>
       </ion-text>

@@ -67,7 +67,9 @@ ion-content{
     top: 50%;
     transform: translateY(-50%);
 }
-
+.prev-icon-custom{
+  background-image: url('../../assets/back.png') no-repeat scroll 0px 0px;
+}
 .prev-icon-custom.disabled{
     opacity: 0.4;
     cursor: default;
