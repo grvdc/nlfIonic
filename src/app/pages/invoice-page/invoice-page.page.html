@@ -50,7 +50,7 @@
   background: ghostwhite;
 ">
     <h5>Your Shopping bags</h5>
-    <p style="margin:0">{{qty}} items <b>Rs {{totalAmount}}</b></p>
+    <h6 style="margin:0">{{qty}} items <b>Rs {{totalAmount}}</b></h6>
   </div>
   <!-- <ion-card style="margin: 15px;
   background: white;
@@ -165,9 +165,9 @@
                 <ion-input name="card" ></ion-input>
             </ion-item>
             <ion-item>
-                <ion-label position="stacked">Valid thru</ion-label>
+                <ion-label position="floating">Valid thru</ion-label>
                 <ion-row style="width:100%">
-                    <ion-col size="6" >
+                    <ion-col size="7" >
                         <ion-select style="padding:0">
                             <ion-select-option value="01">January</ion-select-option>
                             <ion-select-option value="02">February</ion-select-option>
@@ -183,7 +183,7 @@
                             <ion-select-option value="12" >December</ion-select-option>
                           </ion-select>
                     </ion-col>
-                    <ion-col size="6" style="text-align: center;">
+                    <ion-col size="5" style="text-align: center;">
                         <ion-select style="padding:0">
                             <ion-select-option value="01">2020</ion-select-option>
                             <ion-select-option value="02">2021</ion-select-option>
