@@ -44,51 +44,15 @@ export class AuthService {
       
   }
   tesApi() {
-
-  //   let testURL = 'https://ocodecommerce.com/terraartesana/rest/V1/products?searchCriteria[page_size]=2';
-  //   let authHeader = 'Bearer m9b6396vj6w9308u8vz79lte6kaxl4pw';
-
-  //   let headersObj = new HttpHeaders();
-  //   headersObj.append('Content-Type', 'application/json');
-  //   headersObj.append('Accept', 'application/json');
-  //   headersObj.append('Access-Control-Allow-Origin', 'http://localhost:8100');
-
-  //   headersObj.append('Access-Control-Allow-Credentials', 'true');
-
-  //   headersObj.append('GET', 'POST');
-  //   headersObj.append('Authorization', authHeader);
-
-  //   console.log("testURL",testURL);
-  //   console.log("authHeader",authHeader);
-
-  //  return this.HttpClient.get(testURL, {headers:headersObj})
-     
-
-
-
-
-
-
-
-
-
-
-
+    return this.HttpClient.get('https://74e37f3412f07c416015254388b0404a:7f46f7bf0452eb854fa458293586b4f5@kiwi-diamond.myshopify.com/admin/api/2019-07/products.json');
     
-    // this.getAuthToken()p3b6tfql6vci29b1851c5gw9r1n6ashx
-    //let authHeader = 'Bearer p3b6tfql6vci29b1851c5gw9r1n6ashx';
-    let authHeader = 'Bearer p3b6tfql6vci29b1851c5gw9r1n6ashx';
-    this.options = new HttpHeaders({
-      'Accept': 'application/json',
-      'Authorization': 'Bearer edn27gieeesfze6ph5lfpz6clqpxkw43'
 
-    });
-
-   let headersObj = new HttpHeaders();
-    headersObj.append('Authorization', authHeader);  
-    // const apiEndPoint = `https://ocodecommerce.com/terraartesana/rest/V1/products`;
-   return this.HttpClient.get('https://ocodecommerce.com/terraartesana/rest/V1/products', this.options);
-    // return this.HttpClient.get('https://jsonplaceholder.typicode.com/todos/1' );
+  //  'https://74e37f3412f07c416015254388b0404a:7f46f7bf0452eb854fa458293586b4f5@kiwi-diamond.myshopify.com/admin/api/2019-07/products.json'
+   
+    
+// 'https://6fd46174aee173f412cc77ade4e45373:b172769a231abb12bce3caa984077b8e@shovava-com.myshopify.com/admin/api/2019-07/products.json'
+    // return this.HttpClient.get('https://jsonplaceholder.typicode.com/posts' );
+    
     // return this.HttpClient.get('http://ang.rishteyindia.co.in/test.php' );
     // return this.HttpClient.get<any>(apiEndPoint,formData)
 

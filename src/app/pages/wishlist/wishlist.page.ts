@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { products } from '../../tsFiles/products';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-wishlist',
@@ -8,6 +9,25 @@ import { products } from '../../tsFiles/products';
 })
 export class WishlistPage implements OnInit {
   products =[];
+  listView:boolean = false;
+  totalItem=0;
+  id:any;
+  testProductDetail = {
+    id: 1,
+    img: 'https://rukminim1.flixcart.com/image/714/857/k47cgi80/jacket/e/z/k/s-58452101-puma-original-imafn2dvgprxsvsb.jpeg?q=50',
+    price: 25,
+    jacketType: 'womenJackets',
+    headerType:'Women Jacket',
+    title:'Full Sleeve Solid Women Jacket',
+    discription: 'A jacket is a mid-stomach–length garment for the upper body. A jacket typically has sleeves.',
+    rate:3,
+    productimages:[
+      'https://rukminim1.flixcart.com/image/714/857/k47cgi80/jacket/e/z/k/s-58452101-puma-original-imafn2dvkjh5rm52.jpeg?q=50',
+      'https://rukminim1.flixcart.com/image/714/857/k47cgi80/jacket/e/z/k/s-58452101-puma-original-imafn2dvgprxsvsb.jpeg?q=50',
+      'https://rukminim1.flixcart.com/image/714/857/k47cgi80/jacket/e/z/k/s-58452101-puma-original-imafn2dvmkhggq3f.jpeg?q=50',
+      'https://rukminim1.flixcart.com/image/714/857/k47cgi80/jacket/e/z/k/s-58452101-puma-original-imafn2dvzw8nfhnw.jpeg?q=50',
+    ]
+  }
   testData = [
     {
       category: 'Event',
@@ -35,15 +55,22 @@ export class WishlistPage implements OnInit {
   ]
   public searchTerm: string = "";
   public items: any;
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit() {
-    products.jackets.map((item)=>{
-      if(item['wish']){
-        this.products.push(item);
-      }
-    });
+    // products.jackets.map((item)=>{
+    //   if(item['wish']){
+    //     this.products.push(item);
+    //   }
+    // });
 
+    
+  }
+  ionViewWillEnter() {
+    this.totalItem = this.products.length;
+    this.toggleListView()
   }
 
   setFilteredItems() {
@@ -80,4 +107,38 @@ export class WishlistPage implements OnInit {
     this.products = this.products.filter(item => item.id !== id);
   }
   
+  toggleListView(){
+    this.products=[];
+    this.id = setInterval(() => this.anitest(),300);
+    this.listView = !this.listView;
+   
+  }
+  anitest(){
+    let length = this.products.length;
+    let newProd = [];
+    products.jackets.map((item)=>{
+     if(!item['wish']){
+       newProd.push(item);
+     }
+   });
+   this.totalItem = newProd.length;
+
+     if(newProd.length != length){
+       this.products.push(newProd[length]);
+       console.log("push")
+     } else{
+       clearInterval(this.id);
+     }
+     
+  }
+
+  testDetail() {
+    console.log('datatttt',this.testProductDetail);
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        testProductDetail: JSON.stringify(this.testProductDetail)
+      }
+    };
+    this.router.navigate(['product-detail-page'], navigationExtras);
+  }
 }

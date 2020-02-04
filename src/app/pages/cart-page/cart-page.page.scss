@@ -1,13 +1,10 @@
 .footer{
-    
         padding: 5pt;
         background-color: rgba(0, 150, 0, .8);
         position: sticky;
         bottom: 0;
 }
-.tt {
-        padding: 10px;
-}
+
 .item-inner {
         padding-right: 0px!important;
      }
@@ -16,4 +13,128 @@
         --border-color: #de6161;
         width:100%;
         --color-activated: #de6161;
+}
+.list-item-div{
+        height:75%;overflow: scroll;
+        ion-list{
+                padding-top: 0;
+        }
+        .tt {
+                padding: 10px;
+                display: flex;
+                .list-thumb{
+                        width:35%;
+                        height: 0%;
+                        margin:0;
+                }
+                .detail-section{
+                        padding-left: 10px;
+                        width:100%;
+                        ion-row{
+                                height:75%;
+                                display: flex;
+                                align-content: flex-end;
+                                .col-title{
+                                        display: flex;
+                                        align-self: flex-end;
+                                        h5{
+                                                text-align: left;
+                                                margin: 0;
+                                        }
+                                }
+                                ion-col{
+                                        display: flex;
+                                        align-self: flex-end;
+                                        padding-top: 0;
+                                        padding-bottom: 0;
+                                        .price-p{
+                                                margin:0;
+                                                font-size: 15px;
+                                                margin-bottom: 2px;
+                                        }
+                                }
+                                ion-col{
+                                        p{
+                                                margin:0;
+                                                font-size: 15px;
+                                        }
+                                }
+                              
+                        }
+                        .action-section{
+                                height:25%;
+                                .trash-section{
+                                        display: flex;
+                                        align-self: center;
+                                        padding-top: 0;
+                                        padding-bottom: 0;
+                                        ion-icon{
+                                                color:red;
+                                                font-size:18pt;
+                                        }
+                                }
+                                .qty-section{
+                                        display: flex;
+                                        align-self: center;
+                                        padding-top: 0;
+                                        padding-bottom: 0;
+                                        justify-content: flex-end;
+                                        div{
+                                                display: flex;
+                                                align-items: center;
+                                                border: solid 1px grey;
+                                                ion-icon{
+                                                        font-size: 20px;
+                                                }
+                                                ion-label{
+                                                        border-right: solid 1px grey;
+                                                        border-left: solid 1px grey;
+                                                        align-self: center;
+                                                        font-size: 17px;
+                                                        width: 20px;
+                                                        display: flex;
+                                                        justify-content: center;
+                                                }
+                                        }
+                                }
+                        }
+                }
+        }
+}
+.checkout-section{
+        padding: 0px;
+         position: absolute;
+         bottom: 0;
+         height: 25%;
+         background: white;
+         display: flex;
+         align-items: flex-end;
+
+        ion-row{
+                width: 100%;
+                .left-side-text{
+                        padding-left: 10px;
+                        padding-bottom: 0;
+                }
+                .right-side-text{
+                        text-align: right; 
+                        padding-bottom: 0;
+                        padding-right: 10px;
+                }
+                .left-bold{
+                        padding-left: 10px;
+                        font-weight: 800;
+                        font-size: 18px;
+                }
+                .right-bold{
+                        font-size: 18px;
+                        text-align: right;
+                        padding-right: 10px;
+                        font-weight: 800;
+                }
+                .btn-section{
+                        padding-left: 10px;
+                        padding-right: 10px;
+                }
+        }
 }

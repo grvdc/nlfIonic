@@ -22,7 +22,7 @@ import { CheckoutFormStepperComponent } from './components/checkout-form-stepper
 import {MatStepperModule} from '@angular/material/stepper';
 import { HttpClientModule ,} from '@angular/common/http';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
-
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 @NgModule({
   declarations: [AppComponent,ErrorPopupComponent ,CheckoutFormStepperComponent,SideNavComponent],
   entryComponents: [ErrorPopupComponent,CheckoutFormStepperComponent,SideNavComponent
@@ -40,6 +40,7 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
   ],
   providers: [
     StatusBar,
+    BarcodeScanner,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

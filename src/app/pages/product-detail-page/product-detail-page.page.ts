@@ -3,6 +3,7 @@ import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { products } from '../../tsFiles/products';
 import { IonContent } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
+import { IonSlides } from '@ionic/angular';
 
 
 @Component({
@@ -13,6 +14,10 @@ import { ToastController } from '@ionic/angular';
 
 })
 export class ProductDetailPagePage implements OnInit {
+ 
+  page: 0;
+
+  
   // @ViewChild(IonContent) content: IonContent;
   slideOpts = {
     initialSlide: 1,
@@ -75,6 +80,7 @@ export class ProductDetailPagePage implements OnInit {
   }
 
   ionViewWillEnter() {
+    this.page = 0;
     console.log("fro cart", this.product);
     this.highlightedOff("https://rukminim1.flixcart.com/image/714/857/jvgzl3k0/top/g/g/e/m-t0575-chimpaaanzee-original-imafgcqahs27dhjn.jpeg?q=50")
   }
@@ -204,4 +210,6 @@ export class ProductDetailPagePage implements OnInit {
 
     }
   }
+
+     
 }

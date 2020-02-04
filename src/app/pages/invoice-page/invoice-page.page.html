@@ -7,8 +7,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card>
+<ion-content style="--background: #fdf1f1;">
+  <!-- <ion-card>
     <ion-item >
       <ion-row style="width:100%">
         <ion-col size="6">
@@ -39,9 +39,54 @@
         </ion-col>
       </ion-row>
     </ion-item>
-  </ion-card>
-  <ion-card>
-    <ion-item>
+  </ion-card> -->
+  <div style="padding-left: 15px;">
+    <h4>Shipping invoice</h4>
+  </div>
+  <div style="display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: ghostwhite;
+">
+    <h5>Your Shopping bags</h5>
+    <p style="margin:0">{{qty}} items <b>Rs {{totalAmount}}</b></p>
+  </div>
+  <!-- <ion-card style="margin: 15px;
+  background: white;
+  border-radius: 10px;
+  overflow: scroll;
+">
+   <ion-item>
+    <ion-row style="width:100%">
+      <ion-col size="6" style="    justify-content: flex-start;
+      display: flex;
+      align-items: center;">
+       <label>Total Products</label>
+      </ion-col>
+      <ion-col size="6" style="    justify-content: flex-end;
+      display: flex;
+      align-items: center;">
+       <label>{{qty}}</label>
+      </ion-col>
+    </ion-row>
+   </ion-item>
+   <ion-item>
+    <ion-row style="width:100%">
+      <ion-col size="6" style="    justify-content: flex-start;
+      display: flex;
+      align-items: center;">
+       <label>Total Price</label>
+      </ion-col>
+      <ion-col size="6" style="    justify-content: flex-end;
+      display: flex;
+      align-items: center;">
+       <label>Rs. {{totalAmount}}</label>
+      </ion-col>
+    </ion-row>
+   </ion-item> -->
+
+    <!-- <ion-item>
         <ion-row style="width:100%">
             <ion-col size="6" >
               Total
@@ -53,9 +98,26 @@
               {{totalAmount}}
             </ion-col>
           </ion-row>
-    </ion-item>
-  </ion-card>
-  <ion-card >
+    </ion-item> -->
+  <!-- </ion-card> -->
+  <ion-card style=" border-radius: 10px;">
+      <ion-item>
+        <ion-row style="width:100%">
+          <ion-col size="8">
+              <ion-text>
+                  <h6>Delivery Address</h6>
+                </ion-text>
+          </ion-col>
+          <ion-col size="4" style="display: flex;
+          justify-content: flex-end;">
+              <ion-text>
+                  <h6 style="display: flex;
+                  align-items: center;" (click)="chengeAddress()"> <ion-icon name="create" style="margin-right: 5px;"></ion-icon>Edit</h6>
+                </ion-text>
+          </ion-col>
+        </ion-row>
+       
+      </ion-item> 
       <ion-item *ngIf="data">
         <ion-label class="ion-text-wrap" >
             <ion-text>
@@ -67,7 +129,7 @@
             <ion-text>
               <h3>{{data.mobile ? data.mobile : ''}}</h3>
             </ion-text>
-            <ion-button (click)="chengeAddress()">Change Address</ion-button>
+            <!-- <ion-button (click)="chengeAddress()">Change Address</ion-button> -->
           </ion-label>
       </ion-item>
       <ion-item *ngIf="!data">
@@ -75,10 +137,10 @@
       </ion-item>
     </ion-card>
 
-  <ion-card>
+  <ion-card style=" border-radius: 10px;margin-bottom:0">
       <ion-item>
           <ion-text>
-            <h6>Payment Via</h6>
+            <h6>Select Payment option</h6>
           </ion-text>
           
       </ion-item>
@@ -86,12 +148,13 @@
           <ion-button expand="block" [fill]="card ? 'solid' : 'outline'" (click)="viaCard()">Card</ion-button>
           <ion-button expand="block" [fill]="cod ? 'solid' : 'outline'" (click)="cashOnDelivery()" >C.O.D</ion-button>
       </ion-item>
-      <ion-item *ngIf="cod">
+      <ion-button *ngIf="cod" expand="full"  style="width:100%;margin: 0;" class="bg-color"(click)="goToHome()">Continue C.O.D $75</ion-button>
+      <!-- <ion-item *ngIf="cod">
         <ion-button expand="block" fill="outline" style="width:100%" (click)="goToHome()">Continue C.O.D $75</ion-button>
-    </ion-item>
+    </ion-item> -->
     </ion-card>
 
-    <ion-card *ngIf="card">
+    <ion-card *ngIf="card" style=" border-radius: 10px;margin-bottom:0">
         <ion-item>
             <ion-text>
               <h6>Credit/Debit/ATM card</h6>
@@ -146,8 +209,8 @@
                 <ion-label position="stacked">Cvv</ion-label>
                 <ion-input name="cvv" ></ion-input>
             </ion-item>
-            <ion-item>
-                <ion-button expand="block" fill="outline" style="width:100%" (click)="goToHome()">Payment $75</ion-button>
-            </ion-item>
+            <!-- <ion-item> -->
+                <ion-button expand="full"  style="width:100%; margin: 0;" class="bg-color"(click)="goToHome()">Payment $75</ion-button>
+            <!-- </ion-item> -->
       </ion-card>
 </ion-content>

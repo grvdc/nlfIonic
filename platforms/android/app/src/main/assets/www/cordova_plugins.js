@@ -68,6 +68,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
         "AdMob",
         "plugins.AdMob"
       ]
+    },
+    {
+      "id": "phonegap-plugin-barcodescanner.BarcodeScanner",
+      "file": "plugins/phonegap-plugin-barcodescanner/www/barcodescanner.js",
+      "pluginId": "phonegap-plugin-barcodescanner",
+      "clobbers": [
+        "cordova.plugins.barcodeScanner"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -80,6 +88,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "com.razorpay.cordova": "0.16.1",
     "cordova-promise-polyfill": "0.0.2",
     "cordova-admob-sdk": "0.24.1",
-    "cordova-plugin-admob-free": "0.27.0"
+    "cordova-plugin-admob-free": "0.27.0",
+    "phonegap-plugin-barcodescanner": "8.1.0"
   };
 });

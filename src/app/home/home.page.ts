@@ -146,15 +146,15 @@ export class HomePage {
             category: 'Clothing'
           },
           { id: 12,image: 'assets/electronics.png',
-            category: 'Mobile & Accessories'
+            category: 'Electronics'
           },
           { id: 13,image: 'assets/homeappliance.png',
-            category: 'Home & kitchen'
+            category: 'Applince'
           },
           {
             id: 14,
             image: 'assets/list.png',
-            category: 'All Categories'
+            category: 'More'
           },
           // {
           //   id: 15,

@@ -33,6 +33,10 @@
       "ADMOB_APP_ID": "ca-app-pub-3940256099942544/6300978111",
       "PLAY_SERVICES_VERSION": "11.0.4",
       "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "phonegap-plugin-barcodescanner": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "io.ionic.starter"
     }
   },
   "dependent_plugins": {

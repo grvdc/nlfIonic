@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
     "@ionic-native/admob-free": "^5.19.1",
+    "@ionic-native/barcode-scanner": "^5.20.0",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/image-picker": "^5.0.0",
     "@ionic-native/splash-screen": "^5.18.0",
@@ -40,6 +41,7 @@
     "firebase": "^7.6.0",
     "ionic4-rating": "^1.0.9",
     "ngx-masonry": "^1.1.4",
+    "phonegap-plugin-barcodescanner": "^8.1.0",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
@@ -88,7 +90,8 @@
       },
       "cordova-plugin-ionic-keyboard": {},
       "com.razorpay.cordova": {},
-      "cordova-plugin-admob-free": {}
+      "cordova-plugin-admob-free": {},
+      "phonegap-plugin-barcodescanner": {}
     },
     "platforms": [
       "android",

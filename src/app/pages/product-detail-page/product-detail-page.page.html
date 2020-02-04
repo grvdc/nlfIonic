@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar class="bg-color">
     <!-- <ion-title>{{{{product.headerType}}}}</ion-title> -->
-    <ion-title>Test Header</ion-title>
+    <ion-title>Product detail</ion-title>
 
     <ion-buttons slot="start">
       <ion-back-button class="white"></ion-back-button>
@@ -249,12 +249,11 @@
     </ion-item>
 
 
-    <ion-item>
+    <!-- <ion-item>
       <ion-row style="width:100%;    margin-top: 10px;">
         <ion-col size="8">
           <ion-input style="background: #eaeaea;    position: inherit;height: 35px;--padding-start: 10px !important;;"
             clearInput placeholder="Enter your PIN Code"></ion-input>
-          <!-- <ion-button expand="block" fill="outline" style="height: 35px;">Check</ion-button> -->
         </ion-col>
         <ion-col size="4" style="padding:0">
 
@@ -264,20 +263,127 @@
           Enter your Pin code to check COD and delivery information
         </ion-col>
       </ion-row>
-    </ion-item>
+    </ion-item> -->
     <ion-row style="width:100%">
+      <!-- <ion-col size="12">
+       
+        <mat-accordion>
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                product Details
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ion-row>
+              <ion-col size="6">Fabric</ion-col>
+              <ion-col size="6">Rayon</ion-col>
+              <ion-col size="6">Type</ion-col>
+              <ion-col size="6">Top and Tshirt</ion-col>
+              <ion-col size="6">Sales Package</ion-col>
+              <ion-col size="6">1 Kurta||1 Trouser</ion-col>
+              <ion-col size="6">Style Code</ion-col>
+              <ion-col size="6">6483F-Green</ion-col>
+              <ion-col size="6">Pattern</ion-col>
+              <ion-col size="6">Solid</ion-col>
+              <ion-col size="6">Color</ion-col>
+              <ion-col size="6">Red</ion-col>
+              <ion-col size="6">Neck</ion-col>
+              <ion-col size="6">Key Hole Neck</ion-col>
+
+            </ion-row>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </ion-col> -->
+      
       <ion-col size="12">
-        <h5 style="margin: 0;">product Description</h5>
+        <div>
+          <ion-segment color="secondary" [(ngModel)]="page">
+            <ion-segment-button value="0" checked>
+              <label>Details</label>
+            </ion-segment-button>
+            <ion-segment-button value="1">
+              <label>Reviews</label>
+
+            </ion-segment-button>
+
+          </ion-segment>
+        </div>
+
       </ion-col>
-      <ion-col size="12">
-        <p style="margin: 0;">A product description is the marketing copy that explains what a product
-          is and why it's worth purchasing. The purpose of a product description is
-          to supply customers with important information about the features and benefits
-          of the product so they're compelled to buy</p>
+      <ion-col size="12" *ngIf="page == 0">
+        <ion-row style="text-align: left;">
+          <ion-col size="6">Fabric</ion-col>
+          <ion-col size="6">Rayon</ion-col>
+          <ion-col size="6">Type</ion-col>
+          <ion-col size="6">Top and Tshirt</ion-col>
+          <ion-col size="6">Sales Package</ion-col>
+          <ion-col size="6">1 Kurta||1 Trouser</ion-col>
+          <ion-col size="6">Style Code</ion-col>
+          <ion-col size="6">6483F-Green</ion-col>
+          <ion-col size="6">Pattern</ion-col>
+          <ion-col size="6">Solid</ion-col>
+          <ion-col size="6">Color</ion-col>
+          <ion-col size="6">Red</ion-col>
+          <ion-col size="6">Neck</ion-col>
+          <ion-col size="6">Key Hole Neck</ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col size="12" *ngIf="page == 1">
+        <ion-list>
+          <ion-list-header>
+            Recent Reviews
+          </ion-list-header>
+          <ion-item>
+            <ion-avatar slot="start">
+              <img
+                src="https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg">
+            </ion-avatar>
+            <ion-label>
+              <h2>Listen, Good Product Ever seen.</h2>
+              <!-- <h4>Finn</h5> -->
+              <p>Mr.Gaurav K</p>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-avatar slot="start">
+              <img
+                src="https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg">
+            </ion-avatar>
+            <ion-label>
+              <h2>Listen, Good Product Ever seen.</h2>
+              <!-- <h4>Finn</h5> -->
+              <p>Mr.Gaurav K</p>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-avatar slot="start">
+              <img
+                src="https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg">
+            </ion-avatar>
+            <ion-label>
+              <h2>Listen, Good Product Ever seen.</h2>
+              <!-- <h4>Finn</h5> -->
+              <p>Mr.Gaurav K</p>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-avatar slot="start">
+              <img
+                src="https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg">
+            </ion-avatar>
+            <ion-label>
+              <h2>Listen, Good Product Ever seen.</h2>
+              <!-- <h4>Finn</h5> -->
+              <p>Mr.Gaurav K</p>
+            </ion-label>
+          </ion-item>
+
+
+        </ion-list>
       </ion-col>
     </ion-row>
-    
-    <h4>You May Also Like</h4>
+
+    <!-- <h4>You May Also Like</h4>
     <ion-slides pager="false" [options]="slideOpts">
       <ion-slide>
         <ion-card>
@@ -315,7 +421,7 @@
       </ion-slide>
 
 
-    </ion-slides>
+    </ion-slides> -->
   </ion-card>
 
 

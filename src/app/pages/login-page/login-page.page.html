@@ -53,7 +53,7 @@
     /* background-image: url(https://cdn1.vectorstock.com/i/1000x1000/28/65/education-wallpaper-school-and-university-vector-8062865.jpg); */
     background-repeat: no-repeat;
     /* background-size: 50% 259%; */
-    border-radius: 0 500px 10px 0px;
+    /* border-radius: 0 500px 10px 0px; */
     ">
     <ion-item lines="none" style="--background: transparent;height:6%">
       <!-- <ion-icon name="arrow-back" slot="start" (click)="newlogin()"></ion-icon> -->
@@ -64,30 +64,27 @@
     display: flex;
     justify-content: center;
     flex-direction: column;padding-left: 20px;
+    align-items: center;
     padding-right: 20px;">
-    <!-- <ion-item lines="none" style="--background: transparent;"> -->
-        <h2 style="width: 100%;margin:0;padding: 15px;
-        padding-bottom: 0;">Welcome Back</h2>
-       
-      <!-- </ion-item>
-      <ion-item lines="none" style="--background: transparent;"> -->
-          <p style="margin-top:0;color:#f33434;padding-left: 15px;">Sign in to continue</p>
-        <!-- </ion-item> -->
+ 
+       <img src="https://res-5.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/v1474393139/kdezepra8rajx7qownvq.png" 
+       style="width:50%;margin-top: -25%;"
+       />
+     
        
         <div style="width: 100%;">
-        <ion-item lines="none" style="--background: transparent;">
-          <ion-label position="stacked">Email</ion-label>
-          <ion-input clearInput style="border-bottom: solid 1px black;" inputmode="email" type="email" placeholder="example@email.com"></ion-input>
+        <ion-item  style="--background: transparent;" no-padding>
+          <ion-icon name="person" slot="start" style="margin-right: 10px;"></ion-icon>
+          <ion-input clearInput  inputmode="email" type="email" placeholder="example@email.com"></ion-input>
         </ion-item>
-        <ion-item lines="none" style="--background: transparent;">
-          <ion-label position="stacked">Password</ion-label>
-          <ion-input clearInput style="border-bottom: solid 1px black;" inputmode="text"  type="password" placeholder="Password"></ion-input>
+        <ion-item  style="--background: transparent;" no-padding>
+          <ion-icon name="key" slot="start" style="margin-right: 10px;"></ion-icon>
+          <ion-input clearInput inputmode="text"  type="password" placeholder="Password"></ion-input>
         </ion-item>
 
-        <!-- <ion-item lines="none" style="--background: transparent;"> -->
-          <ion-row style="padding-left: 15px;padding-right: 15px;">
+          <ion-row >
             <ion-col size="12">
-              <p style="    margin-bottom: 0;
+              <p style="margin-bottom: 0;
               text-align: right;">Forgot Password?</p>
             </ion-col>
             <ion-col size="12" style="margin-top: 25px">
@@ -100,11 +97,8 @@
 
               <ion-col size="12" style="text-align: center;">
                   <p>Don't have an account? <a class="sign-up-a" style="color: #f33434;font-size: 18px;" (click)="goToSignUpPage()">Sign Up</a></p>
-                  <!-- <p>New user? Signup</p> -->
                 </ion-col>
           </ion-row>
-            
-          <!-- </ion-item> -->
        
       </div>
     </div>

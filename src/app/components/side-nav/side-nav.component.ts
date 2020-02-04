@@ -19,6 +19,7 @@ export class SideNavComponent implements OnInit {
     { logo: 'notifications', item: 'Notifications', highlighted: false },
     { logo: 'list', item: 'Order History', highlighted: false },
     { logo: 'heart', item: 'Wishlist', highlighted: false },
+    { logo: 'options', item: 'Filter', highlighted: false },
     // { logo: 'cart', item: 'Cart', highlighted: false },
     // { logo: 'lock', item: 'Change Password', highlighted: false },
     // { logo: 'lock', item: 'Sign Up', highlighted: false },
@@ -92,6 +93,11 @@ export class SideNavComponent implements OnInit {
         this.router.navigate(['change-password']);
         this.highlightedOff();
         break;
+      case 'Filter':
+        this.router.navigate(['filter-product']);
+        this.highlightedOff();
+        break;
+        
       default:
         // this.openDetailsWithQueryParams(categoy);
         break;
@@ -127,8 +133,8 @@ export class SideNavComponent implements OnInit {
     };
     this.router.navigate(['shop-bycaegorie'], navigationExtras);
   }
-  
-  goToProfile(){
+
+  goToProfile() {
     this.router.navigate(['user-profile']);
     this.menuCtrl.toggle()
   }

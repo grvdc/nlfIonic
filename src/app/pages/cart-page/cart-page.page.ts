@@ -17,6 +17,9 @@ export class CartPagePage implements OnInit {
   login = '';
   address = [];
   clientAddress = [];
+  dummyTotal = 0;
+  id:any;
+  animationClass= "";
   @Output() cartCount: EventEmitter<any> = new EventEmitter();
   constructor(
     private router: Router,
@@ -27,7 +30,7 @@ export class CartPagePage implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.skeleton = false;
-    }, 3000)
+    }, 1200)
     let a = [];
 
     if (!JSON.parse(localStorage.getItem('products'))) {
@@ -47,6 +50,7 @@ export class CartPagePage implements OnInit {
     console.log('cartItems', this.cartItems);
   }
 
+ 
   indexFinding(index) {
     this.totalAmount = 0;
     this.cartItems.splice(index, 1);
@@ -62,6 +66,8 @@ export class CartPagePage implements OnInit {
   addQty(item, index) {
     console.log(" this.cartItems[index]", this.cartItems[index]);
     item.productQuantity ? item.productQuantity = item.productQuantity + 1 : item.productQuantity = 1;
+    item.total ? item.total = item.total + item.price : item.total = item.price;
+
     this.cartItems[index]['productQuantity'] = item.productQuantity;
     this.totalAmount = 0;
     this.cartItems.map((item) => {
@@ -73,11 +79,16 @@ export class CartPagePage implements OnInit {
 
   removeQty(item, index) {
     console.log(" this.cartItems[index]", this.cartItems[index]);
+
+    let total= 0;
     item.productQuantity ? item.productQuantity = item.productQuantity - 1 : item.productQuantity = 0;
     this.cartItems[index]['productQuantity'] = item.productQuantity;
+    item.total ? total = item.productQuantity * item.price : total = item.productQuantity * item.price;
+    item.total = total;
     this.totalAmount = 0;
     this.cartItems.map((item) => {
       let newamt = 0;
+
       item.productQuantity ? newamt = item.productQuantity * item.price : this.totalAmount + item.price;
       this.totalAmount = this.totalAmount + newamt;
     })
@@ -126,4 +137,34 @@ export class CartPagePage implements OnInit {
     };
     this.router.navigate(['product-detail-page'], navigationExtras);
   }
+
+
+
+  // Demo Cart Start
+  ionViewWillEnter(){
+    this.cartItems.map((item) => {
+      let total = 0;
+      let newamt= 0;
+      item.total ? total = item.productQuantity * item.price : total = item.productQuantity * item.price;
+      item.productQuantity ? newamt = item.productQuantity * item.price : this.totalAmount + item.price;
+      this.totalAmount = this.totalAmount + newamt;
+      item.total = total;
+    })
+    this.id = setInterval(() => this.anitest(),100);
+    console.log("new Cart", this.cartItems)
+  }
+  anitest(){
+    let t = 700;
+    let r = t/10;
+    // this.dummyTotal   
+    if(this.dummyTotal < 699){
+      this.dummyTotal = this.dummyTotal + r;
+    
+    } else{
+      clearInterval(this.id);
+      this.animationClass = "pulse";
+    }
+  }
+
+  //Demo cart End
 }
